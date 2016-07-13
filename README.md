@@ -19,7 +19,7 @@ So PBTutorialManager works with Target's objects and he manages a queue for you 
 <img src="https://raw.githubusercontent.com/paul1893/PBTutorialManager/master/Screenshots/visual_expl.png" width="1000"  />  
 <img src="https://raw.githubusercontent.com/paul1893/PBTutorialManager/master/Screenshots/descritpion.png" width="1000" />  
 ```swift
-  let targetProfilePicture = Target(view: profilePicture)
+let targetProfilePicture = Target(view: profilePicture)
             .withArrow(true)
             .heightArrow(50)
             .widthArrow(25)
@@ -28,7 +28,7 @@ So PBTutorialManager works with Target's objects and he manages a queue for you 
             .duration(1.0)
             .message("This is a profile picture")
         
-        let targetMainImage = Target(view: mainImage)
+let targetMainImage = Target(view: mainImage)
             .withArrow(true)
             .heightArrow(50)
             .widthArrow(25)
@@ -37,7 +37,7 @@ So PBTutorialManager works with Target's objects and he manages a queue for you 
             .duration(1.0)
             .message("This is the main image")
         
-        let targetButton = Target(view:button)
+let targetButton = Target(view: button)
             .withArrow(true)
             .heightArrow(50)
             .widthArrow(25)
@@ -46,11 +46,11 @@ So PBTutorialManager works with Target's objects and he manages a queue for you 
             .message("This is a button")
             .breakPoint(true)
         
-        let tutorialManager = TutorialManager(parentView: self.view)
-        tutorialManager.addTarget(targetProfilePicture)
-        tutorialManager.addTarget(targetMainImage)
-        tutorialManager.addTarget(targetButton)
-        tutorialManager.fireTargets()
+let tutorialManager = TutorialManager(parentView: view)
+tutorialManager.addTarget(targetProfilePicture)
+tutorialManager.addTarget(targetMainImage)
+tutorialManager.addTarget(targetButton)
+tutorialManager.fireTargets()
 ```
 #### Extra target properties
 Target has other properties you can play with
