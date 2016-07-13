@@ -6,3 +6,4 @@ PBTutorialManager/Pods/*
 PBTutorialManager/PBTutorialManager.xcworkspace
 PBTutorialManager/Podfile
 PBTutorialManager/Podfile.lock
+.DS_Store
