@@ -1,7 +1,8 @@
 Pod::Spec.new do |s|
 
+  s.platform = :ios
   s.name         = "PBTutorialManager"
-  s.version      = "1.0.1"
+  s.version      = "1.0.2"
   s.summary      = "An easy way to manipulate view targets to create tutorial in your app."
   s.description  = <<-DESC
   This library has been created to create a tutorial in-app for your app. It uses targets view and you can play with these.
@@ -14,7 +15,7 @@ Pod::Spec.new do |s|
   s.ios.deployment_target = '8.0'
 
   s.source       = { :git => "https://github.com/paul1893/PBTutorialManager.git", :tag => s.version }
-  s.ios.source_files  = "PBTutorialManager/**/*.{swift}"
+  s.source_files  = "PBTutorialManager/lib/**/*.{swift}"
   s.exclude_files = "PBTutorialManager/Example/**/*", "PBTutorialManager/AppDelegate.swift", "PBTutorialManager/Base.lproj/**/*"
   s.resource_bundle = { 'REIS-Regular' => 'PBTutorialManager/Ressources/*.otf' }
 

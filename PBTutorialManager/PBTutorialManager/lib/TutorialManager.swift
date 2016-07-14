@@ -9,17 +9,18 @@
 import Foundation
 import JMHoledView
 
-class TutorialManager:NSObject, JMHoledViewDelegate{
+public class TutorialManager:NSObject, JMHoledViewDelegate{
     
     private var targets:[Target]? = []
     private var parentView:UIView!
     private var delegate:JMHoledViewDelegate?
     
     
-    init(parentView:UIView) {
+    public init(parentView:UIView) {
         super.init()
         self.parentView = parentView
         self.delegate = self
+        // Handle rotation
         //NSNotificationCenter.defaultCenter().addObserver(self, selector: "orientationChanged:", name: UIDeviceOrientationDidChangeNotification, object: nil)
     }
     
@@ -30,11 +31,11 @@ class TutorialManager:NSObject, JMHoledViewDelegate{
 //        }
 //    }
     
-    func addTarget(target:Target){
+    public func addTarget(target:Target){
         targets?.append(target)
     }
     
-    func fireTargets(){
+    public func fireTargets(){
         fireTargets(nil)
     }
     
@@ -234,7 +235,7 @@ class TutorialManager:NSObject, JMHoledViewDelegate{
     /**
      When a target's view is touched
      */
-    func holedView(holedView:JMHoledView, didSelectHoleAtIndex:UInt){
+    public func holedView(holedView:JMHoledView, didSelectHoleAtIndex:UInt){
         print("Callback holedView")
         if let target = targets?.first where target.isTapable {
             holedView.removeFromSuperview()
