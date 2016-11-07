@@ -11,6 +11,13 @@ import JMHoledView
 
 class ViewController: UIViewController {
     
+    /**
+     This is an example of how use the PBTutorialManager library
+     */
+    
+    /**
+     Here some of your views you want to target with PBTutorialManager
+     */
     @IBOutlet var profilePicture: UIImageView!
     @IBOutlet var nameLabel: UILabel!
     @IBOutlet var mainImage: UIImageView!
@@ -18,10 +25,14 @@ class ViewController: UIViewController {
     @IBOutlet var button: UIButton!
     @IBOutlet var test: UIButton!
     
+    /**
+    Ok so viewDidLoad
+     */
     override func viewDidLoad() {
         super.viewDidLoad()
-        setup()
+        setup() // Some config to have a roundProfilePicture
         
+        // Start to create your targets
         let targetProfilePicture = Target(view: profilePicture)
             .withArrow(true)
             .heightArrow(50)
@@ -60,11 +71,15 @@ class ViewController: UIViewController {
             .message("This is a button")
             .breakPoint(true)
         
+        // Then create a tutorialManager
         let tutorialManager = TutorialManager(parentView: self.view)
+        // ... and feed him with your targets
         tutorialManager.addTarget(targetProfilePicture)
         tutorialManager.addTarget(targetMainImage)
         tutorialManager.addTarget(targetNameLabel)
         tutorialManager.addTarget(targetButton)
+        
+        // Do not forget to fire the targets ;)
         tutorialManager.fireTargets()
         
     }
@@ -73,7 +88,4 @@ class ViewController: UIViewController {
         profilePicture.layer.cornerRadius = profilePicture.frame.width/2
         profilePicture.clipsToBounds = true
     }
-    
-    
 }
-
