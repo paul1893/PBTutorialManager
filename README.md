@@ -10,8 +10,8 @@ PBTutorialManager enables you to easily create an in-app tutorial for your app.
 ### Installation
 
 With CocoaPods simply add to your podfile
-```sh
-pod PBTutorialManager
+```ruby
+pod 'PBTutorialManager'
 ``` 
 or  Copy paste the lib folder on your project
 ### How to use
@@ -64,7 +64,7 @@ closure 		/* A closure executed after the target has been shown */
 persistant		/* if persistant the target stay on screen when the next one show up, you can add multiple target one after one */
 breakPoint 		/* breakpoint is a target which attempt a user click to continue */
     
-/*Margins*/
+/* Margins */
 topMargin
 rightMargin
 bottomMargin
@@ -75,7 +75,7 @@ rightTextMargin
 bottomTextMargin
 leftTextMargin
     
-/*Arrow: it's not very conveniant but for now arrow is an image. Need to update un the future, you can interact with these properties*/
+/* Arrow: it's not very conveniant but for now arrow is an image. Need to update un the future, you can interact with these properties */
 withArrow
 heightArrow
 widthArrow
