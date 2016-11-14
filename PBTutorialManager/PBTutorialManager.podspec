@@ -2,7 +2,7 @@ Pod::Spec.new do |s|
 
   s.platform = :ios
   s.name         = "PBTutorialManager"
-  s.version      = "1.0.3"
+  s.version      = "1.0.4"
   s.summary      = "An easy way to manipulate view targets to create tutorial in your app."
   s.description  = <<-DESC
   This library has been created to create a tutorial in-app for your app. It uses targets view and you can play with these.
@@ -17,7 +17,7 @@ Pod::Spec.new do |s|
   s.source       = { :git => "https://github.com/paul1893/PBTutorialManager.git", :tag => s.version }
   s.source_files  = "PBTutorialManager/PBTutorialManager/lib/**/*.swift"
   s.exclude_files = "PBTutorialManager/PBTutorialManager/Example/**/*", "PBTutorialManager/PBTutorialManager/AppDelegate.swift", "PBTutorialManager/PBTutorialManager/Base.lproj/**/*"
-  s.resource_bundle = { 'REIS-Regular' => 'PBTutorialManager/Ressources/*.otf' }
+  s.resource_bundles = { 'PBTutorialManager' => ['PBTutorialManager/PBTutorialManager/Ressources/*.otf', 'PBTutorialManager/PBTutorialManager/Assets.xcassets'] }
 
   s.frameworks  = "UIKit", "Foundation"
   s.dependency 'JMHoledView'
