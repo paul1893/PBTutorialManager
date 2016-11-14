@@ -37,8 +37,8 @@ class ViewController: UIViewController {
             .withArrow(true)
             .heightArrow(50)
             .widthArrow(25)
-            .position(.Bottom)
-            .shape(JMHoleType.Cirle)
+            .position(.bottom)
+            .shape(JMHoleType.cirle)
             .duration(1.0)
             .message("This is a profile picture")
         
@@ -46,8 +46,8 @@ class ViewController: UIViewController {
             .withArrow(true)
             .heightArrow(50)
             .widthArrow(25)
-            .position(.Bottom)
-            .shape(JMHoleType.Rect)
+            .position(.bottom)
+            .shape(JMHoleType.rect)
             .duration(1.0)
             .message("This is the main image")
         
@@ -55,19 +55,19 @@ class ViewController: UIViewController {
             .withArrow(true)
             .widthArrow(75)
             .heightArrow(30)
-            .position(.Right)
-            .shape(JMHoleType.Rect)
+            .position(.right)
+            .shape(JMHoleType.rect)
             .duration(1.0)
             .message("This is a label")
-            .textAlignement(.Left)
+            .textAlignement(.left)
             .breakPoint(true)
         
         let targetButton = Target(view:button)
             .withArrow(true)
             .heightArrow(50)
             .widthArrow(25)
-            .position(.Top)
-            .shape(.Cirle)
+            .position(.top)
+            .shape(.cirle)
             .message("This is a button")
             .breakPoint(true)
         
@@ -84,7 +84,7 @@ class ViewController: UIViewController {
         
     }
     
-    private func setup(){
+    fileprivate func setup(){
         profilePicture.layer.cornerRadius = profilePicture.frame.width/2
         profilePicture.clipsToBounds = true
     }

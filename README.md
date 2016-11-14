@@ -6,14 +6,14 @@ PBTutorialManager enables you to easily create an in-app tutorial for your app.
 <img src="https://raw.githubusercontent.com/paul1893/PBTutorialManager/master/Screenshots/demo.png" width="275" />  
 
 ### Version
-1.0.0  
+1.0.4  
 ### Installation
 
 With CocoaPods simply add to your podfile
 ```ruby
 pod 'PBTutorialManager'
 ``` 
-or  Copy paste the lib folder on your project
+or  Copy paste the lib folder on your project (do not forget to include assets for the arrows)
 ### How to use
 So PBTutorialManager works with Target's objects and he manages a queue for you to display one after one the target you put on the queue.
 <img src="https://raw.githubusercontent.com/paul1893/PBTutorialManager/master/Screenshots/visual_expl.png" width="1000"  />  
@@ -57,8 +57,9 @@ Target has other properties you can play with
 ```swift
 textAlignement 	/* The text alignement */
 position 		/* The position of your text around the highlight view */
-shape 			/* The shape of the mask to highlight the view */
+shape 		/* The shape of the mask to highlight the view */
 duration 		/* time duration before to show the next target */
+font              /* A font that you can modify */
 isTapable 		/* if isTapable is true you can tap to dismiss the target */
 closure 		/* A closure executed after the target has been shown */
 persistant		/* if persistant the target stay on screen when the next one show up, you can add multiple target one after one */

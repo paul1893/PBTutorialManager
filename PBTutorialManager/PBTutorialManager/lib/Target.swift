@@ -14,134 +14,135 @@ import JMHoledView
  Target represent a "Tutorial object" you can point a
  view associated with a message to describe an action
  */
-public class Target : NSObject{
+open class Target : NSObject{
     
     public enum TargetPosition{
-        case Top
-        case Right
-        case Bottom
-        case Left
-        case TopRight
-        case TopLeft
-        case BottomRight
-        case BottomLeft
+        case top
+        case right
+        case bottom
+        case left
+        case topRight
+        case topLeft
+        case bottomRight
+        case bottomLeft
     }
     
-    public var view:UIView? /* The view you want to highlight */
-    public var message:String! /* The text you want to show */
-    public var textAlignement:NSTextAlignment = NSTextAlignment.Center /* The text alignement */
-    public var numberOfLines:Int = 0
-    public var position:TargetPosition! /* The position of your text around the highlight view */
-    public var shape:JMHoleType! /* The shape of the mask to highlight the view */
-    public var duration:Float? /* time duration before to show the next target */
-    public var isTapable:Bool = false /* if isTapable is true you can tap to dismiss the target */
-    public var closure:(Void -> Void)? /* A closure executed after the target has been shown */
-    public var persistant:Bool = true /* if persistant the target stay on screen when the next one show up, you can add multiple target one after one */
-    public var breakPoint = false /* breakpoint is a target which attempt a user click to continue */
+    open var view:UIView? /* The view you want to highlight */
+    open var message:String! /* The text you want to show */
+    open var textAlignement:NSTextAlignment = NSTextAlignment.center /* The text alignement */
+    open var numberOfLines:Int = 0
+    open var position:TargetPosition! /* The position of your text around the highlight view */
+    open var shape:JMHoleType! /* The shape of the mask to highlight the view */
+    open var font:UIFont = UIFont.systemFont(ofSize: 18.0) /* The font of the target */
+    open var duration:Float? /* time duration before to show the next target */
+    open var isTapable:Bool = false /* if isTapable is true you can tap to dismiss the target */
+    open var closure:((Void) -> Void)? /* A closure executed after the target has been shown */
+    open var persistant:Bool = true /* if persistant the target stay on screen when the next one show up, you can add multiple target one after one */
+    open var breakPoint = false /* breakpoint is a target which attempt a user click to continue */
     
     /*Margins*/
-    public var topMargin:CGFloat = 0
-    public var rightMargin:CGFloat = 0
-    public var bottomMargin:CGFloat = 0
-    public var leftMargin:CGFloat = 0
+    open var topMargin:CGFloat = 0
+    open var rightMargin:CGFloat = 0
+    open var bottomMargin:CGFloat = 0
+    open var leftMargin:CGFloat = 0
     
-    public var topTextMargin:CGFloat = 0
-    public var rightTextMargin:CGFloat = 0
-    public var bottomTextMargin:CGFloat = 0
-    public var leftTextMargin:CGFloat = 0
+    open var topTextMargin:CGFloat = 0
+    open var rightTextMargin:CGFloat = 0
+    open var bottomTextMargin:CGFloat = 0
+    open var leftTextMargin:CGFloat = 0
     
     /*Arrow*/
-    public var withArrow:Bool = true
-    public var heightArrow:CGFloat = 0
-    public var widthArrow:CGFloat = 0
+    open var withArrow:Bool = true
+    open var heightArrow:CGFloat = 0
+    open var widthArrow:CGFloat = 0
     
     public init(view:UIView?) {
         super.init()
         self.view = view
         self.message = ""
         self.duration = 1.0
-        self.position = .Bottom
-        self.shape = JMHoleType.Cirle
+        self.position = .bottom
+        self.shape = JMHoleType.cirle
     }
     
-    public func message(message:String) -> Target{
+    open func message(_ message:String) -> Target{
         self.message = message;
         return self;
     }
-    public func position(position:TargetPosition) -> Target{
+    open func position(_ position:TargetPosition) -> Target{
         self.position = position;
         return self;
     }
-    public func shape(shape:JMHoleType) -> Target{
+    open func shape(_ shape:JMHoleType) -> Target{
         self.shape = shape;
         return self;
     }
-    public func duration(duration:Float) -> Target{
+    open func duration(_ duration:Float) -> Target{
         self.duration = duration;
         return self;
     }
-    public func isTapable(isTapable:Bool) -> Target{
+    open func isTapable(_ isTapable:Bool) -> Target{
         self.isTapable = isTapable;
         return self;
     }
-    public func onCompletion(onCompletion:(Void -> Void)) -> Target{
+    open func onCompletion(onCompletion: @escaping ((Void) -> Void)) -> Target{
         self.closure = onCompletion;
         return self;
     }
-    public func persistant(persistant:Bool) -> Target{
+    open func persistant(_ persistant:Bool) -> Target{
         self.persistant = persistant;
         return self;
     }
-    public func textAlignement(textAlignement:NSTextAlignment) -> Target{
+    open func textAlignement(_ textAlignement:NSTextAlignment) -> Target{
         self.textAlignement = textAlignement;
         return self;
     }
-    public func withArrow(bool:Bool) -> Target{
+    open func withArrow(_ bool:Bool) -> Target{
         withArrow = bool;
         return self;
     }
-    public func heightArrow(heightArrow:CGFloat) -> Target{
+    open func heightArrow(_ heightArrow:CGFloat) -> Target{
         self.heightArrow = heightArrow;
         return self;
     }
-    public func widthArrow(widthArrow:CGFloat) -> Target{
+    open func widthArrow(_ widthArrow:CGFloat) -> Target{
         self.widthArrow = widthArrow;
         return self;
     }
     
-    public func topMargin(topMargin:CGFloat) -> Target{
+    open func topMargin(_ topMargin:CGFloat) -> Target{
         self.topMargin = topMargin;
         return self;
     }
-    public func rightMargin(rightMargin:CGFloat) -> Target{
+    open func rightMargin(_ rightMargin:CGFloat) -> Target{
         self.rightMargin = rightMargin;
         return self;
     }
-    public func bottomMargin(bottomMargin:CGFloat) -> Target{
+    open func bottomMargin(_ bottomMargin:CGFloat) -> Target{
         self.bottomMargin = bottomMargin;
         return self;
     }
-    public func leftMargin(leftMargin:CGFloat) -> Target{
+    open func leftMargin(_ leftMargin:CGFloat) -> Target{
         self.leftMargin = leftMargin;
         return self;
     }
-    public func topTextMargin(topTextMargin:CGFloat) -> Target{
+    open func topTextMargin(_ topTextMargin:CGFloat) -> Target{
         self.topTextMargin = topTextMargin;
         return self;
     }
-    public func rightTextMargin(rightTextMargin:CGFloat) -> Target{
+    open func rightTextMargin(_ rightTextMargin:CGFloat) -> Target{
         self.rightTextMargin = rightTextMargin;
         return self;
     }
-    public func bottomTextMargin(bottomTextMargin:CGFloat) -> Target{
+    open func bottomTextMargin(_ bottomTextMargin:CGFloat) -> Target{
         self.bottomTextMargin = bottomTextMargin;
         return self;
     }
-    public func leftTextMargin(leftTextMargin:CGFloat) -> Target{
+    open func leftTextMargin(_ leftTextMargin:CGFloat) -> Target{
         self.leftTextMargin = leftTextMargin;
         return self;
     }
-    public func breakPoint(breakPoint:Bool) -> Target{
+    open func breakPoint(_ breakPoint:Bool) -> Target{
         self.breakPoint = breakPoint;
         self.isTapable = true;
         return self;
