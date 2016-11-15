@@ -8,12 +8,13 @@ PBTutorialManager enables you to easily create an in-app tutorial for your app.
 ### Version
 1.0.4  
 ### Installation
-
-With CocoaPods simply add to your podfile
+#####  CocoaPods
+ Simply add to your podfile
 ```ruby
 pod 'PBTutorialManager'
 ``` 
-or  Copy paste the lib folder on your project (do not forget to include assets for the arrows)
+##### Manually
+Copy paste the 'lib' folder on your project (do not forget to include image assets for the arrows)  
 ### How to use
 So PBTutorialManager works with Target's objects and he manages a queue for you to display one after one the target you put on the queue.
 <img src="https://raw.githubusercontent.com/paul1893/PBTutorialManager/master/Screenshots/visual_expl.png" width="1000"  />  
