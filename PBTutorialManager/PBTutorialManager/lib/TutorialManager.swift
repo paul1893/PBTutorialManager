@@ -12,8 +12,8 @@ import JMHoledView
 open class TutorialManager:NSObject, JMHoledViewDelegate{
     
     fileprivate var targets:[Target]? = []          // The targets to work with
-    fileprivate var parentView:UIView!              // The parentView represents the view wich contains all the targets
-    fileprivate var delegate:JMHoledViewDelegate?   // A delegate for the callbacks during the tutorial
+    fileprivate weak var parentView:UIView!              // The parentView represents the view wich contains all the targets
+    fileprivate weak var delegate:JMHoledViewDelegate?   // A delegate for the callbacks during the tutorial
     
     public init(parentView:UIView) {
         super.init()
