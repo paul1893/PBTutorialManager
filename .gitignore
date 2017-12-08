@@ -6,3 +6,5 @@ PBTutorialManager/Pods/*
 PBTutorialManager/PBTutorialManager.xcworkspace
 PBTutorialManager/Podfile.lock
 .DS_Store
+PBTutorialManager/PBTutorialManager.xcodeproj/project.xcworkspace/xcuserdata
+PBTutorialManager/PBTutorialManager.xcodeproj/xcuserdata
