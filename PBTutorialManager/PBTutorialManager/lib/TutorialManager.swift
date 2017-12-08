@@ -97,13 +97,13 @@ open class TutorialManager:NSObject, JMHoledViewDelegate{
             // Check the type of the target
             switch (target.shape.hashValue){
                 case JMHoleType.cirle.hashValue:
-                    mask.addHoleCircleCentered(onPosition: CGPoint(x: viewCenter.x+(viewSize.width/2), y: viewCenter.y+(viewSize.height/2)), andDiameter: holeWidth)
+                    mask.addHoleCircleCentered(onPosition: CGPoint(x: viewCenter.x+(viewSize.width/2), y: viewCenter.y+(viewSize.height/2)), diameter: holeWidth)
                     break
                 case JMHoleType.rect.hashValue:
                     mask.addHoleRect(on: CGRect(x: viewCenter.x, y: viewCenter.y, width: viewSize.width, height: viewSize.height))
                     break
                 case JMHoleType.roundedRect.hashValue:
-                    mask.addHoleRoundedRect(on: CGRect(x: viewCenter.x, y: viewCenter.y, width: viewSize.width, height: viewSize.height), withCornerRadius: 10.0)
+                    mask.addHoleRoundedRect(on: CGRect(x: viewCenter.x, y: viewCenter.y, width: viewSize.width, height: viewSize.height), cornerRadius: 10.0)
                     break
                 default:
                     break
