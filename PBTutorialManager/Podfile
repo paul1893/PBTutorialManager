@@ -1,0 +1,8 @@
+platform :ios, '8.0'
+
+target 'PBTutorialManager' do
+  use_frameworks!
+
+  pod 'PBTutorialManager', path:'../'
+
+end
