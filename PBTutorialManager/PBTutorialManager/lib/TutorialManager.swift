@@ -76,8 +76,8 @@ open class TutorialManager:NSObject, JMHoledViewDelegate{
             
             // Fit the size of the mask to the size of the screen
             mask.translatesAutoresizingMaskIntoConstraints = false
-            parentView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|[mask]|", options: [NSLayoutFormatOptions.alignAllCenterX, NSLayoutFormatOptions.alignAllCenterY], metrics: nil, views: ["mask":mask])) //Equal Width
-            parentView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|[mask]|", options: [NSLayoutFormatOptions.alignAllCenterX, NSLayoutFormatOptions.alignAllCenterY], metrics: nil, views: ["mask":mask])) //Equal Height
+            parentView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|[mask]|", options: [NSLayoutConstraint.FormatOptions.alignAllCenterX, NSLayoutConstraint.FormatOptions.alignAllCenterY], metrics: nil, views: ["mask":mask])) //Equal Width
+            parentView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|[mask]|", options: [NSLayoutConstraint.FormatOptions.alignAllCenterX, NSLayoutConstraint.FormatOptions.alignAllCenterY], metrics: nil, views: ["mask":mask])) //Equal Height
             
         }else{
             // Reuse mask
@@ -95,18 +95,15 @@ open class TutorialManager:NSObject, JMHoledViewDelegate{
             let viewSize:CGSize = view.frame.size
             
             // Check the type of the target
-            switch (target.shape.hashValue){
-                case JMHoleType.cirle.hashValue:
-                    mask.addHoleCircleCentered(onPosition: CGPoint(x: viewCenter.x+(viewSize.width/2), y: viewCenter.y+(viewSize.height/2)), diameter: holeWidth)
-                    break
-                case JMHoleType.rect.hashValue:
-                    mask.addHoleRect(on: CGRect(x: viewCenter.x, y: viewCenter.y, width: viewSize.width, height: viewSize.height))
-                    break
-                case JMHoleType.roundedRect.hashValue:
-                    mask.addHoleRoundedRect(on: CGRect(x: viewCenter.x, y: viewCenter.y, width: viewSize.width, height: viewSize.height), cornerRadius: 10.0)
-                    break
-                default:
-                    break
+            switch target.shape {
+            case .cirle?:
+                mask.addHoleCircleCentered(onPosition: CGPoint(x: viewCenter.x+(viewSize.width/2), y: viewCenter.y+(viewSize.height/2)), diameter: holeWidth)
+            case .rect?:
+                mask.addHoleRect(on: CGRect(x: viewCenter.x, y: viewCenter.y, width: viewSize.width, height: viewSize.height))
+            case .roundedRect?:
+                mask.addHoleRoundedRect(on: CGRect(x: viewCenter.x, y: viewCenter.y, width: viewSize.width, height: viewSize.height), cornerRadius: 10.0)
+            default:
+                ()
             }
             
             // Get the properties of the target
@@ -116,106 +113,99 @@ open class TutorialManager:NSObject, JMHoledViewDelegate{
             
             var imageView:UIImageView! = UIImageView()
             
-            switch (target.position.hashValue){
-                case Target.TargetPosition.top.hashValue:
-                    /* Illustration
-                     H:[view]-[imageView]-[label]
-                     V:[view]-topMargin-[imageView]-bottomTextMargin-[label] */
-                    imageView = UIImageView(frame: CGRect(x: holeOriginX+(holeWidth/2)-(target.widthArrow/2), y: holeOriginY - target.heightArrow - target.topMargin, width: target.widthArrow, height: target.heightArrow))
-                    imageView.image = (target.withArrow) ? loadImageFromPBTutorialBundle(name: "arrow_vertical_up"):UIImage()
-                    imageView.contentMode = .scaleAspectFit
-                    
-                    label = UILabel(frame: CGRect(x: imageView.center.x - (labelWidth/2), y: imageView.frame.origin.y-target.bottomTextMargin-labelHeight, width: labelWidth, height: labelHeight))
-                    label.textAlignment = target.textAlignement
-                    break
-                    
-                case Target.TargetPosition.bottom.hashValue:
-                    /* Illustration
-                     H:[view]-[imageView]-[label]
-                     V:[view]-bottomMargin-[imageView]-topTextMargin-[label] */
-                    imageView = UIImageView(frame: CGRect(x: holeOriginX+(holeWidth/2)-(target.widthArrow/2), y: holeOriginY+holeHeight+target.bottomMargin, width: target.widthArrow, height: target.heightArrow))
-                    imageView.image = (target.withArrow) ? loadImageFromPBTutorialBundle( name: "arrow_vertical_down"):UIImage()
-                    imageView!.contentMode = .scaleAspectFit
-                    
-                    label = UILabel(frame: CGRect(x: imageView.center.x - (labelWidth/2), y: imageView.frame.origin.y + target.heightArrow + target.topTextMargin,width: labelWidth, height: labelHeight))
-                    label.textAlignment = target.textAlignement
-                    break
-                    
-                case Target.TargetPosition.left.hashValue:
-                    /* Illustration
-                     H:[label]-rightTextMargin-[imageView]-leftMargin-[view]
-                     V:[label]-[imageView]-[view] */
-                    imageView = UIImageView(frame: CGRect(x: holeOriginX-target.leftMargin-target.widthArrow, y: holeOriginY+(holeHeight/2)-(target.heightArrow/2),width: target.widthArrow, height: target.heightArrow))
-                    imageView.image = (target.withArrow) ? loadImageFromPBTutorialBundle(name: "arrow_horizontal_left"):UIImage()
-                    imageView.contentMode = .scaleAspectFit
-                    
-                    label = UILabel(frame: CGRect(x: imageView.frame.origin.x - target.rightTextMargin-labelWidth, y: imageView.center.y - (labelHeight/2),width: labelWidth, height: labelHeight))
-                    label.textAlignment = target.textAlignement
-                    break
-                    
-                case Target.TargetPosition.right.hashValue:
-                    /* Illustration
-                     H:[view]-rightMargin-[imageView]-leftTextMargin-[label]
-                     V:[view]-[imageView]-[label] */
-                    imageView = UIImageView(frame: CGRect(x: holeOriginX+holeWidth+target.rightMargin, y: holeOriginY+(holeHeight/2)-(target.heightArrow/2), width: target.widthArrow, height: target.heightArrow))
-                    imageView.image = (target.withArrow) ? loadImageFromPBTutorialBundle(name: "arrow_horizontal_right") : UIImage()
-                    imageView.contentMode = .scaleAspectFit
-                    
-                    label = UILabel(frame: CGRect(x: imageView.frame.origin.x+target.widthArrow + target.leftTextMargin, y: imageView.center.y - (labelHeight/2),width: labelWidth, height: labelHeight))
-                    label.textAlignment = target.textAlignement
-                    break
-                    
-                case Target.TargetPosition.topLeft.hashValue:
-                    /* Illustration
-                     H:[label]-rightTextMargin-[imageView]-leftMargin-[view]
-                     V:[view]-topMargin-[imageView]-bottomTextMargin-[label] */
-                    imageView = UIImageView(frame: CGRect(x: holeOriginX-target.leftMargin-target.widthArrow, y: holeOriginY-target.topMargin-target.heightArrow, width: target.widthArrow, height: target.heightArrow))
-                    imageView.image = (target.withArrow) ? loadImageFromPBTutorialBundle(name: "arrow_top_left"):UIImage()
-                    imageView.contentMode = .scaleAspectFit
-                    
-                    label = UILabel(frame: CGRect(x: imageView.frame.origin.x-target.rightTextMargin-labelWidth, y: imageView.frame.origin.y-target.bottomTextMargin-(labelHeight/2),width: labelWidth, height: labelHeight))
-                    label.textAlignment = target.textAlignement
-                    break
-                    
-                case Target.TargetPosition.topRight.hashValue:
-                    /* Illustration
-                     H:[view]-rightMargin-[imageView]-leftTextMargin-[label]
-                     V:[view]-topMargin-[imageView]-bottomTextMargin-[label] */
-                    imageView = UIImageView(frame: CGRect(x: holeOriginX+holeWidth+target.rightMargin, y: holeOriginY-target.topMargin-target.heightArrow, width: target.widthArrow, height: target.heightArrow))
-                    imageView.image = (target.withArrow) ? loadImageFromPBTutorialBundle(name: "arrow_top_right"):UIImage()
-                    imageView.contentMode = .scaleAspectFit
-                    
-                    label = UILabel(frame: CGRect(x: imageView.frame.origin.x+target.widthArrow + target.leftTextMargin, y: imageView.frame.origin.y-target.bottomTextMargin - (labelHeight/2),width: labelWidth, height: labelHeight))
-                    label.textAlignment = target.textAlignement
-                    break
-                    
-                case Target.TargetPosition.bottomLeft.hashValue:
-                    /* Illustration
-                     H:[label]-rightTextMargin-[imageView]-leftMargin-[view]
-                     V:[view]-bottomMargin-[imageView]-topTextMargin-[label] */
-                    imageView = UIImageView(frame: CGRect(x: holeOriginX-target.leftMargin-target.widthArrow, y: holeOriginY+holeHeight+target.bottomMargin, width: target.widthArrow, height: target.heightArrow))
-                    imageView.image = (target.withArrow) ? loadImageFromPBTutorialBundle(name: "arrow_bottom_left"):UIImage()
-                    imageView.contentMode = .scaleAspectFit
-                    
-                    label = UILabel(frame: CGRect(x: imageView.frame.origin.x-target.rightTextMargin-labelWidth, y: imageView.frame.origin.y+target.heightArrow+target.topTextMargin-(labelHeight/2),width: labelWidth, height: labelHeight))
-                    label.textAlignment = target.textAlignement
-                    break
-                    
-                case Target.TargetPosition.bottomRight.hashValue:
-                    /* Illustration
-                     H:[view]-rightMargin-[imageView]-leftTextMargin-[label]
-                     V:[view]-bottomMargin-[imageView]-topTextMargin-[label] */
-                    imageView = UIImageView(frame: CGRect(x: holeOriginX+holeWidth+target.rightMargin, y: holeOriginY+holeHeight+target.bottomMargin, width: target.widthArrow, height: target.heightArrow))
-                    imageView.image = (target.withArrow) ? loadImageFromPBTutorialBundle(name: "arrow_bottom_right"):UIImage()
-                    imageView.contentMode = .scaleAspectFit
-                    
-                    label = UILabel(frame: CGRect(x: imageView.frame.origin.x+target.widthArrow + target.leftTextMargin, y: imageView.frame.origin.y + target.heightArrow+target.topTextMargin, width: labelWidth, height: labelHeight))
-                    label.textAlignment = target.textAlignement
-                    break
-                    
-                default:
-                    label = UILabel(frame: CGRect(x: 0, y: 0,width: labelWidth, height: labelHeight))
-                    break
+            switch target.position {
+            case .top?:
+                /* Illustration
+                 H:[view]-[imageView]-[label]
+                 V:[view]-topMargin-[imageView]-bottomTextMargin-[label] */
+                imageView = UIImageView(frame: CGRect(x: holeOriginX+(holeWidth/2)-(target.widthArrow/2), y: holeOriginY - target.heightArrow - target.topMargin, width: target.widthArrow, height: target.heightArrow))
+                imageView.image = (target.withArrow) ? loadImageFromPBTutorialBundle(name: "arrow_vertical_up"):UIImage()
+                imageView.contentMode = .scaleAspectFit
+                
+                label = UILabel(frame: CGRect(x: imageView.center.x - (labelWidth/2), y: imageView.frame.origin.y-target.bottomTextMargin-labelHeight, width: labelWidth, height: labelHeight))
+                label.textAlignment = target.textAlignement
+                
+            case .bottom?:
+                /* Illustration
+                 H:[view]-[imageView]-[label]
+                 V:[view]-bottomMargin-[imageView]-topTextMargin-[label] */
+                imageView = UIImageView(frame: CGRect(x: holeOriginX+(holeWidth/2)-(target.widthArrow/2), y: holeOriginY+holeHeight+target.bottomMargin, width: target.widthArrow, height: target.heightArrow))
+                imageView.image = (target.withArrow) ? loadImageFromPBTutorialBundle( name: "arrow_vertical_down"):UIImage()
+                imageView!.contentMode = .scaleAspectFit
+                
+                label = UILabel(frame: CGRect(x: imageView.center.x - (labelWidth/2), y: imageView.frame.origin.y + target.heightArrow + target.topTextMargin,width: labelWidth, height: labelHeight))
+                label.textAlignment = target.textAlignement
+                
+            case .left?:
+                /* Illustration
+                 H:[label]-rightTextMargin-[imageView]-leftMargin-[view]
+                 V:[label]-[imageView]-[view] */
+                imageView = UIImageView(frame: CGRect(x: holeOriginX-target.leftMargin-target.widthArrow, y: holeOriginY+(holeHeight/2)-(target.heightArrow/2),width: target.widthArrow, height: target.heightArrow))
+                imageView.image = (target.withArrow) ? loadImageFromPBTutorialBundle(name: "arrow_horizontal_left"):UIImage()
+                imageView.contentMode = .scaleAspectFit
+                
+                label = UILabel(frame: CGRect(x: imageView.frame.origin.x - target.rightTextMargin-labelWidth, y: imageView.center.y - (labelHeight/2),width: labelWidth, height: labelHeight))
+                label.textAlignment = target.textAlignement
+                
+            case .right?:
+                /* Illustration
+                 H:[view]-rightMargin-[imageView]-leftTextMargin-[label]
+                 V:[view]-[imageView]-[label] */
+                imageView = UIImageView(frame: CGRect(x: holeOriginX+holeWidth+target.rightMargin, y: holeOriginY+(holeHeight/2)-(target.heightArrow/2), width: target.widthArrow, height: target.heightArrow))
+                imageView.image = (target.withArrow) ? loadImageFromPBTutorialBundle(name: "arrow_horizontal_right") : UIImage()
+                imageView.contentMode = .scaleAspectFit
+                
+                label = UILabel(frame: CGRect(x: imageView.frame.origin.x+target.widthArrow + target.leftTextMargin, y: imageView.center.y - (labelHeight/2),width: labelWidth, height: labelHeight))
+                label.textAlignment = target.textAlignement
+                break
+                
+            case .topLeft?:
+                /* Illustration
+                 H:[label]-rightTextMargin-[imageView]-leftMargin-[view]
+                 V:[view]-topMargin-[imageView]-bottomTextMargin-[label] */
+                imageView = UIImageView(frame: CGRect(x: holeOriginX-target.leftMargin-target.widthArrow, y: holeOriginY-target.topMargin-target.heightArrow, width: target.widthArrow, height: target.heightArrow))
+                imageView.image = (target.withArrow) ? loadImageFromPBTutorialBundle(name: "arrow_top_left"):UIImage()
+                imageView.contentMode = .scaleAspectFit
+                
+                label = UILabel(frame: CGRect(x: imageView.frame.origin.x-target.rightTextMargin-labelWidth, y: imageView.frame.origin.y-target.bottomTextMargin-(labelHeight/2),width: labelWidth, height: labelHeight))
+                label.textAlignment = target.textAlignement
+                
+            case .topRight?:
+                /* Illustration
+                 H:[view]-rightMargin-[imageView]-leftTextMargin-[label]
+                 V:[view]-topMargin-[imageView]-bottomTextMargin-[label] */
+                imageView = UIImageView(frame: CGRect(x: holeOriginX+holeWidth+target.rightMargin, y: holeOriginY-target.topMargin-target.heightArrow, width: target.widthArrow, height: target.heightArrow))
+                imageView.image = (target.withArrow) ? loadImageFromPBTutorialBundle(name: "arrow_top_right"):UIImage()
+                imageView.contentMode = .scaleAspectFit
+                
+                label = UILabel(frame: CGRect(x: imageView.frame.origin.x+target.widthArrow + target.leftTextMargin, y: imageView.frame.origin.y-target.bottomTextMargin - (labelHeight/2),width: labelWidth, height: labelHeight))
+                label.textAlignment = target.textAlignement
+                break
+                
+            case .bottomLeft?:
+                /* Illustration
+                 H:[label]-rightTextMargin-[imageView]-leftMargin-[view]
+                 V:[view]-bottomMargin-[imageView]-topTextMargin-[label] */
+                imageView = UIImageView(frame: CGRect(x: holeOriginX-target.leftMargin-target.widthArrow, y: holeOriginY+holeHeight+target.bottomMargin, width: target.widthArrow, height: target.heightArrow))
+                imageView.image = (target.withArrow) ? loadImageFromPBTutorialBundle(name: "arrow_bottom_left"):UIImage()
+                imageView.contentMode = .scaleAspectFit
+                
+                label = UILabel(frame: CGRect(x: imageView.frame.origin.x-target.rightTextMargin-labelWidth, y: imageView.frame.origin.y+target.heightArrow+target.topTextMargin-(labelHeight/2),width: labelWidth, height: labelHeight))
+                label.textAlignment = target.textAlignement
+                
+            case .bottomRight?:
+                /* Illustration
+                 H:[view]-rightMargin-[imageView]-leftTextMargin-[label]
+                 V:[view]-bottomMargin-[imageView]-topTextMargin-[label] */
+                imageView = UIImageView(frame: CGRect(x: holeOriginX+holeWidth+target.rightMargin, y: holeOriginY+holeHeight+target.bottomMargin, width: target.widthArrow, height: target.heightArrow))
+                imageView.image = (target.withArrow) ? loadImageFromPBTutorialBundle(name: "arrow_bottom_right"):UIImage()
+                imageView.contentMode = .scaleAspectFit
+                
+                label = UILabel(frame: CGRect(x: imageView.frame.origin.x+target.widthArrow + target.leftTextMargin, y: imageView.frame.origin.y + target.heightArrow+target.topTextMargin, width: labelWidth, height: labelHeight))
+                label.textAlignment = target.textAlignement
+                
+            default:
+                label = UILabel(frame: CGRect(x: 0, y: 0,width: labelWidth, height: labelHeight))
             }
             
             label.numberOfLines = 0
@@ -249,7 +239,6 @@ open class TutorialManager:NSObject, JMHoledViewDelegate{
      When a target's view is touched
      */
     open func holedView(_ holedView:JMHoledView, didSelectHoleAt didSelectHoleAtIndex:UInt){
-        print("Callback holedView")
         if let target = targets?.first, target.isTapable {
             holedView.removeFromSuperview()
             targets?.removeFirst()
@@ -286,7 +275,7 @@ extension String {
     func heightWithConstrainedWidth(_ width: CGFloat, font: UIFont) -> CGFloat {
         let constraintRect = CGSize(width: width, height: CGFloat.greatestFiniteMagnitude)
         
-        let boundingBox = self.boundingRect(with: constraintRect, options: NSStringDrawingOptions.usesLineFragmentOrigin, attributes: [NSFontAttributeName: font], context: nil)
+        let boundingBox = self.boundingRect(with: constraintRect, options: NSStringDrawingOptions.usesLineFragmentOrigin, attributes: [NSAttributedString.Key.font: font], context: nil)
         
         return boundingBox.height
     }
