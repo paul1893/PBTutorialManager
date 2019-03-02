@@ -20,7 +20,6 @@ Pod::Spec.new do |s|
   s.resource_bundles = { 'PBTutorialManager' => ['PBTutorialManager/PBTutorialManager/Ressources/*.otf'] }
 
   s.frameworks  = "UIKit", "Foundation"
-  s.dependency 'JMHoledView'
   s.dependency 'AFCurvedArrowView'
 
   s.requires_arc = true

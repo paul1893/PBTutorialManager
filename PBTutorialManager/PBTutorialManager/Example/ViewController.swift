@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import JMHoledView
+
 
 class ViewController: UIViewController {
     
@@ -33,46 +33,46 @@ class ViewController: UIViewController {
         setup() // Some config to have a roundProfilePicture
         
         // Start to create your targets
-        let targetProfilePicture = Target(view: profilePicture)
+        let targetProfilePicture = TutorialTarget(view: profilePicture)
             .withArrow(true)
             .heightArrow(50)
             .widthArrow(25)
             .position(.bottom)
-            .shape(JMHoleType.cirle)
+            .shape(.elipse)
             .duration(1.0)
             .message("This is a profile picture")
         
-        let targetMainImage = Target(view: mainImage)
+        let targetMainImage = TutorialTarget(view: mainImage)
             .withArrow(true)
             .heightArrow(50)
             .widthArrow(25)
             .position(.bottom)
-            .shape(JMHoleType.rect)
+            .shape(.rect)
             .duration(1.0)
             .message("This is the main image")
         
-        let targetNameLabel = Target(view: nameLabel)
+        let targetNameLabel = TutorialTarget(view: nameLabel)
             .withArrow(true)
             .widthArrow(75)
             .heightArrow(30)
             .position(.right)
-            .shape(JMHoleType.rect)
+            .shape(.rect)
             .duration(1.0)
             .message("This is a label")
             .textAlignement(.left)
             .breakPoint(true)
         
-        let targetButton = Target(view:button)
+        let targetButton = TutorialTarget(view:button)
             .withArrow(true)
             .heightArrow(50)
             .widthArrow(25)
             .position(.top)
-            .shape(.cirle)
+            .shape(.elipse)
             .message("This is a button")
             .breakPoint(true)
         
         // Then create a tutorialManager
-        let tutorialManager = TutorialManager(parentView: self.view)
+        let tutorialManager = TutorialManager(parentView: view)
         // ... and feed him with your targets
         tutorialManager.addTarget(targetProfilePicture)
         tutorialManager.addTarget(targetMainImage)
@@ -81,11 +81,44 @@ class ViewController: UIViewController {
         
         // Do not forget to fire the targets ;)
         tutorialManager.fireTargets()
-        
     }
     
     fileprivate func setup(){
         profilePicture.layer.cornerRadius = profilePicture.frame.width/2
         profilePicture.clipsToBounds = true
+    }
+}
+
+
+class TestViewController: UIViewController {
+    private        var tutorialManager: TutorialManager!
+    @IBOutlet weak var testView:        UIView!
+    @IBOutlet weak var centreTestView:  UIView!
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        tutorialManager = TutorialManager(parentView: view)
+        
+        let possitions: [TutorialTarget.TargetPosition] = [.left,    .top,      .right,       .bottom,
+                                                           .topLeft, .topRight, .bottomRight, .bottomLeft]
+        possitions.forEach() {
+            // Start to create your targets
+            let target = TutorialTarget(view: testView)
+                .withArrow(true)
+                .heightArrow(50)
+                .widthArrow(50)
+                .position($0)
+                .shape(.rect)
+                .message("Test")
+            tutorialManager.addTarget(target)
+        }
+        
+        // Setup a centered message
+        let target = TutorialTarget(view: centreTestView)
+            .position(.centre)
+            .message("Centered message")
+        tutorialManager.addTarget(target)
+        
+        tutorialManager.fireTargets()
     }
 }

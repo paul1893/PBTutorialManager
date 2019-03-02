@@ -9,12 +9,13 @@
 /* Begin PBXBuildFile section */
 		BBB70A0A1698259C7881C685 /* Pods_PBTutorialManager.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B3B7E1C0510061757FABB4F0 /* Pods_PBTutorialManager.framework */; };
 		BC6284E21FDB0F6500B4A768 /* PBTutorialManager.podspec in Resources */ = {isa = PBXBuildFile; fileRef = BC6284E11FDB0F6500B4A768 /* PBTutorialManager.podspec */; };
+		C4297898222B173F001E3872 /* HoledView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4297897222B173F001E3872 /* HoledView.swift */; };
 		DA7646C11D2C4E3900CC1515 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA7646C01D2C4E3900CC1515 /* AppDelegate.swift */; };
 		DA7646C31D2C4E3900CC1515 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA7646C21D2C4E3900CC1515 /* ViewController.swift */; };
 		DA7646C61D2C4E3900CC1515 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA7646C41D2C4E3900CC1515 /* Main.storyboard */; };
 		DA7646C81D2C4E3900CC1515 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DA7646C71D2C4E3900CC1515 /* Assets.xcassets */; };
 		DA7646CB1D2C4E3900CC1515 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA7646C91D2C4E3900CC1515 /* LaunchScreen.storyboard */; };
-		DA7646D61D2C4EED00CC1515 /* Target.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA7646D41D2C4EED00CC1515 /* Target.swift */; };
+		DA7646D61D2C4EED00CC1515 /* TutorialTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA7646D41D2C4EED00CC1515 /* TutorialTarget.swift */; };
 		DA7646D71D2C4EED00CC1515 /* TutorialManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA7646D51D2C4EED00CC1515 /* TutorialManager.swift */; };
 		DAF16FDE1D2CD46D00E87FB0 /* REIS-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = DAF16FDD1D2CD44600E87FB0 /* REIS-Regular.otf */; };
 /* End PBXBuildFile section */
@@ -26,6 +27,7 @@
 		A90077886A8702269DD8F408 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		B3B7E1C0510061757FABB4F0 /* Pods_PBTutorialManager.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PBTutorialManager.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BC6284E11FDB0F6500B4A768 /* PBTutorialManager.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = PBTutorialManager.podspec; path = ../../PBTutorialManager.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		C4297897222B173F001E3872 /* HoledView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HoledView.swift; path = lib/HoledView.swift; sourceTree = "<group>"; };
 		DA7646BD1D2C4E3900CC1515 /* PBTutorialManager.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PBTutorialManager.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA7646C01D2C4E3900CC1515 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DA7646C21D2C4E3900CC1515 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ViewController.swift; path = Example/ViewController.swift; sourceTree = "<group>"; };
@@ -33,7 +35,7 @@
 		DA7646C71D2C4E3900CC1515 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DA7646CA1D2C4E3900CC1515 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DA7646CC1D2C4E3900CC1515 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		DA7646D41D2C4EED00CC1515 /* Target.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Target.swift; path = lib/Target.swift; sourceTree = "<group>"; };
+		DA7646D41D2C4EED00CC1515 /* TutorialTarget.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TutorialTarget.swift; path = lib/TutorialTarget.swift; sourceTree = "<group>"; };
 		DA7646D51D2C4EED00CC1515 /* TutorialManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TutorialManager.swift; path = lib/TutorialManager.swift; sourceTree = "<group>"; };
 		DAF16FDD1D2CD44600E87FB0 /* REIS-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "REIS-Regular.otf"; path = "Ressources/REIS-Regular.otf"; sourceTree = "<group>"; };
 		F5444C431B302F1D881A53A4 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -116,7 +118,8 @@
 		DA7646D21D2C4E4E00CC1515 /* PBTutorialManager */ = {
 			isa = PBXGroup;
 			children = (
-				DA7646D41D2C4EED00CC1515 /* Target.swift */,
+				C4297897222B173F001E3872 /* HoledView.swift */,
+				DA7646D41D2C4EED00CC1515 /* TutorialTarget.swift */,
 				DA7646D51D2C4EED00CC1515 /* TutorialManager.swift */,
 			);
 			name = PBTutorialManager;
@@ -229,13 +232,11 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-PBTutorialManager/Pods-PBTutorialManager-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/AFCurvedArrowView/AFCurvedArrowView.framework",
-				"${BUILT_PRODUCTS_DIR}/JMHoledView/JMHoledView.framework",
 				"${BUILT_PRODUCTS_DIR}/PBTutorialManager/PBTutorialManager.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AFCurvedArrowView.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JMHoledView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PBTutorialManager.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -250,7 +251,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DA7646D61D2C4EED00CC1515 /* Target.swift in Sources */,
+				C4297898222B173F001E3872 /* HoledView.swift in Sources */,
+				DA7646D61D2C4EED00CC1515 /* TutorialTarget.swift in Sources */,
 				DA7646C31D2C4E3900CC1515 /* ViewController.swift in Sources */,
 				DA7646C11D2C4E3900CC1515 /* AppDelegate.swift in Sources */,
 				DA7646D71D2C4EED00CC1515 /* TutorialManager.swift in Sources */,
@@ -397,6 +399,7 @@
 				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -413,6 +416,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};

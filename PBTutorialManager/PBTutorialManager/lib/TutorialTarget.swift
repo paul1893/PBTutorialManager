@@ -1,5 +1,5 @@
 //
-//  Target.swift
+//  TutorialTarget.swift
 //  PBTutorialManager
 //
 //  Created by Paul Bancarel on 05/07/2016.
@@ -8,15 +8,14 @@
 
 import Foundation
 import UIKit
-import JMHoledView
+
 
 /**
  Target represent a "Tutorial object" you can point a
  view associated with a message to describe an action
  */
-open class Target : NSObject{
-    
-    public enum TargetPosition{
+open class TutorialTarget: NSObject {
+    public enum TargetPosition {
         case top
         case right
         case bottom
@@ -25,16 +24,17 @@ open class Target : NSObject{
         case topLeft
         case bottomRight
         case bottomLeft
+        case centre
     }
     
     open var view:UIView? /* The view you want to highlight */
     open var message:String! /* The text you want to show */
     open var textAlignement:NSTextAlignment = NSTextAlignment.center /* The text alignement */
     open var numberOfLines:Int = 0
-    open var position:TargetPosition! /* The position of your text around the highlight view */
-    open var shape:JMHoleType! /* The shape of the mask to highlight the view */
+    open var position:TargetPosition /* The position of your text around the highlight view */
+    open var shape:HoleShape? /* The shape of the mask to highlight the view */
     open var font:UIFont = UIFont.systemFont(ofSize: 18.0) /* The font of the target */
-    open var duration:Float? /* time duration before to show the next target */
+    open var duration:TimeInterval? /* time duration before to show the next target */
     open var isTapable:Bool = false /* if isTapable is true you can tap to dismiss the target */
     open var closure:(() -> Void)? /* A closure executed after the target has been shown */
     open var persistant:Bool = true /* if persistant the target stay on screen when the next one show up, you can add multiple target one after one */
@@ -58,95 +58,93 @@ open class Target : NSObject{
     open var arrowHeadSize:CGFloat = 10
     
     public init(view:UIView?) {
-        super.init()
         self.view = view
         self.message = ""
-        self.duration = 1.0
         self.position = .bottom
-        self.shape = JMHoleType.cirle
+        super.init()
     }
     
-    open func message(_ message:String) -> Target{
+    open func message(_ message:String) -> TutorialTarget {
         self.message = message;
         return self;
     }
-    open func position(_ position:TargetPosition) -> Target{
+    open func position(_ position:TargetPosition) -> TutorialTarget {
         self.position = position;
         return self;
     }
-    open func shape(_ shape:JMHoleType) -> Target{
+    open func shape(_ shape:HoleShape?) -> TutorialTarget {
         self.shape = shape;
         return self;
     }
-    open func duration(_ duration:Float) -> Target{
+    open func duration(_ duration:TimeInterval?) -> TutorialTarget {
         self.duration = duration;
         return self;
     }
-    open func isTapable(_ isTapable:Bool) -> Target{
+    open func isTapable(_ isTapable:Bool) -> TutorialTarget {
         self.isTapable = isTapable;
         return self;
     }
-    open func onCompletion(onCompletion: @escaping (() -> Void)) -> Target{
+    open func onCompletion(onCompletion: @escaping (() -> Void)) -> TutorialTarget {
         self.closure = onCompletion;
         return self;
     }
-    open func persistant(_ persistant:Bool) -> Target{
+    open func persistant(_ persistant:Bool) -> TutorialTarget {
         self.persistant = persistant;
         return self;
     }
-    open func textAlignement(_ textAlignement:NSTextAlignment) -> Target{
+    open func textAlignement(_ textAlignement:NSTextAlignment) -> TutorialTarget {
         self.textAlignement = textAlignement;
         return self;
     }
-    open func withArrow(_ bool:Bool) -> Target{
+    open func withArrow(_ bool:Bool) -> TutorialTarget {
         withArrow = bool;
         return self;
     }
-    open func heightArrow(_ heightArrow:CGFloat) -> Target{
+    open func heightArrow(_ heightArrow:CGFloat) -> TutorialTarget {
         self.heightArrow = heightArrow;
         return self;
     }
-    open func widthArrow(_ widthArrow:CGFloat) -> Target{
+    open func widthArrow(_ widthArrow:CGFloat) -> TutorialTarget {
         self.widthArrow = widthArrow;
         return self;
     }
-    open func arrowHeadSize(_ arrowHeadSize:CGFloat) -> Target{
+    open func arrowHeadSize(_ arrowHeadSize:CGFloat) -> TutorialTarget {
         self.arrowHeadSize = arrowHeadSize;
         return self;
     }
-    open func topMargin(_ topMargin:CGFloat) -> Target{
+    open func topMargin(_ topMargin:CGFloat) -> TutorialTarget {
         self.topMargin = topMargin;
         return self;
     }
-    open func rightMargin(_ rightMargin:CGFloat) -> Target{
+    open func rightMargin(_ rightMargin:CGFloat) -> TutorialTarget {
         self.rightMargin = rightMargin;
         return self;
     }
-    open func bottomMargin(_ bottomMargin:CGFloat) -> Target{
+    open func bottomMargin(_ bottomMargin:CGFloat) -> TutorialTarget {
         self.bottomMargin = bottomMargin;
         return self;
     }
-    open func leftMargin(_ leftMargin:CGFloat) -> Target{
+    open func leftMargin(_ leftMargin:CGFloat) -> TutorialTarget {
         self.leftMargin = leftMargin;
         return self;
     }
-    open func topTextMargin(_ topTextMargin:CGFloat) -> Target{
+    open func topTextMargin(_ topTextMargin:CGFloat) -> TutorialTarget {
         self.topTextMargin = topTextMargin;
         return self;
     }
-    open func rightTextMargin(_ rightTextMargin:CGFloat) -> Target{
+    open func rightTextMargin(_ rightTextMargin:CGFloat) -> TutorialTarget {
         self.rightTextMargin = rightTextMargin;
         return self;
     }
-    open func bottomTextMargin(_ bottomTextMargin:CGFloat) -> Target{
+    open func bottomTextMargin(_ bottomTextMargin:CGFloat) -> TutorialTarget {
         self.bottomTextMargin = bottomTextMargin;
         return self;
     }
-    open func leftTextMargin(_ leftTextMargin:CGFloat) -> Target{
+    open func leftTextMargin(_ leftTextMargin:CGFloat) -> TutorialTarget {
         self.leftTextMargin = leftTextMargin;
         return self;
     }
-    open func breakPoint(_ breakPoint:Bool) -> Target{
+    open func breakPoint(_ breakPoint:Bool) -> TutorialTarget {
         self.breakPoint = breakPoint;
         self.isTapable = true;
         return self;

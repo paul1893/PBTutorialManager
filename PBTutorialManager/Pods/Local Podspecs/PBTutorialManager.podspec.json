@@ -34,9 +34,6 @@
     "Foundation"
   ],
   "dependencies": {
-    "JMHoledView": [
-
-    ],
     "AFCurvedArrowView": [
 
     ]

@@ -12,7 +12,7 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="PBTutorialManager" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="demoViewController" id="BYZ-38-t0r" customClass="ViewController" customModule="PBTutorialManager" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -91,6 +91,52 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="249.5" y="428.5"/>
+        </scene>
+        <!--Test View Controller-->
+        <scene sceneID="rxX-zc-ZTK">
+            <objects>
+                <viewController storyboardIdentifier="testViewController" id="WGB-jf-v8h" customClass="TestViewController" customModule="PBTutorialManager" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="dAf-0p-bNM"/>
+                        <viewControllerLayoutGuide type="bottom" id="P1h-o8-taz"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="GSc-Le-uKv">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="K46-d3-nSB">
+                                <rect key="frame" x="162.5" y="308.5" width="50" height="50"/>
+                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" priority="50" constant="50" id="DUl-co-RpT"/>
+                                    <constraint firstAttribute="height" constant="50" id="Nnz-52-DTQ"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZiX-KU-dbb">
+                                <rect key="frame" x="67.5" y="438" width="240" height="128"/>
+                                <color key="backgroundColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="240" id="0HY-iM-QX6"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="K46-d3-nSB" firstAttribute="centerX" secondItem="GSc-Le-uKv" secondAttribute="centerX" id="JbS-Q6-O14"/>
+                            <constraint firstItem="P1h-o8-taz" firstAttribute="top" secondItem="ZiX-KU-dbb" secondAttribute="bottom" constant="101" id="OVn-BF-IkN"/>
+                            <constraint firstItem="K46-d3-nSB" firstAttribute="centerY" secondItem="GSc-Le-uKv" secondAttribute="centerY" id="Ofq-Gu-RWi"/>
+                            <constraint firstItem="ZiX-KU-dbb" firstAttribute="top" secondItem="K46-d3-nSB" secondAttribute="bottom" constant="79.5" id="XG6-1l-ZkH"/>
+                            <constraint firstItem="ZiX-KU-dbb" firstAttribute="centerX" secondItem="GSc-Le-uKv" secondAttribute="centerX" id="jr1-7J-G2F"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="centreTestView" destination="ZiX-KU-dbb" id="tuI-sa-TSC"/>
+                        <outlet property="testView" destination="K46-d3-nSB" id="D9k-Qn-PIc"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="MkG-L4-6cw" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="249" y="1165"/>
         </scene>
     </scenes>
     <resources>
