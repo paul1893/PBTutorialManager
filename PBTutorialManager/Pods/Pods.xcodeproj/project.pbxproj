@@ -1,0 +1,1114 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		109A17D7F5FE90CD8738DC65F568F62A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D6B646696EFF8840671240A06E623F1 /* Foundation.framework */; };
+		17DEC57C1D153C34F156D8B9491B5188 /* PBTutorialManager-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = A8426D7789C281843450D5816E5BC287 /* PBTutorialManager-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1F4A92EDB4340443EA609BBE4FE74A19 /* Pods-PBTutorialManager-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 77438A57D7A80A0EA647749A0551A186 /* Pods-PBTutorialManager-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		2B4D8AFA151547F0800E4107D3242EF5 /* AFCurvedArrowView.h in Headers */ = {isa = PBXBuildFile; fileRef = B21BD63299C03E0AD4C54BAC2696CBDE /* AFCurvedArrowView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3361B67D346D8695A65AAB6EB44DA434 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 260037E509DBC89FFA30A55B4D71F90B /* UIKit.framework */; };
+		4F59D1DBFD983BF95FD3F5D8ED933D7C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B6BA52258DB972B0B235EBEBFFC2423D /* Assets.xcassets */; };
+		5481E3E2CBD8E0C0549E3CE7F0A0231E /* PBTutorialManager-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 90E916E955167CF51B28C11683BE8D34 /* PBTutorialManager-dummy.m */; };
+		55A3F5296EA4E4283540B59F93FBA72B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D6B646696EFF8840671240A06E623F1 /* Foundation.framework */; };
+		59E92D4FD50D5DDC938FA2345CDA574D /* JMHoledView.h in Headers */ = {isa = PBXBuildFile; fileRef = 7616B462C0AD66A1C9C9EDECD259FC87 /* JMHoledView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5E9124882A4CFA5BB810EECF090D9DDE /* JMHoledView.m in Sources */ = {isa = PBXBuildFile; fileRef = F476826CCCF5FF901CBFB244F251A366 /* JMHoledView.m */; };
+		5FD7E9974243F3AF1CF7038834715B08 /* PBTutorialManager.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 84ED066F2FAED6AAE3DCB09F81CBB01C /* PBTutorialManager.bundle */; };
+		63566665D0878526CEF14BD1146B45BB /* REIS-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 5B853A3933850259F4CBCBE49C4A97BF /* REIS-Regular.otf */; };
+		8476DD97746572CE9DB9EC047246AD60 /* JMHoledView-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 49C5D452FBF2BB8367286F95748FEAF5 /* JMHoledView-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		868B1FD12B6CF078D4531AB13333325A /* Pods-PBTutorialManager-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CFCB689AC3C22088482A95E1A53F15E /* Pods-PBTutorialManager-dummy.m */; };
+		87AD522553548417BA0CA2FAD4326351 /* AFCurvedArrowView-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = D1E650B8AFA0E34C34C2E8CFC579799E /* AFCurvedArrowView-dummy.m */; };
+		8A5632486C45219BD33BD0F26842B560 /* TutorialManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16FDA28F026A60BC9B96F382A18A72BF /* TutorialManager.swift */; };
+		8FC09F6F9C7461B39DC940D738058073 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D6B646696EFF8840671240A06E623F1 /* Foundation.framework */; };
+		9475EFCB272E185D54F51827C3C3988C /* AFCurvedArrowView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0564E59A1A0180CC99D5BA560BEFE2D9 /* AFCurvedArrowView.framework */; };
+		9C5D3399268C037D326734B0C7D203D8 /* AFCurvedArrowView-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = AD55C1D4AD6F55348AC33146EE64DBAF /* AFCurvedArrowView-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		CF61C74D6362153ABED2BA94649C3850 /* JMHoledView-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A33E4F368A7D7290D8E186AA8729DB7 /* JMHoledView-dummy.m */; };
+		CF9CB8A79E60BE1CFC7F7B0334848457 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D6B646696EFF8840671240A06E623F1 /* Foundation.framework */; };
+		DC966EE2EA3DE4518E150F4050F8C071 /* AFCurvedArrowView.m in Sources */ = {isa = PBXBuildFile; fileRef = F0E97D3A3591C8436FFE17A8E27B3A5C /* AFCurvedArrowView.m */; };
+		F918CDD707FAF4E6BDDFC5D326053557 /* Target.swift in Sources */ = {isa = PBXBuildFile; fileRef = 069EB36E6BE6737A964C0D655F5894DD /* Target.swift */; };
+		FC8862005495E2CDC0254AA2D3E071F4 /* JMHoledView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DF19CB20C339049CF0ACBF806B1814EB /* JMHoledView.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		04FB71DAAFD7D6BEA9215C77DDEF78CE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 453449A5A32C04E2582AAE5BA0522AD5;
+			remoteInfo = JMHoledView;
+		};
+		1B1606B1010EECCD7C2FBC3CE06FBAC7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A9844A64E3EFBEF02590CA785570D527;
+			remoteInfo = "PBTutorialManager-PBTutorialManager";
+		};
+		738F35DF6BE40E1C4AEEE7304D9A3DFA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 9AA517783AA572453ACCA94F331B664B;
+			remoteInfo = AFCurvedArrowView;
+		};
+		914F56EBCD10FB84DBD2F9FF970D09C5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 453449A5A32C04E2582AAE5BA0522AD5;
+			remoteInfo = JMHoledView;
+		};
+		D6D552134C9282D4A4EDAE4C8EAB91A4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 9AA517783AA572453ACCA94F331B664B;
+			remoteInfo = AFCurvedArrowView;
+		};
+		E7F9DAA8946B6EA7796FC4000E12A734 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 363138284F0BFC2E338F20FCB68C7DFD;
+			remoteInfo = PBTutorialManager;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		052F96A82D6FD0E66E1D0D192D31DD83 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0564E59A1A0180CC99D5BA560BEFE2D9 /* AFCurvedArrowView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AFCurvedArrowView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		069EB36E6BE6737A964C0D655F5894DD /* Target.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Target.swift; path = PBTutorialManager/PBTutorialManager/lib/Target.swift; sourceTree = "<group>"; };
+		075190F38D042A4D350379E667AF81A2 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		09CD43075B0A38DDAD1624295232184B /* Pods-PBTutorialManager.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-PBTutorialManager.release.xcconfig"; sourceTree = "<group>"; };
+		0A507E092EFA4ED4CA492F29AD53356C /* PBTutorialManager.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = PBTutorialManager.modulemap; sourceTree = "<group>"; };
+		0CB6407282440CCA7F5D75A1EF670FB4 /* AFCurvedArrowView.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = AFCurvedArrowView.xcconfig; sourceTree = "<group>"; };
+		1387990FACF8FA5904EDD1E628370485 /* ResourceBundle-PBTutorialManager-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "ResourceBundle-PBTutorialManager-Info.plist"; sourceTree = "<group>"; };
+		16FDA28F026A60BC9B96F382A18A72BF /* TutorialManager.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TutorialManager.swift; path = PBTutorialManager/PBTutorialManager/lib/TutorialManager.swift; sourceTree = "<group>"; };
+		1CFCB689AC3C22088482A95E1A53F15E /* Pods-PBTutorialManager-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-PBTutorialManager-dummy.m"; sourceTree = "<group>"; };
+		260037E509DBC89FFA30A55B4D71F90B /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
+		33DE90812C9B8EC6A2F1698D8164E5A5 /* PBTutorialManager-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "PBTutorialManager-prefix.pch"; sourceTree = "<group>"; };
+		3D6B646696EFF8840671240A06E623F1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		49C5D452FBF2BB8367286F95748FEAF5 /* JMHoledView-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "JMHoledView-umbrella.h"; sourceTree = "<group>"; };
+		4A33E4F368A7D7290D8E186AA8729DB7 /* JMHoledView-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "JMHoledView-dummy.m"; sourceTree = "<group>"; };
+		4DA9B661343F0EC9AC210C06E4B09176 /* Pods-PBTutorialManager-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-PBTutorialManager-acknowledgements.plist"; sourceTree = "<group>"; };
+		50F9B7E237F60AEC183FFE14B65CB487 /* JMHoledView-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "JMHoledView-prefix.pch"; sourceTree = "<group>"; };
+		5350DD0FC312C52CD085217284E8D9E4 /* JMHoledView.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = JMHoledView.xcconfig; sourceTree = "<group>"; };
+		5957104B18CFD195186ED7D8FFD78F6C /* PBTutorialManager.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; path = PBTutorialManager.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		59F0A5C6250C58731B2510AF9E2402FF /* AFCurvedArrowView.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = AFCurvedArrowView.modulemap; sourceTree = "<group>"; };
+		5B853A3933850259F4CBCBE49C4A97BF /* REIS-Regular.otf */ = {isa = PBXFileReference; includeInIndex = 1; path = "REIS-Regular.otf"; sourceTree = "<group>"; };
+		65F694AE9A76E7A1F55DDD86552BB75B /* Pods-PBTutorialManager.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-PBTutorialManager.modulemap"; sourceTree = "<group>"; };
+		6B7AA5EDF0A2EB6618E2BE81F6D48210 /* Pods-PBTutorialManager.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-PBTutorialManager.debug.xcconfig"; sourceTree = "<group>"; };
+		7616B462C0AD66A1C9C9EDECD259FC87 /* JMHoledView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JMHoledView.h; path = JMHoledView/JMHoledView/JMHoledView.h; sourceTree = "<group>"; };
+		77438A57D7A80A0EA647749A0551A186 /* Pods-PBTutorialManager-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-PBTutorialManager-umbrella.h"; sourceTree = "<group>"; };
+		7E84CC2092EA501A00837A3B8C00BCC0 /* JMHoledView.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = JMHoledView.modulemap; sourceTree = "<group>"; };
+		84ED066F2FAED6AAE3DCB09F81CBB01C /* PBTutorialManager.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = PBTutorialManager.bundle; path = "PBTutorialManager-PBTutorialManager.bundle"; sourceTree = BUILT_PRODUCTS_DIR; };
+		8506FABEE28C482FA3F864E8E9995E2E /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		876D5E176B3245A10AB2317233A83C25 /* PBTutorialManager.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = PBTutorialManager.framework; path = PBTutorialManager.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		90E916E955167CF51B28C11683BE8D34 /* PBTutorialManager-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "PBTutorialManager-dummy.m"; sourceTree = "<group>"; };
+		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		A2BDA8C718287FEB0BC27406BAD1D8A7 /* AFCurvedArrowView-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "AFCurvedArrowView-prefix.pch"; sourceTree = "<group>"; };
+		A8426D7789C281843450D5816E5BC287 /* PBTutorialManager-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "PBTutorialManager-umbrella.h"; sourceTree = "<group>"; };
+		AD55C1D4AD6F55348AC33146EE64DBAF /* AFCurvedArrowView-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "AFCurvedArrowView-umbrella.h"; sourceTree = "<group>"; };
+		B21BD63299C03E0AD4C54BAC2696CBDE /* AFCurvedArrowView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AFCurvedArrowView.h; path = AFCurvedArrowView/Classes/AFCurvedArrowView.h; sourceTree = "<group>"; };
+		B6BA52258DB972B0B235EBEBFFC2423D /* Assets.xcassets */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = PBTutorialManager/PBTutorialManager/Assets.xcassets; sourceTree = "<group>"; };
+		B767775B56F13A93A0C5395F0DA9DBB9 /* JMHoledView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = JMHoledView.framework; path = JMHoledView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		CAD332ADDFE8F36051DE64FA6C615BE9 /* Pods-PBTutorialManager-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-PBTutorialManager-resources.sh"; sourceTree = "<group>"; };
+		D1E650B8AFA0E34C34C2E8CFC579799E /* AFCurvedArrowView-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "AFCurvedArrowView-dummy.m"; sourceTree = "<group>"; };
+		D2A6D9B48B6564B837BFDCB8C7763FB4 /* Pods_PBTutorialManager.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_PBTutorialManager.framework; path = "Pods-PBTutorialManager.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D9F117F218B9FEE265A44F05661B6639 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; path = README.md; sourceTree = "<group>"; };
+		DCA74D5AD8EE3E45E43AE57C5AF28FDC /* Pods-PBTutorialManager-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-PBTutorialManager-frameworks.sh"; sourceTree = "<group>"; };
+		DE169A298C5E5FC7989EF9683B752FDA /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DF19CB20C339049CF0ACBF806B1814EB /* JMHoledView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = JMHoledView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		EB27C72FF38860946F5A6E67188196C8 /* Pods-PBTutorialManager-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-PBTutorialManager-acknowledgements.markdown"; sourceTree = "<group>"; };
+		F0E97D3A3591C8436FFE17A8E27B3A5C /* AFCurvedArrowView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = AFCurvedArrowView.m; path = AFCurvedArrowView/Classes/AFCurvedArrowView.m; sourceTree = "<group>"; };
+		F476826CCCF5FF901CBFB244F251A366 /* JMHoledView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = JMHoledView.m; path = JMHoledView/JMHoledView/JMHoledView.m; sourceTree = "<group>"; };
+		F58B88F67DBC9CCE48A7B2958E8FC652 /* PBTutorialManager.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = PBTutorialManager.xcconfig; sourceTree = "<group>"; };
+		F97852FFB4BFAEAB6F1FE765FE8732A0 /* license */ = {isa = PBXFileReference; includeInIndex = 1; path = license; sourceTree = "<group>"; };
+		FF2A324FE6B9AAE28BA9FF10193DCEA9 /* AFCurvedArrowView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = AFCurvedArrowView.framework; path = AFCurvedArrowView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		099327D19C3E970468865E9E889A6086 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				55A3F5296EA4E4283540B59F93FBA72B /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		36BD720A8AAE2E566D2F73A309E25B68 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				109A17D7F5FE90CD8738DC65F568F62A /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		958943DE5B829FAADA65B880927BC901 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9475EFCB272E185D54F51827C3C3988C /* AFCurvedArrowView.framework in Frameworks */,
+				CF9CB8A79E60BE1CFC7F7B0334848457 /* Foundation.framework in Frameworks */,
+				FC8862005495E2CDC0254AA2D3E071F4 /* JMHoledView.framework in Frameworks */,
+				3361B67D346D8695A65AAB6EB44DA434 /* UIKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A98C79B484D293E5C09AD6298FEB2D80 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8FC09F6F9C7461B39DC940D738058073 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		ECA4C41936483C18778AA0C8C324E954 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		0B85B19A531645A515E113BF1275E991 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				DE169A298C5E5FC7989EF9683B752FDA /* Info.plist */,
+				0A507E092EFA4ED4CA492F29AD53356C /* PBTutorialManager.modulemap */,
+				F58B88F67DBC9CCE48A7B2958E8FC652 /* PBTutorialManager.xcconfig */,
+				90E916E955167CF51B28C11683BE8D34 /* PBTutorialManager-dummy.m */,
+				33DE90812C9B8EC6A2F1698D8164E5A5 /* PBTutorialManager-prefix.pch */,
+				A8426D7789C281843450D5816E5BC287 /* PBTutorialManager-umbrella.h */,
+				1387990FACF8FA5904EDD1E628370485 /* ResourceBundle-PBTutorialManager-Info.plist */,
+			);
+			name = "Support Files";
+			path = "PBTutorialManager/Pods/Target Support Files/PBTutorialManager";
+			sourceTree = "<group>";
+		};
+		0E77E08B2F2884C1F2672ABBAD629868 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				59F0A5C6250C58731B2510AF9E2402FF /* AFCurvedArrowView.modulemap */,
+				0CB6407282440CCA7F5D75A1EF670FB4 /* AFCurvedArrowView.xcconfig */,
+				D1E650B8AFA0E34C34C2E8CFC579799E /* AFCurvedArrowView-dummy.m */,
+				A2BDA8C718287FEB0BC27406BAD1D8A7 /* AFCurvedArrowView-prefix.pch */,
+				AD55C1D4AD6F55348AC33146EE64DBAF /* AFCurvedArrowView-umbrella.h */,
+				8506FABEE28C482FA3F864E8E9995E2E /* Info.plist */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/AFCurvedArrowView";
+			sourceTree = "<group>";
+		};
+		28A7CC0DF4B470948F88202DDB493184 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				FF2A324FE6B9AAE28BA9FF10193DCEA9 /* AFCurvedArrowView.framework */,
+				B767775B56F13A93A0C5395F0DA9DBB9 /* JMHoledView.framework */,
+				84ED066F2FAED6AAE3DCB09F81CBB01C /* PBTutorialManager.bundle */,
+				876D5E176B3245A10AB2317233A83C25 /* PBTutorialManager.framework */,
+				D2A6D9B48B6564B837BFDCB8C7763FB4 /* Pods_PBTutorialManager.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		323BD8CE5DE17D30798793F9E32E2D4D /* Pods-PBTutorialManager */ = {
+			isa = PBXGroup;
+			children = (
+				075190F38D042A4D350379E667AF81A2 /* Info.plist */,
+				65F694AE9A76E7A1F55DDD86552BB75B /* Pods-PBTutorialManager.modulemap */,
+				EB27C72FF38860946F5A6E67188196C8 /* Pods-PBTutorialManager-acknowledgements.markdown */,
+				4DA9B661343F0EC9AC210C06E4B09176 /* Pods-PBTutorialManager-acknowledgements.plist */,
+				1CFCB689AC3C22088482A95E1A53F15E /* Pods-PBTutorialManager-dummy.m */,
+				DCA74D5AD8EE3E45E43AE57C5AF28FDC /* Pods-PBTutorialManager-frameworks.sh */,
+				CAD332ADDFE8F36051DE64FA6C615BE9 /* Pods-PBTutorialManager-resources.sh */,
+				77438A57D7A80A0EA647749A0551A186 /* Pods-PBTutorialManager-umbrella.h */,
+				6B7AA5EDF0A2EB6618E2BE81F6D48210 /* Pods-PBTutorialManager.debug.xcconfig */,
+				09CD43075B0A38DDAD1624295232184B /* Pods-PBTutorialManager.release.xcconfig */,
+			);
+			name = "Pods-PBTutorialManager";
+			path = "Target Support Files/Pods-PBTutorialManager";
+			sourceTree = "<group>";
+		};
+		32ED3A0765705E6D460E5848AE8D25B2 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				B6BA52258DB972B0B235EBEBFFC2423D /* Assets.xcassets */,
+				C36640E5CE56DF6784EC95F34D4BDE4E /* Ressources */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		547B717C4D467F8C88FED9C94B305153 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				EEA0BB5F53362693F4317FB96DED0D78 /* AFCurvedArrowView */,
+				707D5C9B689674C73A403939C4FC2F21 /* JMHoledView */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		707D5C9B689674C73A403939C4FC2F21 /* JMHoledView */ = {
+			isa = PBXGroup;
+			children = (
+				7616B462C0AD66A1C9C9EDECD259FC87 /* JMHoledView.h */,
+				F476826CCCF5FF901CBFB244F251A366 /* JMHoledView.m */,
+				9CC0F211EFEB93CEFC65079688C1F5B9 /* Support Files */,
+			);
+			name = JMHoledView;
+			path = JMHoledView;
+			sourceTree = "<group>";
+		};
+		7DB346D0F39D3F0E887471402A8071AB = {
+			isa = PBXGroup;
+			children = (
+				93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */,
+				DE1D98964245F228E967368F8B3A20E0 /* Development Pods */,
+				A836ACBB9CDA551C05680873584BD9A4 /* Frameworks */,
+				547B717C4D467F8C88FED9C94B305153 /* Pods */,
+				28A7CC0DF4B470948F88202DDB493184 /* Products */,
+				96A13638745152974BDCA4C71137A020 /* Targets Support Files */,
+			);
+			sourceTree = "<group>";
+		};
+		8F128381CE0C0EE1A541DB1949BCBB02 /* PBTutorialManager */ = {
+			isa = PBXGroup;
+			children = (
+				069EB36E6BE6737A964C0D655F5894DD /* Target.swift */,
+				16FDA28F026A60BC9B96F382A18A72BF /* TutorialManager.swift */,
+				DE29CACCFE051CBEB075E2E222C03486 /* Pod */,
+				32ED3A0765705E6D460E5848AE8D25B2 /* Resources */,
+				0B85B19A531645A515E113BF1275E991 /* Support Files */,
+			);
+			name = PBTutorialManager;
+			path = ../..;
+			sourceTree = "<group>";
+		};
+		96A13638745152974BDCA4C71137A020 /* Targets Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				323BD8CE5DE17D30798793F9E32E2D4D /* Pods-PBTutorialManager */,
+			);
+			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+		9CC0F211EFEB93CEFC65079688C1F5B9 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				052F96A82D6FD0E66E1D0D192D31DD83 /* Info.plist */,
+				7E84CC2092EA501A00837A3B8C00BCC0 /* JMHoledView.modulemap */,
+				5350DD0FC312C52CD085217284E8D9E4 /* JMHoledView.xcconfig */,
+				4A33E4F368A7D7290D8E186AA8729DB7 /* JMHoledView-dummy.m */,
+				50F9B7E237F60AEC183FFE14B65CB487 /* JMHoledView-prefix.pch */,
+				49C5D452FBF2BB8367286F95748FEAF5 /* JMHoledView-umbrella.h */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/JMHoledView";
+			sourceTree = "<group>";
+		};
+		A836ACBB9CDA551C05680873584BD9A4 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				0564E59A1A0180CC99D5BA560BEFE2D9 /* AFCurvedArrowView.framework */,
+				DF19CB20C339049CF0ACBF806B1814EB /* JMHoledView.framework */,
+				BAE6D9052D6A9C0D51067DC8FDB44C48 /* iOS */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		BAE6D9052D6A9C0D51067DC8FDB44C48 /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				3D6B646696EFF8840671240A06E623F1 /* Foundation.framework */,
+				260037E509DBC89FFA30A55B4D71F90B /* UIKit.framework */,
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
+		C36640E5CE56DF6784EC95F34D4BDE4E /* Ressources */ = {
+			isa = PBXGroup;
+			children = (
+				5B853A3933850259F4CBCBE49C4A97BF /* REIS-Regular.otf */,
+			);
+			name = Ressources;
+			path = PBTutorialManager/PBTutorialManager/Ressources;
+			sourceTree = "<group>";
+		};
+		DE1D98964245F228E967368F8B3A20E0 /* Development Pods */ = {
+			isa = PBXGroup;
+			children = (
+				8F128381CE0C0EE1A541DB1949BCBB02 /* PBTutorialManager */,
+			);
+			name = "Development Pods";
+			sourceTree = "<group>";
+		};
+		DE29CACCFE051CBEB075E2E222C03486 /* Pod */ = {
+			isa = PBXGroup;
+			children = (
+				F97852FFB4BFAEAB6F1FE765FE8732A0 /* license */,
+				5957104B18CFD195186ED7D8FFD78F6C /* PBTutorialManager.podspec */,
+				D9F117F218B9FEE265A44F05661B6639 /* README.md */,
+			);
+			name = Pod;
+			sourceTree = "<group>";
+		};
+		EEA0BB5F53362693F4317FB96DED0D78 /* AFCurvedArrowView */ = {
+			isa = PBXGroup;
+			children = (
+				B21BD63299C03E0AD4C54BAC2696CBDE /* AFCurvedArrowView.h */,
+				F0E97D3A3591C8436FFE17A8E27B3A5C /* AFCurvedArrowView.m */,
+				0E77E08B2F2884C1F2672ABBAD629868 /* Support Files */,
+			);
+			name = AFCurvedArrowView;
+			path = AFCurvedArrowView;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		60E1F7C3F527D2098B0A63B70DD577AE /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9C5D3399268C037D326734B0C7D203D8 /* AFCurvedArrowView-umbrella.h in Headers */,
+				2B4D8AFA151547F0800E4107D3242EF5 /* AFCurvedArrowView.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6B9189EFC683F79E768B631D2BB04337 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1F4A92EDB4340443EA609BBE4FE74A19 /* Pods-PBTutorialManager-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7C025524939484A3D68B49653F4F5AFB /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8476DD97746572CE9DB9EC047246AD60 /* JMHoledView-umbrella.h in Headers */,
+				59E92D4FD50D5DDC938FA2345CDA574D /* JMHoledView.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A92D27870EB417DEC4497945CB92A973 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				17DEC57C1D153C34F156D8B9491B5188 /* PBTutorialManager-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		363138284F0BFC2E338F20FCB68C7DFD /* PBTutorialManager */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5A41C0460BED712D436EEB76DFD95B25 /* Build configuration list for PBXNativeTarget "PBTutorialManager" */;
+			buildPhases = (
+				D8B8A7EA9803403437B7B16F567007B6 /* Sources */,
+				958943DE5B829FAADA65B880927BC901 /* Frameworks */,
+				A5AE4CB1FF479008FF07226183C63792 /* Resources */,
+				A92D27870EB417DEC4497945CB92A973 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				92503795F492D30315D26FE3F33FE154 /* PBXTargetDependency */,
+				6E14F2D901B6B4B0B431EBD4472B0159 /* PBXTargetDependency */,
+				6D853253803ADAB642AB35ACCDC6C9CB /* PBXTargetDependency */,
+			);
+			name = PBTutorialManager;
+			productName = PBTutorialManager;
+			productReference = 876D5E176B3245A10AB2317233A83C25 /* PBTutorialManager.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		453449A5A32C04E2582AAE5BA0522AD5 /* JMHoledView */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AA417997E7118A1781A8B75C7F98B8AC /* Build configuration list for PBXNativeTarget "JMHoledView" */;
+			buildPhases = (
+				4C5B072115706DABB3AF3953046183DD /* Sources */,
+				36BD720A8AAE2E566D2F73A309E25B68 /* Frameworks */,
+				7C025524939484A3D68B49653F4F5AFB /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = JMHoledView;
+			productName = JMHoledView;
+			productReference = B767775B56F13A93A0C5395F0DA9DBB9 /* JMHoledView.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		9AA517783AA572453ACCA94F331B664B /* AFCurvedArrowView */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 97EA864E81304B36F3B17E614A4330C8 /* Build configuration list for PBXNativeTarget "AFCurvedArrowView" */;
+			buildPhases = (
+				82CF58BE6E41B46377A54F0F6B7115F7 /* Sources */,
+				A98C79B484D293E5C09AD6298FEB2D80 /* Frameworks */,
+				60E1F7C3F527D2098B0A63B70DD577AE /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = AFCurvedArrowView;
+			productName = AFCurvedArrowView;
+			productReference = FF2A324FE6B9AAE28BA9FF10193DCEA9 /* AFCurvedArrowView.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		A9844A64E3EFBEF02590CA785570D527 /* PBTutorialManager-PBTutorialManager */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 48D6328EFA5B382DA3E9FD8F1F8F1437 /* Build configuration list for PBXNativeTarget "PBTutorialManager-PBTutorialManager" */;
+			buildPhases = (
+				DEA533F149E51D955906604F54BC1428 /* Sources */,
+				ECA4C41936483C18778AA0C8C324E954 /* Frameworks */,
+				018221727D0ED63627ABDF8CD6B8FBF7 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "PBTutorialManager-PBTutorialManager";
+			productName = "PBTutorialManager-PBTutorialManager";
+			productReference = 84ED066F2FAED6AAE3DCB09F81CBB01C /* PBTutorialManager.bundle */;
+			productType = "com.apple.product-type.bundle";
+		};
+		B7CE98256F768AC161DFE189A7E76F29 /* Pods-PBTutorialManager */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C5E99E66E63E2FF399FC2CC1734796FB /* Build configuration list for PBXNativeTarget "Pods-PBTutorialManager" */;
+			buildPhases = (
+				24322A6271CC9A8161401E0E9CD4CB53 /* Sources */,
+				099327D19C3E970468865E9E889A6086 /* Frameworks */,
+				6B9189EFC683F79E768B631D2BB04337 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				9E847274C53B083A7EB4A4CCAFFB4B74 /* PBXTargetDependency */,
+				8183E4D13182D864EAD1444C3139F99B /* PBXTargetDependency */,
+				E2B5D59DE4A1C8DF5AA80489BCB71BA8 /* PBXTargetDependency */,
+			);
+			name = "Pods-PBTutorialManager";
+			productName = "Pods-PBTutorialManager";
+			productReference = D2A6D9B48B6564B837BFDCB8C7763FB4 /* Pods_PBTutorialManager.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D41D8CD98F00B204E9800998ECF8427E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0930;
+				LastUpgradeCheck = 0930;
+			};
+			buildConfigurationList = 2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 7DB346D0F39D3F0E887471402A8071AB;
+			productRefGroup = 28A7CC0DF4B470948F88202DDB493184 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				9AA517783AA572453ACCA94F331B664B /* AFCurvedArrowView */,
+				453449A5A32C04E2582AAE5BA0522AD5 /* JMHoledView */,
+				363138284F0BFC2E338F20FCB68C7DFD /* PBTutorialManager */,
+				A9844A64E3EFBEF02590CA785570D527 /* PBTutorialManager-PBTutorialManager */,
+				B7CE98256F768AC161DFE189A7E76F29 /* Pods-PBTutorialManager */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		018221727D0ED63627ABDF8CD6B8FBF7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4F59D1DBFD983BF95FD3F5D8ED933D7C /* Assets.xcassets in Resources */,
+				63566665D0878526CEF14BD1146B45BB /* REIS-Regular.otf in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A5AE4CB1FF479008FF07226183C63792 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5FD7E9974243F3AF1CF7038834715B08 /* PBTutorialManager.bundle in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		24322A6271CC9A8161401E0E9CD4CB53 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				868B1FD12B6CF078D4531AB13333325A /* Pods-PBTutorialManager-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4C5B072115706DABB3AF3953046183DD /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CF61C74D6362153ABED2BA94649C3850 /* JMHoledView-dummy.m in Sources */,
+				5E9124882A4CFA5BB810EECF090D9DDE /* JMHoledView.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		82CF58BE6E41B46377A54F0F6B7115F7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				87AD522553548417BA0CA2FAD4326351 /* AFCurvedArrowView-dummy.m in Sources */,
+				DC966EE2EA3DE4518E150F4050F8C071 /* AFCurvedArrowView.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D8B8A7EA9803403437B7B16F567007B6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5481E3E2CBD8E0C0549E3CE7F0A0231E /* PBTutorialManager-dummy.m in Sources */,
+				F918CDD707FAF4E6BDDFC5D326053557 /* Target.swift in Sources */,
+				8A5632486C45219BD33BD0F26842B560 /* TutorialManager.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DEA533F149E51D955906604F54BC1428 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		6D853253803ADAB642AB35ACCDC6C9CB /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "PBTutorialManager-PBTutorialManager";
+			target = A9844A64E3EFBEF02590CA785570D527 /* PBTutorialManager-PBTutorialManager */;
+			targetProxy = 1B1606B1010EECCD7C2FBC3CE06FBAC7 /* PBXContainerItemProxy */;
+		};
+		6E14F2D901B6B4B0B431EBD4472B0159 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = JMHoledView;
+			target = 453449A5A32C04E2582AAE5BA0522AD5 /* JMHoledView */;
+			targetProxy = 04FB71DAAFD7D6BEA9215C77DDEF78CE /* PBXContainerItemProxy */;
+		};
+		8183E4D13182D864EAD1444C3139F99B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = JMHoledView;
+			target = 453449A5A32C04E2582AAE5BA0522AD5 /* JMHoledView */;
+			targetProxy = 914F56EBCD10FB84DBD2F9FF970D09C5 /* PBXContainerItemProxy */;
+		};
+		92503795F492D30315D26FE3F33FE154 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = AFCurvedArrowView;
+			target = 9AA517783AA572453ACCA94F331B664B /* AFCurvedArrowView */;
+			targetProxy = D6D552134C9282D4A4EDAE4C8EAB91A4 /* PBXContainerItemProxy */;
+		};
+		9E847274C53B083A7EB4A4CCAFFB4B74 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = AFCurvedArrowView;
+			target = 9AA517783AA572453ACCA94F331B664B /* AFCurvedArrowView */;
+			targetProxy = 738F35DF6BE40E1C4AEEE7304D9A3DFA /* PBXContainerItemProxy */;
+		};
+		E2B5D59DE4A1C8DF5AA80489BCB71BA8 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = PBTutorialManager;
+			target = 363138284F0BFC2E338F20FCB68C7DFD /* PBTutorialManager */;
+			targetProxy = E7F9DAA8946B6EA7796FC4000E12A734 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		1EE19F5DD95931924296F637BF18BD8F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGNING_ALLOWED = NO;
+				CODE_SIGNING_REQUIRED = NO;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_DEBUG=1",
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRIP_INSTALLED_PRODUCT = NO;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Debug;
+		};
+		2EFD0E5FC2DFF3F5EE86488828536F2C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6B7AA5EDF0A2EB6618E2BE81F6D48210 /* Pods-PBTutorialManager.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-PBTutorialManager/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-PBTutorialManager/Pods-PBTutorialManager.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		359A6927FCD0B07682E93EB084F3B306 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0CB6407282440CCA7F5D75A1EF670FB4 /* AFCurvedArrowView.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/AFCurvedArrowView/AFCurvedArrowView-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/AFCurvedArrowView/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/AFCurvedArrowView/AFCurvedArrowView.modulemap";
+				PRODUCT_MODULE_NAME = AFCurvedArrowView;
+				PRODUCT_NAME = AFCurvedArrowView;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		4816560EF867DA457383DA7034870866 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F58B88F67DBC9CCE48A7B2958E8FC652 /* PBTutorialManager.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/PBTutorialManager/PBTutorialManager-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/PBTutorialManager/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/PBTutorialManager/PBTutorialManager.modulemap";
+				PRODUCT_MODULE_NAME = PBTutorialManager;
+				PRODUCT_NAME = PBTutorialManager;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		64E6A50682E15E258A63AC95B3F52790 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F58B88F67DBC9CCE48A7B2958E8FC652 /* PBTutorialManager.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/PBTutorialManager";
+				INFOPLIST_FILE = "Target Support Files/PBTutorialManager/ResourceBundle-PBTutorialManager-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				PRODUCT_NAME = PBTutorialManager;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				WRAPPER_EXTENSION = bundle;
+			};
+			name = Release;
+		};
+		773C3E9541BCB3EF5EF3C18F38E63122 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 09CD43075B0A38DDAD1624295232184B /* Pods-PBTutorialManager.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-PBTutorialManager/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-PBTutorialManager/Pods-PBTutorialManager.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		A8504D26D6FCD508F5E003A3A180DEC3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F58B88F67DBC9CCE48A7B2958E8FC652 /* PBTutorialManager.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/PBTutorialManager";
+				INFOPLIST_FILE = "Target Support Files/PBTutorialManager/ResourceBundle-PBTutorialManager-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				PRODUCT_NAME = PBTutorialManager;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				WRAPPER_EXTENSION = bundle;
+			};
+			name = Debug;
+		};
+		C93EC4F28F2147FC00C19C23450E3356 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5350DD0FC312C52CD085217284E8D9E4 /* JMHoledView.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/JMHoledView/JMHoledView-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/JMHoledView/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/JMHoledView/JMHoledView.modulemap";
+				PRODUCT_MODULE_NAME = JMHoledView;
+				PRODUCT_NAME = JMHoledView;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		E84E79F2B3A0479F59ABBBA31C21103D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F58B88F67DBC9CCE48A7B2958E8FC652 /* PBTutorialManager.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/PBTutorialManager/PBTutorialManager-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/PBTutorialManager/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/PBTutorialManager/PBTutorialManager.modulemap";
+				PRODUCT_MODULE_NAME = PBTutorialManager;
+				PRODUCT_NAME = PBTutorialManager;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		E8640035006C74F79D7AFD276B1259A6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0CB6407282440CCA7F5D75A1EF670FB4 /* AFCurvedArrowView.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/AFCurvedArrowView/AFCurvedArrowView-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/AFCurvedArrowView/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/AFCurvedArrowView/AFCurvedArrowView.modulemap";
+				PRODUCT_MODULE_NAME = AFCurvedArrowView;
+				PRODUCT_NAME = AFCurvedArrowView;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		F4568DEE257655D290C2B9CEAB37C934 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGNING_ALLOWED = NO;
+				CODE_SIGNING_REQUIRED = NO;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_RELEASE=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRIP_INSTALLED_PRODUCT = NO;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Release;
+		};
+		F4B14935157BD77F2C4517761FCF99A4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5350DD0FC312C52CD085217284E8D9E4 /* JMHoledView.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/JMHoledView/JMHoledView-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/JMHoledView/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/JMHoledView/JMHoledView.modulemap";
+				PRODUCT_MODULE_NAME = JMHoledView;
+				PRODUCT_NAME = JMHoledView;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1EE19F5DD95931924296F637BF18BD8F /* Debug */,
+				F4568DEE257655D290C2B9CEAB37C934 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		48D6328EFA5B382DA3E9FD8F1F8F1437 /* Build configuration list for PBXNativeTarget "PBTutorialManager-PBTutorialManager" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A8504D26D6FCD508F5E003A3A180DEC3 /* Debug */,
+				64E6A50682E15E258A63AC95B3F52790 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5A41C0460BED712D436EEB76DFD95B25 /* Build configuration list for PBXNativeTarget "PBTutorialManager" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E84E79F2B3A0479F59ABBBA31C21103D /* Debug */,
+				4816560EF867DA457383DA7034870866 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		97EA864E81304B36F3B17E614A4330C8 /* Build configuration list for PBXNativeTarget "AFCurvedArrowView" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				359A6927FCD0B07682E93EB084F3B306 /* Debug */,
+				E8640035006C74F79D7AFD276B1259A6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		AA417997E7118A1781A8B75C7F98B8AC /* Build configuration list for PBXNativeTarget "JMHoledView" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C93EC4F28F2147FC00C19C23450E3356 /* Debug */,
+				F4B14935157BD77F2C4517761FCF99A4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C5E99E66E63E2FF399FC2CC1734796FB /* Build configuration list for PBXNativeTarget "Pods-PBTutorialManager" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2EFD0E5FC2DFF3F5EE86488828536F2C /* Debug */,
+				773C3E9541BCB3EF5EF3C18F38E63122 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+}

@@ -2,9 +2,9 @@ PBTutorialManager.mov
 ezgif.com-video-to-gif.gif
 descritption.ai
 Todo.txt
-PBTutorialManager/Pods/*
-PBTutorialManager/PBTutorialManager.xcworkspace
-PBTutorialManager/Podfile.lock
+PBTutorialManager/Pods/Pods.xcodeproj/xcuserdata
 .DS_Store
 PBTutorialManager/PBTutorialManager.xcodeproj/project.xcworkspace/xcuserdata
 PBTutorialManager/PBTutorialManager.xcodeproj/xcuserdata
+PBTutorialManager/PBTutorialManager.xcworkspace/xcuserdata
+

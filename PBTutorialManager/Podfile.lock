@@ -1,0 +1,27 @@
+PODS:
+  - AFCurvedArrowView (1.0.1)
+  - JMHoledView (0.2.1)
+  - PBTutorialManager (1.0.4):
+    - AFCurvedArrowView
+    - JMHoledView
+
+DEPENDENCIES:
+  - PBTutorialManager (from `../`)
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - AFCurvedArrowView
+    - JMHoledView
+
+EXTERNAL SOURCES:
+  PBTutorialManager:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  AFCurvedArrowView: 5fa8fcc1f77f5428ab34d7a1c6696b88c3c20f40
+  JMHoledView: fe5b140dd053a58ce551f3c7cbd674602d9aca23
+  PBTutorialManager: b52f09f6db355e58fcaae9396e363270249b5097
+
+PODFILE CHECKSUM: b235a85772d77a3c045880d91c397fee20f438a7
+
+COCOAPODS: 1.5.3
