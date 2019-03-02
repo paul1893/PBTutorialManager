@@ -16,8 +16,8 @@ Pod::Spec.new do |s|
 
   s.source       = { :git => "https://github.com/paul1893/PBTutorialManager.git", :tag => s.version }
   s.source_files  = "PBTutorialManager/PBTutorialManager/lib/**/*.swift"
-  s.exclude_files = "PBTutorialManager/PBTutorialManager/Example/**/*", "PBTutorialManager/PBTutorialManager/AppDelegate.swift", "PBTutorialManager/PBTutorialManager/Base.lproj/**/*"
-  s.resource_bundles = { 'PBTutorialManager' => ['PBTutorialManager/PBTutorialManager/Ressources/*.otf', 'PBTutorialManager/PBTutorialManager/Assets.xcassets'] }
+  s.exclude_files = "PBTutorialManager/PBTutorialManager/Assets.xcassets/**/*", "PBTutorialManager/PBTutorialManager/Example/**/*", "PBTutorialManager/PBTutorialManager/AppDelegate.swift", "PBTutorialManager/PBTutorialManager/Base.lproj/**/*"
+  s.resource_bundles = { 'PBTutorialManager' => ['PBTutorialManager/PBTutorialManager/Ressources/*.otf'] }
 
   s.frameworks  = "UIKit", "Foundation"
   s.dependency 'JMHoledView'

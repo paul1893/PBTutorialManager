@@ -8,28 +8,27 @@
 
 /* Begin PBXBuildFile section */
 		109A17D7F5FE90CD8738DC65F568F62A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D6B646696EFF8840671240A06E623F1 /* Foundation.framework */; };
-		17DEC57C1D153C34F156D8B9491B5188 /* PBTutorialManager-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = A8426D7789C281843450D5816E5BC287 /* PBTutorialManager-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		17DEC57C1D153C34F156D8B9491B5188 /* PBTutorialManager-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 82C7796C08935C692D75D779AE97D8D2 /* PBTutorialManager-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1F4A92EDB4340443EA609BBE4FE74A19 /* Pods-PBTutorialManager-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 77438A57D7A80A0EA647749A0551A186 /* Pods-PBTutorialManager-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		2B4D8AFA151547F0800E4107D3242EF5 /* AFCurvedArrowView.h in Headers */ = {isa = PBXBuildFile; fileRef = B21BD63299C03E0AD4C54BAC2696CBDE /* AFCurvedArrowView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3361B67D346D8695A65AAB6EB44DA434 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 260037E509DBC89FFA30A55B4D71F90B /* UIKit.framework */; };
-		4F59D1DBFD983BF95FD3F5D8ED933D7C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B6BA52258DB972B0B235EBEBFFC2423D /* Assets.xcassets */; };
-		5481E3E2CBD8E0C0549E3CE7F0A0231E /* PBTutorialManager-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 90E916E955167CF51B28C11683BE8D34 /* PBTutorialManager-dummy.m */; };
+		5481E3E2CBD8E0C0549E3CE7F0A0231E /* PBTutorialManager-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = D9448F0ECE8325D6DD21B7CAD3DCC2CB /* PBTutorialManager-dummy.m */; };
 		55A3F5296EA4E4283540B59F93FBA72B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D6B646696EFF8840671240A06E623F1 /* Foundation.framework */; };
 		59E92D4FD50D5DDC938FA2345CDA574D /* JMHoledView.h in Headers */ = {isa = PBXBuildFile; fileRef = 7616B462C0AD66A1C9C9EDECD259FC87 /* JMHoledView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5E9124882A4CFA5BB810EECF090D9DDE /* JMHoledView.m in Sources */ = {isa = PBXBuildFile; fileRef = F476826CCCF5FF901CBFB244F251A366 /* JMHoledView.m */; };
 		5FD7E9974243F3AF1CF7038834715B08 /* PBTutorialManager.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 84ED066F2FAED6AAE3DCB09F81CBB01C /* PBTutorialManager.bundle */; };
-		63566665D0878526CEF14BD1146B45BB /* REIS-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 5B853A3933850259F4CBCBE49C4A97BF /* REIS-Regular.otf */; };
+		5FE46DA03E17708C3245E62510336F97 /* REIS-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 656CCD370BCAD80EE62A2FB6E9DE1E9D /* REIS-Regular.otf */; };
 		8476DD97746572CE9DB9EC047246AD60 /* JMHoledView-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 49C5D452FBF2BB8367286F95748FEAF5 /* JMHoledView-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		868B1FD12B6CF078D4531AB13333325A /* Pods-PBTutorialManager-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CFCB689AC3C22088482A95E1A53F15E /* Pods-PBTutorialManager-dummy.m */; };
 		87AD522553548417BA0CA2FAD4326351 /* AFCurvedArrowView-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = D1E650B8AFA0E34C34C2E8CFC579799E /* AFCurvedArrowView-dummy.m */; };
-		8A5632486C45219BD33BD0F26842B560 /* TutorialManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16FDA28F026A60BC9B96F382A18A72BF /* TutorialManager.swift */; };
+		8A5632486C45219BD33BD0F26842B560 /* TutorialManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87AE8168BF79697081D2A060DF74641D /* TutorialManager.swift */; };
 		8FC09F6F9C7461B39DC940D738058073 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D6B646696EFF8840671240A06E623F1 /* Foundation.framework */; };
 		9475EFCB272E185D54F51827C3C3988C /* AFCurvedArrowView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0564E59A1A0180CC99D5BA560BEFE2D9 /* AFCurvedArrowView.framework */; };
 		9C5D3399268C037D326734B0C7D203D8 /* AFCurvedArrowView-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = AD55C1D4AD6F55348AC33146EE64DBAF /* AFCurvedArrowView-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		CF61C74D6362153ABED2BA94649C3850 /* JMHoledView-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A33E4F368A7D7290D8E186AA8729DB7 /* JMHoledView-dummy.m */; };
 		CF9CB8A79E60BE1CFC7F7B0334848457 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D6B646696EFF8840671240A06E623F1 /* Foundation.framework */; };
 		DC966EE2EA3DE4518E150F4050F8C071 /* AFCurvedArrowView.m in Sources */ = {isa = PBXBuildFile; fileRef = F0E97D3A3591C8436FFE17A8E27B3A5C /* AFCurvedArrowView.m */; };
-		F918CDD707FAF4E6BDDFC5D326053557 /* Target.swift in Sources */ = {isa = PBXBuildFile; fileRef = 069EB36E6BE6737A964C0D655F5894DD /* Target.swift */; };
+		F918CDD707FAF4E6BDDFC5D326053557 /* Target.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88253B4B4D9616B91FE43BE1496162D1 /* Target.swift */; };
 		FC8862005495E2CDC0254AA2D3E071F4 /* JMHoledView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DF19CB20C339049CF0ACBF806B1814EB /* JMHoledView.framework */; };
 /* End PBXBuildFile section */
 
@@ -79,55 +78,54 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0459165F3A0779AD2142513114C85632 /* ResourceBundle-PBTutorialManager-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "ResourceBundle-PBTutorialManager-Info.plist"; sourceTree = "<group>"; };
 		052F96A82D6FD0E66E1D0D192D31DD83 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0564E59A1A0180CC99D5BA560BEFE2D9 /* AFCurvedArrowView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AFCurvedArrowView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		069EB36E6BE6737A964C0D655F5894DD /* Target.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Target.swift; path = PBTutorialManager/PBTutorialManager/lib/Target.swift; sourceTree = "<group>"; };
 		075190F38D042A4D350379E667AF81A2 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		09CD43075B0A38DDAD1624295232184B /* Pods-PBTutorialManager.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-PBTutorialManager.release.xcconfig"; sourceTree = "<group>"; };
-		0A507E092EFA4ED4CA492F29AD53356C /* PBTutorialManager.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = PBTutorialManager.modulemap; sourceTree = "<group>"; };
 		0CB6407282440CCA7F5D75A1EF670FB4 /* AFCurvedArrowView.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = AFCurvedArrowView.xcconfig; sourceTree = "<group>"; };
-		1387990FACF8FA5904EDD1E628370485 /* ResourceBundle-PBTutorialManager-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "ResourceBundle-PBTutorialManager-Info.plist"; sourceTree = "<group>"; };
-		16FDA28F026A60BC9B96F382A18A72BF /* TutorialManager.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TutorialManager.swift; path = PBTutorialManager/PBTutorialManager/lib/TutorialManager.swift; sourceTree = "<group>"; };
 		1CFCB689AC3C22088482A95E1A53F15E /* Pods-PBTutorialManager-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-PBTutorialManager-dummy.m"; sourceTree = "<group>"; };
+		1EFD3342299A3FE3B37EEEF33BCA000E /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; path = README.md; sourceTree = "<group>"; };
+		201AE14C6B337A433328568340278F01 /* PBTutorialManager.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = PBTutorialManager.modulemap; sourceTree = "<group>"; };
 		260037E509DBC89FFA30A55B4D71F90B /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
-		33DE90812C9B8EC6A2F1698D8164E5A5 /* PBTutorialManager-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "PBTutorialManager-prefix.pch"; sourceTree = "<group>"; };
 		3D6B646696EFF8840671240A06E623F1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		3ED149983EB6EBE6EAFBBBB74849F211 /* PBTutorialManager.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; path = PBTutorialManager.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		49C5D452FBF2BB8367286F95748FEAF5 /* JMHoledView-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "JMHoledView-umbrella.h"; sourceTree = "<group>"; };
 		4A33E4F368A7D7290D8E186AA8729DB7 /* JMHoledView-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "JMHoledView-dummy.m"; sourceTree = "<group>"; };
 		4DA9B661343F0EC9AC210C06E4B09176 /* Pods-PBTutorialManager-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-PBTutorialManager-acknowledgements.plist"; sourceTree = "<group>"; };
 		50F9B7E237F60AEC183FFE14B65CB487 /* JMHoledView-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "JMHoledView-prefix.pch"; sourceTree = "<group>"; };
 		5350DD0FC312C52CD085217284E8D9E4 /* JMHoledView.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = JMHoledView.xcconfig; sourceTree = "<group>"; };
-		5957104B18CFD195186ED7D8FFD78F6C /* PBTutorialManager.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; path = PBTutorialManager.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		59F0A5C6250C58731B2510AF9E2402FF /* AFCurvedArrowView.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = AFCurvedArrowView.modulemap; sourceTree = "<group>"; };
-		5B853A3933850259F4CBCBE49C4A97BF /* REIS-Regular.otf */ = {isa = PBXFileReference; includeInIndex = 1; path = "REIS-Regular.otf"; sourceTree = "<group>"; };
+		656CCD370BCAD80EE62A2FB6E9DE1E9D /* REIS-Regular.otf */ = {isa = PBXFileReference; includeInIndex = 1; name = "REIS-Regular.otf"; path = "PBTutorialManager/PBTutorialManager/Ressources/REIS-Regular.otf"; sourceTree = "<group>"; };
 		65F694AE9A76E7A1F55DDD86552BB75B /* Pods-PBTutorialManager.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-PBTutorialManager.modulemap"; sourceTree = "<group>"; };
 		6B7AA5EDF0A2EB6618E2BE81F6D48210 /* Pods-PBTutorialManager.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-PBTutorialManager.debug.xcconfig"; sourceTree = "<group>"; };
 		7616B462C0AD66A1C9C9EDECD259FC87 /* JMHoledView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JMHoledView.h; path = JMHoledView/JMHoledView/JMHoledView.h; sourceTree = "<group>"; };
 		77438A57D7A80A0EA647749A0551A186 /* Pods-PBTutorialManager-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-PBTutorialManager-umbrella.h"; sourceTree = "<group>"; };
 		7E84CC2092EA501A00837A3B8C00BCC0 /* JMHoledView.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = JMHoledView.modulemap; sourceTree = "<group>"; };
+		82C7796C08935C692D75D779AE97D8D2 /* PBTutorialManager-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "PBTutorialManager-umbrella.h"; sourceTree = "<group>"; };
 		84ED066F2FAED6AAE3DCB09F81CBB01C /* PBTutorialManager.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = PBTutorialManager.bundle; path = "PBTutorialManager-PBTutorialManager.bundle"; sourceTree = BUILT_PRODUCTS_DIR; };
+		84FD5E096304F038E82F637BC6400E50 /* license */ = {isa = PBXFileReference; includeInIndex = 1; path = license; sourceTree = "<group>"; };
 		8506FABEE28C482FA3F864E8E9995E2E /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		876D5E176B3245A10AB2317233A83C25 /* PBTutorialManager.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = PBTutorialManager.framework; path = PBTutorialManager.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		90E916E955167CF51B28C11683BE8D34 /* PBTutorialManager-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "PBTutorialManager-dummy.m"; sourceTree = "<group>"; };
+		87AE8168BF79697081D2A060DF74641D /* TutorialManager.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TutorialManager.swift; path = PBTutorialManager/PBTutorialManager/lib/TutorialManager.swift; sourceTree = "<group>"; };
+		88253B4B4D9616B91FE43BE1496162D1 /* Target.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Target.swift; path = PBTutorialManager/PBTutorialManager/lib/Target.swift; sourceTree = "<group>"; };
 		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		A2BDA8C718287FEB0BC27406BAD1D8A7 /* AFCurvedArrowView-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "AFCurvedArrowView-prefix.pch"; sourceTree = "<group>"; };
-		A8426D7789C281843450D5816E5BC287 /* PBTutorialManager-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "PBTutorialManager-umbrella.h"; sourceTree = "<group>"; };
+		AB0874E05823209247D15FAC5CCE3116 /* PBTutorialManager.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = PBTutorialManager.xcconfig; sourceTree = "<group>"; };
 		AD55C1D4AD6F55348AC33146EE64DBAF /* AFCurvedArrowView-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "AFCurvedArrowView-umbrella.h"; sourceTree = "<group>"; };
 		B21BD63299C03E0AD4C54BAC2696CBDE /* AFCurvedArrowView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AFCurvedArrowView.h; path = AFCurvedArrowView/Classes/AFCurvedArrowView.h; sourceTree = "<group>"; };
-		B6BA52258DB972B0B235EBEBFFC2423D /* Assets.xcassets */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = PBTutorialManager/PBTutorialManager/Assets.xcassets; sourceTree = "<group>"; };
+		B5B87A2C2365CFE22BA4DF8F87B0608A /* PBTutorialManager-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "PBTutorialManager-prefix.pch"; sourceTree = "<group>"; };
 		B767775B56F13A93A0C5395F0DA9DBB9 /* JMHoledView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = JMHoledView.framework; path = JMHoledView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CAD332ADDFE8F36051DE64FA6C615BE9 /* Pods-PBTutorialManager-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-PBTutorialManager-resources.sh"; sourceTree = "<group>"; };
 		D1E650B8AFA0E34C34C2E8CFC579799E /* AFCurvedArrowView-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "AFCurvedArrowView-dummy.m"; sourceTree = "<group>"; };
 		D2A6D9B48B6564B837BFDCB8C7763FB4 /* Pods_PBTutorialManager.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_PBTutorialManager.framework; path = "Pods-PBTutorialManager.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
-		D9F117F218B9FEE265A44F05661B6639 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; path = README.md; sourceTree = "<group>"; };
+		D9448F0ECE8325D6DD21B7CAD3DCC2CB /* PBTutorialManager-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "PBTutorialManager-dummy.m"; sourceTree = "<group>"; };
 		DCA74D5AD8EE3E45E43AE57C5AF28FDC /* Pods-PBTutorialManager-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-PBTutorialManager-frameworks.sh"; sourceTree = "<group>"; };
-		DE169A298C5E5FC7989EF9683B752FDA /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DF19CB20C339049CF0ACBF806B1814EB /* JMHoledView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = JMHoledView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E8B7879931E2E61E1CB65D88323F1462 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EB27C72FF38860946F5A6E67188196C8 /* Pods-PBTutorialManager-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-PBTutorialManager-acknowledgements.markdown"; sourceTree = "<group>"; };
 		F0E97D3A3591C8436FFE17A8E27B3A5C /* AFCurvedArrowView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = AFCurvedArrowView.m; path = AFCurvedArrowView/Classes/AFCurvedArrowView.m; sourceTree = "<group>"; };
 		F476826CCCF5FF901CBFB244F251A366 /* JMHoledView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = JMHoledView.m; path = JMHoledView/JMHoledView/JMHoledView.m; sourceTree = "<group>"; };
-		F58B88F67DBC9CCE48A7B2958E8FC652 /* PBTutorialManager.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = PBTutorialManager.xcconfig; sourceTree = "<group>"; };
-		F97852FFB4BFAEAB6F1FE765FE8732A0 /* license */ = {isa = PBXFileReference; includeInIndex = 1; path = license; sourceTree = "<group>"; };
 		FF2A324FE6B9AAE28BA9FF10193DCEA9 /* AFCurvedArrowView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = AFCurvedArrowView.framework; path = AFCurvedArrowView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -177,19 +175,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		0B85B19A531645A515E113BF1275E991 /* Support Files */ = {
+		00C4730298854FFA45F9259B4508C4B3 /* Pod */ = {
 			isa = PBXGroup;
 			children = (
-				DE169A298C5E5FC7989EF9683B752FDA /* Info.plist */,
-				0A507E092EFA4ED4CA492F29AD53356C /* PBTutorialManager.modulemap */,
-				F58B88F67DBC9CCE48A7B2958E8FC652 /* PBTutorialManager.xcconfig */,
-				90E916E955167CF51B28C11683BE8D34 /* PBTutorialManager-dummy.m */,
-				33DE90812C9B8EC6A2F1698D8164E5A5 /* PBTutorialManager-prefix.pch */,
-				A8426D7789C281843450D5816E5BC287 /* PBTutorialManager-umbrella.h */,
-				1387990FACF8FA5904EDD1E628370485 /* ResourceBundle-PBTutorialManager-Info.plist */,
+				84FD5E096304F038E82F637BC6400E50 /* license */,
+				3ED149983EB6EBE6EAFBBBB74849F211 /* PBTutorialManager.podspec */,
+				1EFD3342299A3FE3B37EEEF33BCA000E /* README.md */,
 			);
-			name = "Support Files";
-			path = "PBTutorialManager/Pods/Target Support Files/PBTutorialManager";
+			name = Pod;
 			sourceTree = "<group>";
 		};
 		0E77E08B2F2884C1F2672ABBAD629868 /* Support Files */ = {
@@ -204,6 +197,21 @@
 			);
 			name = "Support Files";
 			path = "../Target Support Files/AFCurvedArrowView";
+			sourceTree = "<group>";
+		};
+		18D7D135DF366FAEDB5C0DC29CD6D86A /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				E8B7879931E2E61E1CB65D88323F1462 /* Info.plist */,
+				201AE14C6B337A433328568340278F01 /* PBTutorialManager.modulemap */,
+				AB0874E05823209247D15FAC5CCE3116 /* PBTutorialManager.xcconfig */,
+				D9448F0ECE8325D6DD21B7CAD3DCC2CB /* PBTutorialManager-dummy.m */,
+				B5B87A2C2365CFE22BA4DF8F87B0608A /* PBTutorialManager-prefix.pch */,
+				82C7796C08935C692D75D779AE97D8D2 /* PBTutorialManager-umbrella.h */,
+				0459165F3A0779AD2142513114C85632 /* ResourceBundle-PBTutorialManager-Info.plist */,
+			);
+			name = "Support Files";
+			path = "PBTutorialManager/Pods/Target Support Files/PBTutorialManager";
 			sourceTree = "<group>";
 		};
 		28A7CC0DF4B470948F88202DDB493184 /* Products */ = {
@@ -236,15 +244,6 @@
 			path = "Target Support Files/Pods-PBTutorialManager";
 			sourceTree = "<group>";
 		};
-		32ED3A0765705E6D460E5848AE8D25B2 /* Resources */ = {
-			isa = PBXGroup;
-			children = (
-				B6BA52258DB972B0B235EBEBFFC2423D /* Assets.xcassets */,
-				C36640E5CE56DF6784EC95F34D4BDE4E /* Ressources */,
-			);
-			name = Resources;
-			sourceTree = "<group>";
-		};
 		547B717C4D467F8C88FED9C94B305153 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -252,6 +251,14 @@
 				707D5C9B689674C73A403939C4FC2F21 /* JMHoledView */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		58B395EE71D503AE0E7348E15675EA24 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				656CCD370BCAD80EE62A2FB6E9DE1E9D /* REIS-Regular.otf */,
+			);
+			name = Resources;
 			sourceTree = "<group>";
 		};
 		707D5C9B689674C73A403939C4FC2F21 /* JMHoledView */ = {
@@ -275,19 +282,6 @@
 				28A7CC0DF4B470948F88202DDB493184 /* Products */,
 				96A13638745152974BDCA4C71137A020 /* Targets Support Files */,
 			);
-			sourceTree = "<group>";
-		};
-		8F128381CE0C0EE1A541DB1949BCBB02 /* PBTutorialManager */ = {
-			isa = PBXGroup;
-			children = (
-				069EB36E6BE6737A964C0D655F5894DD /* Target.swift */,
-				16FDA28F026A60BC9B96F382A18A72BF /* TutorialManager.swift */,
-				DE29CACCFE051CBEB075E2E222C03486 /* Pod */,
-				32ED3A0765705E6D460E5848AE8D25B2 /* Resources */,
-				0B85B19A531645A515E113BF1275E991 /* Support Files */,
-			);
-			name = PBTutorialManager;
-			path = ../..;
 			sourceTree = "<group>";
 		};
 		96A13638745152974BDCA4C71137A020 /* Targets Support Files */ = {
@@ -331,31 +325,25 @@
 			name = iOS;
 			sourceTree = "<group>";
 		};
-		C36640E5CE56DF6784EC95F34D4BDE4E /* Ressources */ = {
+		C6021B5BCE56B9BCA425928E08221F39 /* PBTutorialManager */ = {
 			isa = PBXGroup;
 			children = (
-				5B853A3933850259F4CBCBE49C4A97BF /* REIS-Regular.otf */,
+				88253B4B4D9616B91FE43BE1496162D1 /* Target.swift */,
+				87AE8168BF79697081D2A060DF74641D /* TutorialManager.swift */,
+				00C4730298854FFA45F9259B4508C4B3 /* Pod */,
+				58B395EE71D503AE0E7348E15675EA24 /* Resources */,
+				18D7D135DF366FAEDB5C0DC29CD6D86A /* Support Files */,
 			);
-			name = Ressources;
-			path = PBTutorialManager/PBTutorialManager/Ressources;
+			name = PBTutorialManager;
+			path = ../..;
 			sourceTree = "<group>";
 		};
 		DE1D98964245F228E967368F8B3A20E0 /* Development Pods */ = {
 			isa = PBXGroup;
 			children = (
-				8F128381CE0C0EE1A541DB1949BCBB02 /* PBTutorialManager */,
+				C6021B5BCE56B9BCA425928E08221F39 /* PBTutorialManager */,
 			);
 			name = "Development Pods";
-			sourceTree = "<group>";
-		};
-		DE29CACCFE051CBEB075E2E222C03486 /* Pod */ = {
-			isa = PBXGroup;
-			children = (
-				F97852FFB4BFAEAB6F1FE765FE8732A0 /* license */,
-				5957104B18CFD195186ED7D8FFD78F6C /* PBTutorialManager.podspec */,
-				D9F117F218B9FEE265A44F05661B6639 /* README.md */,
-			);
-			name = Pod;
 			sourceTree = "<group>";
 		};
 		EEA0BB5F53362693F4317FB96DED0D78 /* AFCurvedArrowView */ = {
@@ -470,7 +458,7 @@
 			buildPhases = (
 				DEA533F149E51D955906604F54BC1428 /* Sources */,
 				ECA4C41936483C18778AA0C8C324E954 /* Frameworks */,
-				018221727D0ED63627ABDF8CD6B8FBF7 /* Resources */,
+				90BD885A2CE903B3516FC02FB3D08B27 /* Resources */,
 			);
 			buildRules = (
 			);
@@ -532,12 +520,11 @@
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		018221727D0ED63627ABDF8CD6B8FBF7 /* Resources */ = {
+		90BD885A2CE903B3516FC02FB3D08B27 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4F59D1DBFD983BF95FD3F5D8ED933D7C /* Assets.xcassets in Resources */,
-				63566665D0878526CEF14BD1146B45BB /* REIS-Regular.otf in Resources */,
+				5FE46DA03E17708C3245E62510336F97 /* REIS-Regular.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -768,7 +755,7 @@
 		};
 		4816560EF867DA457383DA7034870866 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = F58B88F67DBC9CCE48A7B2958E8FC652 /* PBTutorialManager.xcconfig */;
+			baseConfigurationReference = AB0874E05823209247D15FAC5CCE3116 /* PBTutorialManager.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -801,7 +788,7 @@
 		};
 		64E6A50682E15E258A63AC95B3F52790 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = F58B88F67DBC9CCE48A7B2958E8FC652 /* PBTutorialManager.xcconfig */;
+			baseConfigurationReference = AB0874E05823209247D15FAC5CCE3116 /* PBTutorialManager.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/PBTutorialManager";
@@ -852,7 +839,7 @@
 		};
 		A8504D26D6FCD508F5E003A3A180DEC3 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = F58B88F67DBC9CCE48A7B2958E8FC652 /* PBTutorialManager.xcconfig */;
+			baseConfigurationReference = AB0874E05823209247D15FAC5CCE3116 /* PBTutorialManager.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/PBTutorialManager";
@@ -899,7 +886,7 @@
 		};
 		E84E79F2B3A0479F59ABBBA31C21103D /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = F58B88F67DBC9CCE48A7B2958E8FC652 /* PBTutorialManager.xcconfig */;
+			baseConfigurationReference = AB0874E05823209247D15FAC5CCE3116 /* PBTutorialManager.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";

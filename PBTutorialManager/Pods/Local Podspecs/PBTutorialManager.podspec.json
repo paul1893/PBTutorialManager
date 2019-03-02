@@ -19,15 +19,14 @@
   },
   "source_files": "PBTutorialManager/PBTutorialManager/lib/**/*.swift",
   "exclude_files": [
-    "PBTutorialManager/PBTutorialManager/DemoAssets.xcassets/**/*",
+    "PBTutorialManager/PBTutorialManager/Assets.xcassets/**/*",
     "PBTutorialManager/PBTutorialManager/Example/**/*",
     "PBTutorialManager/PBTutorialManager/AppDelegate.swift",
     "PBTutorialManager/PBTutorialManager/Base.lproj/**/*"
   ],
   "resource_bundles": {
     "PBTutorialManager": [
-      "PBTutorialManager/PBTutorialManager/Ressources/*.otf",
-      "PBTutorialManager/PBTutorialManager/Assets.xcassets"
+      "PBTutorialManager/PBTutorialManager/Ressources/*.otf"
     ]
   },
   "frameworks": [
