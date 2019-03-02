@@ -55,6 +55,7 @@ open class Target : NSObject{
     open var withArrow:Bool = true
     open var heightArrow:CGFloat = 0
     open var widthArrow:CGFloat = 0
+    open var arrowHeadSize:CGFloat = 10
     
     public init(view:UIView?) {
         super.init()
@@ -109,7 +110,10 @@ open class Target : NSObject{
         self.widthArrow = widthArrow;
         return self;
     }
-    
+    open func arrowHeadSize(_ arrowHeadSize:CGFloat) -> Target{
+        self.arrowHeadSize = arrowHeadSize;
+        return self;
+    }
     open func topMargin(_ topMargin:CGFloat) -> Target{
         self.topMargin = topMargin;
         return self;

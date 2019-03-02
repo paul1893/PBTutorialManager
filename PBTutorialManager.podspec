@@ -21,6 +21,7 @@ Pod::Spec.new do |s|
 
   s.frameworks  = "UIKit", "Foundation"
   s.dependency 'JMHoledView'
+  s.dependency 'AFCurvedArrowView'
 
   s.requires_arc = true
   # s.xcconfig = { "HEADER_SEARCH_PATHS" => "$(SDKROOT)/usr/include/libxml2" }

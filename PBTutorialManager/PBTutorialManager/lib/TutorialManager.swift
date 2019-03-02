@@ -8,6 +8,8 @@
 
 import Foundation
 import JMHoledView
+import AFCurvedArrowView
+
 
 open class TutorialManager:NSObject, JMHoledViewDelegate{
     
@@ -111,97 +113,107 @@ open class TutorialManager:NSObject, JMHoledViewDelegate{
             let labelWidth:CGFloat = 75
             let labelHeight:CGFloat = target.message.heightWithConstrainedWidth(labelWidth, font: target.font) /* iOS 7*/
             
-            var imageView:UIImageView! = UIImageView()
+            var arrowView: AFCurvedArrowView?
             
             switch target.position {
             case .top?:
                 /* Illustration
-                 H:[view]-[imageView]-[label]
-                 V:[view]-topMargin-[imageView]-bottomTextMargin-[label] */
-                imageView = UIImageView(frame: CGRect(x: holeOriginX+(holeWidth/2)-(target.widthArrow/2), y: holeOriginY - target.heightArrow - target.topMargin, width: target.widthArrow, height: target.heightArrow))
-                imageView.image = (target.withArrow) ? loadImageFromPBTutorialBundle(name: "arrow_vertical_up"):UIImage()
-                imageView.contentMode = .scaleAspectFit
-                
-                label = UILabel(frame: CGRect(x: imageView.center.x - (labelWidth/2), y: imageView.frame.origin.y-target.bottomTextMargin-labelHeight, width: labelWidth, height: labelHeight))
+                 H:[view]-[arrowView]-[label]
+                 V:[view]-topMargin-[arrowView]-bottomTextMargin-[label] */
+                let rect = CGRect(x: holeOriginX+(holeWidth/2)-(target.widthArrow/2), y: holeOriginY - target.heightArrow - target.topMargin, width: target.widthArrow, height: target.heightArrow)
+                arrowView = AFCurvedArrowView(frame: rect)
+                arrowView!.arrowTail = CGPoint(x: 0.5, y: 0.05)
+                arrowView!.arrowHead = CGPoint(x: 0.5, y: 0.95)
+                arrowView!.controlPoint1 = CGPoint(x: 0.8, y: 0.4)
+                arrowView!.controlPoint2 = CGPoint(x: 0.2, y: 0.6)
+                label = UILabel(frame: CGRect(x: arrowView!.center.x - (labelWidth/2), y: arrowView!.frame.origin.y-target.bottomTextMargin-labelHeight, width: labelWidth, height: labelHeight))
                 label.textAlignment = target.textAlignement
                 
             case .bottom?:
                 /* Illustration
-                 H:[view]-[imageView]-[label]
-                 V:[view]-bottomMargin-[imageView]-topTextMargin-[label] */
-                imageView = UIImageView(frame: CGRect(x: holeOriginX+(holeWidth/2)-(target.widthArrow/2), y: holeOriginY+holeHeight+target.bottomMargin, width: target.widthArrow, height: target.heightArrow))
-                imageView.image = (target.withArrow) ? loadImageFromPBTutorialBundle( name: "arrow_vertical_down"):UIImage()
-                imageView!.contentMode = .scaleAspectFit
-                
-                label = UILabel(frame: CGRect(x: imageView.center.x - (labelWidth/2), y: imageView.frame.origin.y + target.heightArrow + target.topTextMargin,width: labelWidth, height: labelHeight))
+                 H:[view]-[arrowView]-[label]
+                 V:[view]-bottomMargin-[arrowView]-topTextMargin-[label] */
+                let rect = CGRect(x: holeOriginX+(holeWidth/2)-(target.widthArrow/2), y: holeOriginY+holeHeight+target.bottomMargin, width: target.widthArrow, height: target.heightArrow)
+                arrowView = AFCurvedArrowView(frame: rect)
+                arrowView!.arrowTail = CGPoint(x: 0.5, y: 0.95)
+                arrowView!.arrowHead = CGPoint(x: 0.5, y: 0.05)
+                arrowView!.controlPoint1 = CGPoint(x: 0.2, y: 0.6)
+                arrowView!.controlPoint2 = CGPoint(x: 0.8, y: 0.4)
+                label = UILabel(frame: CGRect(x: arrowView!.center.x - (labelWidth/2), y: arrowView!.frame.origin.y + target.heightArrow + target.topTextMargin,width: labelWidth, height: labelHeight))
                 label.textAlignment = target.textAlignement
                 
             case .left?:
                 /* Illustration
-                 H:[label]-rightTextMargin-[imageView]-leftMargin-[view]
-                 V:[label]-[imageView]-[view] */
-                imageView = UIImageView(frame: CGRect(x: holeOriginX-target.leftMargin-target.widthArrow, y: holeOriginY+(holeHeight/2)-(target.heightArrow/2),width: target.widthArrow, height: target.heightArrow))
-                imageView.image = (target.withArrow) ? loadImageFromPBTutorialBundle(name: "arrow_horizontal_left"):UIImage()
-                imageView.contentMode = .scaleAspectFit
-                
-                label = UILabel(frame: CGRect(x: imageView.frame.origin.x - target.rightTextMargin-labelWidth, y: imageView.center.y - (labelHeight/2),width: labelWidth, height: labelHeight))
+                 H:[label]-rightTextMargin-[arrowView]-leftMargin-[view]
+                 V:[label]-[arrowView]-[view] */
+                let rect = CGRect(x: holeOriginX-target.leftMargin-target.widthArrow, y: holeOriginY+(holeHeight/2)-(target.heightArrow/2),width: target.widthArrow, height: target.heightArrow)
+                arrowView = AFCurvedArrowView(frame: rect)
+                arrowView!.arrowTail = CGPoint(x: 0.05, y: 0.5)
+                arrowView!.arrowHead = CGPoint(x: 0.95, y: 0.5)
+                arrowView!.controlPoint1 = CGPoint(x: 0.5, y: 1.0)
+                label = UILabel(frame: CGRect(x: arrowView!.frame.origin.x - target.rightTextMargin-labelWidth, y: arrowView!.center.y - (labelHeight/2),width: labelWidth, height: labelHeight))
                 label.textAlignment = target.textAlignement
                 
             case .right?:
                 /* Illustration
-                 H:[view]-rightMargin-[imageView]-leftTextMargin-[label]
-                 V:[view]-[imageView]-[label] */
-                imageView = UIImageView(frame: CGRect(x: holeOriginX+holeWidth+target.rightMargin, y: holeOriginY+(holeHeight/2)-(target.heightArrow/2), width: target.widthArrow, height: target.heightArrow))
-                imageView.image = (target.withArrow) ? loadImageFromPBTutorialBundle(name: "arrow_horizontal_right") : UIImage()
-                imageView.contentMode = .scaleAspectFit
-                
-                label = UILabel(frame: CGRect(x: imageView.frame.origin.x+target.widthArrow + target.leftTextMargin, y: imageView.center.y - (labelHeight/2),width: labelWidth, height: labelHeight))
+                 H:[view]-rightMargin-[arrowView]-leftTextMargin-[label]
+                 V:[view]-[arrowView]-[label] */
+                let rect = CGRect(x: holeOriginX+holeWidth+target.rightMargin, y: holeOriginY+(holeHeight/2)-(target.heightArrow/2), width: target.widthArrow, height: target.heightArrow)
+                arrowView = AFCurvedArrowView(frame: rect)
+                arrowView!.arrowTail = CGPoint(x: 0.95, y: 0.5)
+                arrowView!.arrowHead = CGPoint(x: 0.05, y: 0.5)
+                arrowView!.controlPoint1 = CGPoint(x: 0.5, y: 0.0)
+                label = UILabel(frame: CGRect(x: arrowView!.frame.origin.x+target.widthArrow + target.leftTextMargin, y: arrowView!.center.y - (labelHeight/2),width: labelWidth, height: labelHeight))
                 label.textAlignment = target.textAlignement
                 break
                 
             case .topLeft?:
                 /* Illustration
-                 H:[label]-rightTextMargin-[imageView]-leftMargin-[view]
-                 V:[view]-topMargin-[imageView]-bottomTextMargin-[label] */
-                imageView = UIImageView(frame: CGRect(x: holeOriginX-target.leftMargin-target.widthArrow, y: holeOriginY-target.topMargin-target.heightArrow, width: target.widthArrow, height: target.heightArrow))
-                imageView.image = (target.withArrow) ? loadImageFromPBTutorialBundle(name: "arrow_top_left"):UIImage()
-                imageView.contentMode = .scaleAspectFit
-                
-                label = UILabel(frame: CGRect(x: imageView.frame.origin.x-target.rightTextMargin-labelWidth, y: imageView.frame.origin.y-target.bottomTextMargin-(labelHeight/2),width: labelWidth, height: labelHeight))
+                 H:[label]-rightTextMargin-[arrowView]-leftMargin-[view]
+                 V:[view]-topMargin-[arrowView]-bottomTextMargin-[label] */
+                let rect = CGRect(x: holeOriginX-target.leftMargin-target.widthArrow, y: holeOriginY-target.topMargin-target.heightArrow, width: target.widthArrow, height: target.heightArrow)
+                arrowView = AFCurvedArrowView(frame: rect)
+                arrowView!.arrowTail = CGPoint(x: 0.05, y: 0.05)
+                arrowView!.arrowHead = CGPoint(x: 0.95, y: 0.95)
+                arrowView!.controlPoint1 = CGPoint(x: 0.8, y: 0.2)
+                label = UILabel(frame: CGRect(x: arrowView!.frame.origin.x-target.rightTextMargin-labelWidth, y: arrowView!.frame.origin.y-target.bottomTextMargin-(labelHeight/2),width: labelWidth, height: labelHeight))
                 label.textAlignment = target.textAlignement
                 
             case .topRight?:
                 /* Illustration
-                 H:[view]-rightMargin-[imageView]-leftTextMargin-[label]
-                 V:[view]-topMargin-[imageView]-bottomTextMargin-[label] */
-                imageView = UIImageView(frame: CGRect(x: holeOriginX+holeWidth+target.rightMargin, y: holeOriginY-target.topMargin-target.heightArrow, width: target.widthArrow, height: target.heightArrow))
-                imageView.image = (target.withArrow) ? loadImageFromPBTutorialBundle(name: "arrow_top_right"):UIImage()
-                imageView.contentMode = .scaleAspectFit
-                
-                label = UILabel(frame: CGRect(x: imageView.frame.origin.x+target.widthArrow + target.leftTextMargin, y: imageView.frame.origin.y-target.bottomTextMargin - (labelHeight/2),width: labelWidth, height: labelHeight))
+                 H:[view]-rightMargin-[arrowView]-leftTextMargin-[label]
+                 V:[view]-topMargin-[arrowView]-bottomTextMargin-[label] */
+                let rect = CGRect(x: holeOriginX+holeWidth+target.rightMargin, y: holeOriginY-target.topMargin-target.heightArrow, width: target.widthArrow, height: target.heightArrow)
+                arrowView = AFCurvedArrowView(frame: rect)
+                arrowView!.arrowTail = CGPoint(x: 0.95, y: 0.05)
+                arrowView!.arrowHead = CGPoint(x: 0.05, y: 0.95)
+                arrowView!.controlPoint1 = CGPoint(x: 0.2, y: 0.2)
+                label = UILabel(frame: CGRect(x: arrowView!.frame.origin.x+target.widthArrow + target.leftTextMargin, y: arrowView!.frame.origin.y-target.bottomTextMargin - (labelHeight/2),width: labelWidth, height: labelHeight))
                 label.textAlignment = target.textAlignement
                 break
                 
             case .bottomLeft?:
                 /* Illustration
-                 H:[label]-rightTextMargin-[imageView]-leftMargin-[view]
-                 V:[view]-bottomMargin-[imageView]-topTextMargin-[label] */
-                imageView = UIImageView(frame: CGRect(x: holeOriginX-target.leftMargin-target.widthArrow, y: holeOriginY+holeHeight+target.bottomMargin, width: target.widthArrow, height: target.heightArrow))
-                imageView.image = (target.withArrow) ? loadImageFromPBTutorialBundle(name: "arrow_bottom_left"):UIImage()
-                imageView.contentMode = .scaleAspectFit
-                
-                label = UILabel(frame: CGRect(x: imageView.frame.origin.x-target.rightTextMargin-labelWidth, y: imageView.frame.origin.y+target.heightArrow+target.topTextMargin-(labelHeight/2),width: labelWidth, height: labelHeight))
+                 H:[label]-rightTextMargin-[arrowView]-leftMargin-[view]
+                 V:[view]-bottomMargin-[arrowView]-topTextMargin-[label] */
+                let rect = CGRect(x: holeOriginX-target.leftMargin-target.widthArrow, y: holeOriginY+holeHeight+target.bottomMargin, width: target.widthArrow, height: target.heightArrow)
+                arrowView = AFCurvedArrowView(frame: rect)
+                arrowView!.arrowTail = CGPoint(x: 0.05, y: 0.95)
+                arrowView!.arrowHead = CGPoint(x: 0.95, y: 0.05)
+                arrowView!.controlPoint1 = CGPoint(x: 0.8, y: 0.8)
+                label = UILabel(frame: CGRect(x: arrowView!.frame.origin.x-target.rightTextMargin-labelWidth, y: arrowView!.frame.origin.y+target.heightArrow+target.topTextMargin-(labelHeight/2),width: labelWidth, height: labelHeight))
                 label.textAlignment = target.textAlignement
                 
             case .bottomRight?:
                 /* Illustration
-                 H:[view]-rightMargin-[imageView]-leftTextMargin-[label]
-                 V:[view]-bottomMargin-[imageView]-topTextMargin-[label] */
-                imageView = UIImageView(frame: CGRect(x: holeOriginX+holeWidth+target.rightMargin, y: holeOriginY+holeHeight+target.bottomMargin, width: target.widthArrow, height: target.heightArrow))
-                imageView.image = (target.withArrow) ? loadImageFromPBTutorialBundle(name: "arrow_bottom_right"):UIImage()
-                imageView.contentMode = .scaleAspectFit
-                
-                label = UILabel(frame: CGRect(x: imageView.frame.origin.x+target.widthArrow + target.leftTextMargin, y: imageView.frame.origin.y + target.heightArrow+target.topTextMargin, width: labelWidth, height: labelHeight))
+                 H:[view]-rightMargin-[arrowView]-leftTextMargin-[label]
+                 V:[view]-bottomMargin-[arrowView]-topTextMargin-[label] */
+                let rect = CGRect(x: holeOriginX+holeWidth+target.rightMargin, y: holeOriginY+holeHeight+target.bottomMargin, width: target.widthArrow, height: target.heightArrow)
+                arrowView = AFCurvedArrowView(frame: rect)
+                arrowView!.arrowTail = CGPoint(x: 0.95, y: 0.95)
+                arrowView!.arrowHead = CGPoint(x: 0.05, y: 0.05)
+                arrowView!.controlPoint1 = CGPoint(x: 0.2, y: 0.8)
+                label = UILabel(frame: CGRect(x: arrowView!.frame.origin.x+target.widthArrow + target.leftTextMargin, y: arrowView!.frame.origin.y + target.heightArrow+target.topTextMargin, width: labelWidth, height: labelHeight))
                 label.textAlignment = target.textAlignement
                 
             default:
@@ -214,7 +226,12 @@ open class TutorialManager:NSObject, JMHoledViewDelegate{
             label.text = target.message
             
             // Add an arrow if the user as ask for one
-            if target.withArrow {mask.addSubview(imageView!)}
+            if target.withArrow, let arrowView = arrowView {
+                arrowView.arrowHeadHeight = target.arrowHeadSize
+                arrowView.arrowHeadWidth = target.arrowHeadSize
+                arrowView.curveType = .quadratic
+                mask.addSubview(arrowView)
+            }
             mask.addSubview(label)
             
             if let duration = target.duration, !target.breakPoint{
@@ -224,7 +241,7 @@ open class TutorialManager:NSObject, JMHoledViewDelegate{
                     //If not persistent disappear before the next mask appear
                     if target.persistant == false {
                         mask.removeHoles()
-                        imageView?.isHidden = true
+                        arrowView?.isHidden = true
                         label.isHidden = true
                     }
                     self.targets?.removeFirst()
