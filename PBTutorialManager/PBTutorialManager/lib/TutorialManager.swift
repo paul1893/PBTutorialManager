@@ -31,6 +31,10 @@ open class TutorialManager: NSObject {
         targets.append(target)
     }
     
+    open func addTargets(_ targets: [TutorialTarget]) {
+        self.targets.append(contentsOf: targets)
+    }
+    
     /**
      Fire the targets, when you have finished to set-up and add all your targets
      */
@@ -244,12 +248,9 @@ open class TutorialManager: NSObject {
             label.text = target.message
             label.textAlignment = target.textAlignement
             label.translatesAutoresizingMaskIntoConstraints = false
-            let labelHeight = target.message.heightWithConstrainedWidth(target.labelWidth, font: target.font) /* iOS 7*/
-            constraints.append(NSLayoutConstraint(item: label, attribute: .height,         relatedBy: .equal,
-                                                  toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: labelHeight))
-            constraints.append(NSLayoutConstraint(item: label, attribute: .width,          relatedBy: .equal,
-                                                  toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: target.labelWidth))
-            
+            label.preferredMaxLayoutWidth = target.labelWidth
+            label.sizeToFit()
+       
             // Add an arrow if the user as ask for one
             if target.withArrow, let arrowView = arrow {
                 arrowView.arrowHeadHeight = target.arrowHeadSize
@@ -311,11 +312,3 @@ open class TutorialManager: NSObject {
     }
 }
 
-
-fileprivate extension String {
-    func heightWithConstrainedWidth(_ width: CGFloat, font: UIFont) -> CGFloat {
-        let constraintRect = CGSize(width: width, height: CGFloat.greatestFiniteMagnitude)
-        let boundingBox = self.boundingRect(with: constraintRect, options: .usesLineFragmentOrigin, attributes: [.font: font], context: nil)
-        return boundingBox.height
-    }
-}

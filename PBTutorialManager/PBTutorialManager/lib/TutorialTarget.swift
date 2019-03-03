@@ -30,7 +30,6 @@ open class TutorialTarget: NSObject {
     open var view:UIView? /* The view you want to highlight */
     open var message:String! /* The text you want to show */
     open var textAlignement:NSTextAlignment = NSTextAlignment.center /* The text alignement */
-    open var numberOfLines:Int = 0
     open var labelWidth:CGFloat = 75
     open var position:TargetPosition /* The position of your text around the highlight view */
     open var shape:HoleShape? /* The shape of the mask to highlight the view */
@@ -62,6 +61,34 @@ open class TutorialTarget: NSObject {
         self.view = view
         self.message = ""
         self.position = .bottom
+        super.init()
+    }
+    
+    public init(copyFrom: TutorialTarget) {
+        view             = copyFrom.view
+        message          = copyFrom.message
+        textAlignement   = copyFrom.textAlignement
+        labelWidth       = copyFrom.labelWidth
+        position         = copyFrom.position
+        shape            = copyFrom.shape
+        font             = copyFrom.font
+        duration         = copyFrom.duration
+        isTappable       = copyFrom.isTappable
+        closure          = copyFrom.closure
+        persistant       = copyFrom.persistant
+        breakPoint       = copyFrom.breakPoint
+        topMargin        = copyFrom.topMargin
+        rightMargin      = copyFrom.rightMargin
+        bottomMargin     = copyFrom.bottomMargin
+        leftMargin       = copyFrom.leftMargin
+        topTextMargin    = copyFrom.topTextMargin
+        rightTextMargin  = copyFrom.rightTextMargin
+        bottomTextMargin = copyFrom.bottomTextMargin
+        leftTextMargin   = copyFrom.leftTextMargin
+        withArrow        = copyFrom.withArrow
+        heightArrow      = copyFrom.heightArrow
+        widthArrow       = copyFrom.widthArrow
+        arrowHeadSize    = copyFrom.arrowHeadSize
         super.init()
     }
     

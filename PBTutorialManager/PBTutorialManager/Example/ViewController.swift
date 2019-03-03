@@ -99,6 +99,7 @@ class TestViewController: UIViewController {
         super.viewDidLoad()
         tutorialManager = TutorialManager(parentView: view)
         
+        var targets = [TutorialTarget]()
         let possitions: [TutorialTarget.TargetPosition] = [.left,    .top,      .right,       .bottom,
                                                            .topLeft, .topRight, .bottomRight, .bottomLeft]
         var breakpoint = false
@@ -111,7 +112,7 @@ class TestViewController: UIViewController {
                 .breakPoint(breakpoint)
                 .message("Test")
             breakpoint = !breakpoint
-            tutorialManager.addTarget(target)
+            targets.append(target)
         }
         
         // Setup a centered message
@@ -119,8 +120,15 @@ class TestViewController: UIViewController {
             .position(.centre)
             .breakPoint(true)
             .message("Centered message")
-        tutorialManager.addTarget(target)
+        targets.append(target)
         
+        // Clone the targets but this time remove the breakpoints so we can see them all together
+        let clonedTargets = targets.map({TutorialTarget(copyFrom: $0)})
+        clonedTargets.forEach({$0.breakPoint = false})
+        clonedTargets.last?.breakPoint = true
+        targets.append(contentsOf: clonedTargets)
+        
+        tutorialManager.addTargets(targets)
         tutorialManager.fireTargets()
     }
 }
