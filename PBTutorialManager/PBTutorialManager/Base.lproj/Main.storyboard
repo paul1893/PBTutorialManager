@@ -56,7 +56,7 @@
                                 </constraints>
                                 <state key="normal" backgroundImage="add_button"/>
                                 <connections>
-                                    <segue destination="WGB-jf-v8h" kind="show" id="GQf-M9-j6f"/>
+                                    <segue destination="vdT-dy-qGt" kind="show" id="GQf-M9-j6f"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -116,7 +116,7 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZiX-KU-dbb">
-                                <rect key="frame" x="67.5" y="438" width="240" height="128"/>
+                                <rect key="frame" x="67.5" y="438" width="240" height="84"/>
                                 <color key="backgroundColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="240" id="0HY-iM-QX6"/>
@@ -132,6 +132,16 @@
                             <constraint firstItem="ZiX-KU-dbb" firstAttribute="centerX" secondItem="GSc-Le-uKv" secondAttribute="centerX" id="jr1-7J-G2F"/>
                         </constraints>
                     </view>
+                    <toolbarItems>
+                        <barButtonItem title="Test" id="mbT-Bg-hXA">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </barButtonItem>
+                    </toolbarItems>
+                    <navigationItem key="navigationItem" id="AuG-Lj-2Nh">
+                        <barButtonItem key="rightBarButtonItem" title="Test" id="U4f-pL-o4S">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="centreTestView" destination="ZiX-KU-dbb" id="tuI-sa-TSC"/>
                         <outlet property="testView" destination="K46-d3-nSB" id="D9k-Qn-PIc"/>
@@ -139,7 +149,29 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MkG-L4-6cw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="249" y="1165"/>
+            <point key="canvasLocation" x="1188" y="1164.4677661169417"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="kfD-W6-Y3i">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" toolbarHidden="NO" id="vdT-dy-qGt" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" barStyle="black" id="DfQ-ex-66m">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" barStyle="black" id="Ahl-IY-nSM">
+                        <rect key="frame" x="0.0" y="623" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </toolbar>
+                    <connections>
+                        <segue destination="WGB-jf-v8h" kind="relationship" relationship="rootViewController" id="WdX-Fk-yfC"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ipq-Dc-sL7" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="248.80000000000001" y="1164.4677661169417"/>
         </scene>
     </scenes>
     <resources>

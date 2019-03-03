@@ -31,7 +31,10 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setup() // Some config to have a roundProfilePicture
+    }
         
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
         // Start to create your targets
         let targetProfilePicture = TutorialTarget(view: profilePicture)
             .withArrow(true)
@@ -72,7 +75,7 @@ class ViewController: UIViewController {
             .breakPoint(true)
         
         // Then create a tutorialManager
-        let tutorialManager = TutorialManager(parentView: view)
+        let tutorialManager = TutorialManager(window: view.window!)
         // ... and feed him with your targets
         tutorialManager.addTarget(targetProfilePicture)
         tutorialManager.addTarget(targetMainImage)
@@ -83,7 +86,7 @@ class ViewController: UIViewController {
         tutorialManager.fireTargets()
     }
     
-    fileprivate func setup(){
+    fileprivate func setup() {
         profilePicture.layer.cornerRadius = profilePicture.frame.width/2
         profilePicture.clipsToBounds = true
     }
@@ -97,7 +100,11 @@ class TestViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        tutorialManager = TutorialManager(parentView: view)
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        tutorialManager = TutorialManager(window: view.window!)
         
         var targets = [TutorialTarget]()
         let possitions: [TutorialTarget.TargetPosition] = [.left,    .top,      .right,       .bottom,

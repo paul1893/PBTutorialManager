@@ -48,8 +48,9 @@ let targetButton = TutorialTarget(view: button)
             .shape(.elipse)
             .message("This is a button")
             .breakPoint(true)
-        
-let tutorialManager = TutorialManager(parentView: view)
+
+// From viewDidAppear(), before this window may be nil         
+let tutorialManager = TutorialManager(window: view.window!)
 tutorialManager.addTarget(targetProfilePicture)
 tutorialManager.addTarget(targetMainImage)
 tutorialManager.addTarget(targetButton)
