@@ -64,7 +64,7 @@ position 		/* The position of your text around the highlight view */
 shape 		/* The shape of the mask to highlight the view */
 duration 		/* time duration before to show the next target */
 font              /* A font that you can modify */
-isTapable 		/* if isTapable is true you can tap to dismiss the target */
+isTappable 		/* if isTappable is true you can tap to dismiss the target */
 closure 		/* A closure executed after the target has been shown */
 persistant		/* if persistant the target stay on screen when the next one show up, you can add multiple target one after one */
 breakPoint 		/* breakpoint is a target which attempt a user click to continue */

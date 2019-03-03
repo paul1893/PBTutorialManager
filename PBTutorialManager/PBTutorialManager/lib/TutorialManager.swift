@@ -68,8 +68,8 @@ open class TutorialManager: NSObject {
             
             // Fit the size of the mask to the size of the screen
             mask.translatesAutoresizingMaskIntoConstraints = false
-            parentView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|[mask]|", options: [NSLayoutConstraint.FormatOptions.alignAllCenterX, NSLayoutConstraint.FormatOptions.alignAllCenterY], metrics: nil, views: ["mask":mask])) //Equal Width
-            parentView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|[mask]|", options: [NSLayoutConstraint.FormatOptions.alignAllCenterX, NSLayoutConstraint.FormatOptions.alignAllCenterY], metrics: nil, views: ["mask":mask])) //Equal Height
+            parentView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|[mask]|", options: [.alignAllCenterX, .alignAllCenterY], metrics: nil, views: ["mask":mask])) //Equal Width
+            parentView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|[mask]|", options: [.alignAllCenterX, .alignAllCenterY], metrics: nil, views: ["mask":mask])) //Equal Height
         }
         
         /* Position the target on the view */
@@ -296,7 +296,7 @@ open class TutorialManager: NSObject {
     private func tapped() {
         parentView.removeConstraints(removableConstraints)
         removableConstraints.removeAll()
-        if let target = targets.first, target.isTapable {
+        if let target = targets.first, target.isTappable || target.breakPoint {
             mask?.removeFromSuperview()
             mask = nil
             targets.removeFirst()

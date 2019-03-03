@@ -36,7 +36,7 @@ open class TutorialTarget: NSObject {
     open var shape:HoleShape? /* The shape of the mask to highlight the view */
     open var font:UIFont = UIFont.systemFont(ofSize: 18.0) /* The font of the target */
     open var duration:TimeInterval? /* time duration before to show the next target */
-    open var isTapable:Bool = false /* if isTapable is true you can tap to dismiss the target */
+    open var isTappable:Bool = false /* if isTappable is true you can tap to dismiss the target */
     open var closure:(() -> Void)? /* A closure executed after the target has been shown */
     open var persistant:Bool = true /* if persistant the target stay on screen when the next one show up, you can add multiple target one after one */
     open var breakPoint = false /* breakpoint is a target which attempt a user click to continue */
@@ -85,8 +85,8 @@ open class TutorialTarget: NSObject {
         self.duration = duration;
         return self;
     }
-    open func isTapable(_ isTapable:Bool) -> TutorialTarget {
-        self.isTapable = isTapable;
+    open func isTappable(_ isTappable:Bool) -> TutorialTarget {
+        self.isTappable = isTappable;
         return self;
     }
     open func onCompletion(onCompletion: @escaping (() -> Void)) -> TutorialTarget {
@@ -151,7 +151,6 @@ open class TutorialTarget: NSObject {
     }
     open func breakPoint(_ breakPoint:Bool) -> TutorialTarget {
         self.breakPoint = breakPoint;
-        self.isTapable = true;
         return self;
     }
 }

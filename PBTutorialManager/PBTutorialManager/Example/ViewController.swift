@@ -101,6 +101,7 @@ class TestViewController: UIViewController {
         
         let possitions: [TutorialTarget.TargetPosition] = [.left,    .top,      .right,       .bottom,
                                                            .topLeft, .topRight, .bottomRight, .bottomLeft]
+        var breakpoint = false
         possitions.forEach() {
             // Start to create your targets
             let target = TutorialTarget(view: testView)
@@ -109,13 +110,16 @@ class TestViewController: UIViewController {
                 .widthArrow(50)
                 .position($0)
                 .shape(.rect)
+                .breakPoint(breakpoint)
                 .message("Test")
+            breakpoint = !breakpoint
             tutorialManager.addTarget(target)
         }
         
         // Setup a centered message
         let target = TutorialTarget(view: centreTestView)
             .position(.centre)
+            .breakPoint(true)
             .message("Centered message")
         tutorialManager.addTarget(target)
         
