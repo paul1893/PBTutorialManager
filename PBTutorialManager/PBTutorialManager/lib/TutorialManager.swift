@@ -294,16 +294,19 @@ open class TutorialManager: NSObject {
      When a target's view is touched
      */
     private func tapped() {
-        parentView.removeConstraints(removableConstraints)
-        removableConstraints.removeAll()
+        let removeMask = {
+            self.mask?.removeFromSuperview()
+            self.mask = nil
+            self.parentView.removeConstraints(self.removableConstraints)
+            self.removableConstraints.removeAll()
+        }
         if let target = targets.first, target.isTappable || target.breakPoint {
-            mask?.removeFromSuperview()
-            mask = nil
+            removeMask()
             targets.removeFirst()
             fireTargets()
         }
         if targets.isEmpty {
-            mask?.removeFromSuperview()
+            removeMask()
         }
     }
 }

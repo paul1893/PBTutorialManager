@@ -106,8 +106,6 @@ class TestViewController: UIViewController {
             // Start to create your targets
             let target = TutorialTarget(view: testView)
                 .withArrow(true)
-                .heightArrow(50)
-                .widthArrow(50)
                 .position($0)
                 .shape(.rect)
                 .breakPoint(breakpoint)

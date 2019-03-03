@@ -54,8 +54,8 @@ open class TutorialTarget: NSObject {
     
     /*Arrow*/
     open var withArrow:Bool = true
-    open var heightArrow:CGFloat = 0
-    open var widthArrow:CGFloat = 0
+    open var heightArrow:CGFloat = 50
+    open var widthArrow:CGFloat = 50
     open var arrowHeadSize:CGFloat = 10
     
     public init(view:UIView?) {
