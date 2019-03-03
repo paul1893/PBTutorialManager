@@ -2,8 +2,8 @@
 
 PBTutorialManager enables you to easily create an in-app tutorial for your app.  
 
-<img src="https://raw.githubusercontent.com/paul1893/PBTutorialManager/master/Screenshots/demo.gif" width="275" />
-<img src="https://raw.githubusercontent.com/paul1893/PBTutorialManager/master/Screenshots/demo.png" width="275" />  
+<img src="Screenshots/demo.gif" width="275" />
+<img src="Screenshots/demo.png" width="275" />  
 
 ### Version
 1.0.4  
@@ -14,35 +14,37 @@ PBTutorialManager enables you to easily create an in-app tutorial for your app.
 pod 'PBTutorialManager'
 ``` 
 ##### Manually
-Copy paste the 'lib' folder on your project (do not forget to include image assets for the arrows)  
+Copy paste the 'lib' folder on your project
 ### How to use
-So PBTutorialManager works with Target's objects and he manages a queue for you to display one after one the target you put on the queue.
-<img src="https://raw.githubusercontent.com/paul1893/PBTutorialManager/master/Screenshots/visual_expl.png" width="1000"  />  
-<img src="https://raw.githubusercontent.com/paul1893/PBTutorialManager/master/Screenshots/descritpion.png" width="1000" />  
+So PBTutorialManager works with TutorialTarget's objects and manages a queue of these objects to display one after another.
+
+<img src="Screenshots/visual_expl.png" width="1000" />  
+<img src="Screenshots/descritpion.png" width="1000" />  
+
 ```swift
-let targetProfilePicture = Target(view: profilePicture)
+let targetProfilePicture = TutorialTarget(view: profilePicture)
             .withArrow(true)
             .heightArrow(50)
             .widthArrow(25)
-            .position(.Bottom)
+            .position(.bottom)
             .shape(.elipse)
             .duration(1.0)
             .message("This is a profile picture")
         
-let targetMainImage = Target(view: mainImage)
+let targetMainImage = TutorialTarget(view: mainImage)
             .withArrow(true)
             .heightArrow(50)
             .widthArrow(25)
-            .position(.Bottom)
+            .position(.bottom)
             .shape(.rect)
             .duration(1.0)
             .message("This is the main image")
         
-let targetButton = Target(view: button)
+let targetButton = TutorialTarget(view: button)
             .withArrow(true)
             .heightArrow(50)
             .widthArrow(25)
-            .position(.Top)
+            .position(.top)
             .shape(.elipse)
             .message("This is a button")
             .breakPoint(true)
@@ -77,14 +79,12 @@ rightTextMargin
 bottomTextMargin
 leftTextMargin
     
-/* Arrow: it's not very conveniant but for now arrow is an image. Need to update un the future, you can interact with these properties */
+/* Arrow */
 withArrow
 heightArrow
 widthArrow
+arrowHeadSize
 ```
-### Dependencies
-
-Thanks to [JMHoledView](https://github.com/leverdeterre/JMHoledView)
 
 License
 ----
