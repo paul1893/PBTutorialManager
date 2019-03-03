@@ -31,6 +31,7 @@ open class TutorialTarget: NSObject {
     open var message:String! /* The text you want to show */
     open var textAlignement:NSTextAlignment = NSTextAlignment.center /* The text alignement */
     open var numberOfLines:Int = 0
+    open var labelWidth:CGFloat = 75
     open var position:TargetPosition /* The position of your text around the highlight view */
     open var shape:HoleShape? /* The shape of the mask to highlight the view */
     open var font:UIFont = UIFont.systemFont(ofSize: 18.0) /* The font of the target */
@@ -66,6 +67,10 @@ open class TutorialTarget: NSObject {
     
     open func message(_ message:String) -> TutorialTarget {
         self.message = message;
+        return self;
+    }
+    open func labelWidth(_ labelWidth:CGFloat) -> TutorialTarget {
+        self.labelWidth = labelWidth;
         return self;
     }
     open func position(_ position:TargetPosition) -> TutorialTarget {

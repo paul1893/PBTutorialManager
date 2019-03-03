@@ -59,6 +59,7 @@ tutorialManager.fireTargets()
 Target has other properties you can play with
 ```swift
 textAlignement 	/* The text alignement */
+labelWidth      /* The width of the label */
 position 		/* The position of your text around the highlight view */
 shape 		/* The shape of the mask to highlight the view */
 duration 		/* time duration before to show the next target */

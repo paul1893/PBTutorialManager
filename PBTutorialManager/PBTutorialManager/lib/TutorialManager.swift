@@ -88,8 +88,6 @@ open class TutorialManager: NSObject {
             
             // Get the properties of the target
             let label = UILabel()
-            let labelWidth:CGFloat = 75
-            let labelHeight:CGFloat = target.message.heightWithConstrainedWidth(labelWidth, font: target.font) /* iOS 7*/
             var arrow:AFCurvedArrowView?
             var constraints = [NSLayoutConstraint]()
         
@@ -246,10 +244,11 @@ open class TutorialManager: NSObject {
             label.text = target.message
             label.textAlignment = target.textAlignement
             label.translatesAutoresizingMaskIntoConstraints = false
+            let labelHeight = target.message.heightWithConstrainedWidth(target.labelWidth, font: target.font) /* iOS 7*/
             constraints.append(NSLayoutConstraint(item: label, attribute: .height,         relatedBy: .equal,
                                                   toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: labelHeight))
             constraints.append(NSLayoutConstraint(item: label, attribute: .width,          relatedBy: .equal,
-                                                  toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: labelWidth))
+                                                  toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: target.labelWidth))
             
             // Add an arrow if the user as ask for one
             if target.withArrow, let arrowView = arrow {
