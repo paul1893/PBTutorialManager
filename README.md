@@ -49,8 +49,10 @@ let targetButton = TutorialTarget(view: button)
             .message("This is a button")
             .breakPoint(true)
 
-// From viewDidAppear(), before this window may be nil         
-let tutorialManager = TutorialManager(window: view.window!)
+// Call from viewDidAppear(), before this window may be nil         
+// Or you can pass the view instead of the window if toolbars
+//  and navigation bars aren't being used
+let tutorialManager = TutorialManager(parent: view.window!)
 tutorialManager.addTarget(targetProfilePicture)
 tutorialManager.addTarget(targetMainImage)
 tutorialManager.addTarget(targetButton)
@@ -87,6 +89,9 @@ heightArrow
 widthArrow
 arrowHeadSize
 ```
+### Dependencies
+
+Thanks to [AFCurvedArrowView](https://github.com/anton-filimonov/AFCurvedArrowView)
 
 License
 ----

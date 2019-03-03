@@ -75,7 +75,7 @@ class ViewController: UIViewController {
             .breakPoint(true)
         
         // Then create a tutorialManager
-        let tutorialManager = TutorialManager(window: view.window!)
+        let tutorialManager = TutorialManager(parent: view)
         // ... and feed him with your targets
         tutorialManager.addTarget(targetProfilePicture)
         tutorialManager.addTarget(targetMainImage)
@@ -104,7 +104,8 @@ class TestViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        tutorialManager = TutorialManager(window: view.window!)
+        // So the tutorial appears above the toolbars the parent must be the window
+        tutorialManager = TutorialManager(parent: view.window!, fadeInDelay: 0.25)
         
         var targets = [TutorialTarget]()
         let possitions: [TutorialTarget.TargetPosition] = [.left,    .top,      .right,       .bottom,

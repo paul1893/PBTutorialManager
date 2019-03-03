@@ -12,13 +12,15 @@ import AFCurvedArrowView
 
 open class TutorialManager: NSObject {
     fileprivate      var targets:             [TutorialTarget] = [] // The targets to work with
-    fileprivate weak var window:              UIWindow!             // The window represents the view wich contains all the targets
+    fileprivate weak var parent:              UIView!               // The window/view represents which contains all the targets
     private     weak var mask:                HoledView?
+    private          var fadeInDelay:         TimeInterval?
     private          var removableConstraints = [NSLayoutConstraint]()
     
-    public init(window: UIWindow) {
+    public init(parent: UIView, fadeInDelay: TimeInterval? = nil) {
+        self.fadeInDelay = fadeInDelay
+        self.parent      = parent
         super.init()
-        self.window = window
     }
     
     /**
@@ -39,7 +41,9 @@ open class TutorialManager: NSObject {
      Fire the targets, when you have finished to set-up and add all your targets
      */
     open func fireTargets() {
-        assert(window != nil, "TutorialManager: You must init TutorialManager with a parent window")
+        guard parent != nil else {
+            return
+        }
         
         if let currentTarget = targets.first {
             if let closure  = currentTarget.closure {
@@ -65,15 +69,24 @@ open class TutorialManager: NSObject {
             mask = classMask
         } else {
             // New mask and add it to the parentView
-            mask             = HoledView(frame: window.frame)
+            mask             = HoledView(frame: parent.frame)
             self.mask        = mask
             mask.tapListener = tapped
-            window.addSubview(mask)
+            parent.addSubview(mask)
+            
+            // Fade in the holed view. Only fade in on the first display
+            if let delay = fadeInDelay {
+                fadeInDelay = nil
+                mask.alpha  = 0
+                UIView.animate(withDuration: delay) {
+                    mask.alpha = 1
+                }
+            }
             
             // Fit the size of the mask to the size of the screen
             mask.translatesAutoresizingMaskIntoConstraints = false
-            window.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|[mask]|", options: [.alignAllCenterX, .alignAllCenterY], metrics: nil, views: ["mask":mask])) //Equal Width
-            window.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|[mask]|", options: [.alignAllCenterX, .alignAllCenterY], metrics: nil, views: ["mask":mask])) //Equal Height
+            parent.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|[mask]|", options: [.alignAllCenterX, .alignAllCenterY], metrics: nil, views: ["mask":mask])) //Equal Width
+            parent.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|[mask]|", options: [.alignAllCenterX, .alignAllCenterY], metrics: nil, views: ["mask":mask])) //Equal Height
         }
         
         /* Position the target on the view */
@@ -265,7 +278,7 @@ open class TutorialManager: NSObject {
             }
             mask.addSubview(label)
             removableConstraints.append(contentsOf: constraints)
-            window.addConstraints(constraints)
+            parent.addConstraints(constraints)
             
             let handleNextTarget = {
                 //If not persistent disappear before the next mask appear
@@ -298,7 +311,7 @@ open class TutorialManager: NSObject {
         let removeMask = {
             self.mask?.removeFromSuperview()
             self.mask = nil
-            self.window.removeConstraints(self.removableConstraints)
+            self.parent.removeConstraints(self.removableConstraints)
             self.removableConstraints.removeAll()
         }
         if let target = targets.first, target.isTappable || target.breakPoint {
