@@ -249,9 +249,9 @@ open class TutorialManager: NSObject {
                 
             case .centre:
                 constraints.append(NSLayoutConstraint(item: label,    attribute: .centerX, relatedBy: .equal,
-                                                      toItem: view,   attribute: .centerX, multiplier: 1, constant: 0))
+                                                      toItem: view,   attribute: .centerX, multiplier: 1, constant: target.leftTextMargin - target.rightTextMargin))
                 constraints.append(NSLayoutConstraint(item: label,    attribute: .centerY, relatedBy: .equal,
-                                                      toItem: view,   attribute: .centerY, multiplier: 1, constant: 0))
+                                                      toItem: view,   attribute: .centerY, multiplier: 1, constant: target.topTextMargin - target.bottomTextMargin))
             }
             
             // Setup the label attributes
