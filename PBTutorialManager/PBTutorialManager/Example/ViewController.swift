@@ -135,6 +135,21 @@ class TestViewController: UIViewController {
         clonedTargets.forEach({$0.breakPoint = false})
         clonedTargets.last?.breakPoint = true
         targets.append(contentsOf: clonedTargets)
+       
+        // Finally add a series of targets that test the different arrow start possitions while
+        // keeping the end position fixed
+        possitions.forEach() {
+            // Start to create your targets
+            let target = TutorialTarget(view: testView)
+                .withArrow(true)
+                .position(.top)
+                .arrowStartPosition($0)
+                .shape(.rect)
+                .breakPoint(false)
+                .message("Test")
+            targets.append(target)
+        }
+        targets.last?.breakPoint = true
         
         tutorialManager.addTargets(targets)
         tutorialManager.fireTargets()

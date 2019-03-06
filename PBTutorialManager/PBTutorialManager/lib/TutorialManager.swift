@@ -105,147 +105,186 @@ open class TutorialManager: NSObject {
             
             // Get the properties of the target
             let label = UILabel()
-            var arrow:AFCurvedArrowView?
+            let arrow = target.position != .centre ? AFCurvedArrowView() : nil
+            let arrowHeadX: NSLayoutConstraint.Attribute
+            let arrowHeadY: NSLayoutConstraint.Attribute
             var constraints = [NSLayoutConstraint]()
         
+            // Now setup the arrow direction
+            if let arrow = arrow {
+                switch target.arrowStartPosition ?? target.position {
+                case .top:
+                    arrow.arrowTail = CGPoint(x: 0.5, y: 0.05)
+                    arrow.arrowHead = CGPoint(x: 0.5, y: 0.95)
+                    arrow.controlPoint1 = CGPoint(x: 0.8, y: 0.4)
+                    arrow.controlPoint2 = CGPoint(x: 0.2, y: 0.6)
+                    arrowHeadX = .centerX
+                    arrowHeadY = .bottom
+                    constraints.append(NSLayoutConstraint(item: label,   attribute: .centerX, relatedBy: .equal,
+                                                          toItem: arrow, attribute: .centerX, multiplier: 1, constant: target.leftTextMargin - target.rightTextMargin))
+                    constraints.append(NSLayoutConstraint(item: label,   attribute: .bottom,  relatedBy: .equal,
+                                                          toItem: arrow, attribute: .top,     multiplier: 1, constant: target.bottomTextMargin))
+                    
+                case .bottom:
+                    arrow.arrowTail = CGPoint(x: 0.5, y: 0.95)
+                    arrow.arrowHead = CGPoint(x: 0.5, y: 0.05)
+                    arrow.controlPoint1 = CGPoint(x: 0.2, y: 0.6)
+                    arrow.controlPoint2 = CGPoint(x: 0.8, y: 0.4)
+                    arrowHeadX = .centerX
+                    arrowHeadY = .top
+                    constraints.append(NSLayoutConstraint(item: label,   attribute: .centerX, relatedBy: .equal,
+                                                          toItem: arrow, attribute: .centerX, multiplier: 1, constant: target.leftTextMargin - target.rightTextMargin))
+                    constraints.append(NSLayoutConstraint(item: label,   attribute: .top,     relatedBy: .equal,
+                                                          toItem: arrow, attribute: .bottom,  multiplier: 1, constant: target.topTextMargin))
+                    
+                case .left:
+                    arrow.arrowTail = CGPoint(x: 0.05, y: 0.5)
+                    arrow.arrowHead = CGPoint(x: 0.95, y: 0.5)
+                    arrow.controlPoint1 = CGPoint(x: 0.5, y: 1.0)
+                    arrowHeadX = .right
+                    arrowHeadY = .centerY
+                    constraints.append(NSLayoutConstraint(item: label,   attribute: .right,   relatedBy: .equal,
+                                                          toItem: arrow, attribute: .left,    multiplier: 1, constant: target.rightTextMargin))
+                    constraints.append(NSLayoutConstraint(item: label,   attribute: .centerY, relatedBy: .equal,
+                                                          toItem: arrow, attribute: .centerY, multiplier: 1, constant: target.topTextMargin - target.bottomTextMargin))
+                    
+                case .right:
+                    arrow.arrowTail = CGPoint(x: 0.95, y: 0.5)
+                    arrow.arrowHead = CGPoint(x: 0.05, y: 0.5)
+                    arrow.controlPoint1 = CGPoint(x: 0.5, y: 0.0)
+                    arrowHeadX = .left
+                    arrowHeadY = .centerY
+                    constraints.append(NSLayoutConstraint(item: label,   attribute: .left,    relatedBy: .equal,
+                                                          toItem: arrow, attribute: .right,   multiplier: 1, constant: target.leftTextMargin))
+                    constraints.append(NSLayoutConstraint(item: label,   attribute: .centerY, relatedBy: .equal,
+                                                          toItem: arrow, attribute: .centerY, multiplier: 1, constant: target.topTextMargin - target.bottomTextMargin))
+                    
+                case .topLeft:
+                    arrow.arrowTail = CGPoint(x: 0.05, y: 0.05)
+                    arrow.arrowHead = CGPoint(x: 0.95, y: 0.95)
+                    arrow.controlPoint1 = CGPoint(x: 0.8, y: 0.2)
+                    arrowHeadX = .right
+                    arrowHeadY = .bottom
+                    constraints.append(NSLayoutConstraint(item: label,   attribute: .right,  relatedBy: .equal,
+                                                          toItem: arrow, attribute: .left,   multiplier: 1, constant: target.rightTextMargin))
+                    constraints.append(NSLayoutConstraint(item: label,   attribute: .bottom, relatedBy: .equal,
+                                                          toItem: arrow, attribute: .top,    multiplier: 1, constant: target.bottomTextMargin))
+                    
+                case .topRight:
+                    arrow.arrowTail = CGPoint(x: 0.95, y: 0.05)
+                    arrow.arrowHead = CGPoint(x: 0.05, y: 0.95)
+                    arrow.controlPoint1 = CGPoint(x: 0.2, y: 0.2)
+                    arrowHeadX = .left
+                    arrowHeadY = .bottom
+                    constraints.append(NSLayoutConstraint(item: label,   attribute: .left,   relatedBy: .equal,
+                                                          toItem: arrow, attribute: .right,  multiplier: 1, constant: target.leftTextMargin))
+                    constraints.append(NSLayoutConstraint(item: label,   attribute: .bottom, relatedBy: .equal,
+                                                          toItem: arrow, attribute: .top,    multiplier: 1, constant: target.bottomTextMargin))
+                    
+                case .bottomLeft:
+                    arrow.arrowTail = CGPoint(x: 0.05, y: 0.95)
+                    arrow.arrowHead = CGPoint(x: 0.95, y: 0.05)
+                    arrow.controlPoint1 = CGPoint(x: 0.8, y: 0.8)
+                    arrowHeadX = .right
+                    arrowHeadY = .top
+                    constraints.append(NSLayoutConstraint(item: label,   attribute: .right,  relatedBy: .equal,
+                                                          toItem: arrow, attribute: .left,   multiplier: 1, constant: target.leftTextMargin))
+                    constraints.append(NSLayoutConstraint(item: label,   attribute: .top,    relatedBy: .equal,
+                                                          toItem: arrow, attribute: .bottom, multiplier: 1, constant: target.topTextMargin))
+                    
+                case .bottomRight:
+                    arrow.arrowTail = CGPoint(x: 0.95, y: 0.95)
+                    arrow.arrowHead = CGPoint(x: 0.05, y: 0.05)
+                    arrow.controlPoint1 = CGPoint(x: 0.2, y: 0.8)
+                    arrowHeadX = .left
+                    arrowHeadY = .top
+                    constraints.append(NSLayoutConstraint(item: label,   attribute: .left,   relatedBy: .equal,
+                                                          toItem: arrow, attribute: .right,  multiplier: 1, constant: target.leftTextMargin))
+                    constraints.append(NSLayoutConstraint(item: label,   attribute: .top,    relatedBy: .equal,
+                                                          toItem: arrow, attribute: .bottom, multiplier: 1, constant: target.topTextMargin))
+                    
+                case .centre:
+                    assertionFailure("Centre possition isn't valid for the arrow start point")
+                    arrowHeadX = .notAnAttribute
+                    arrowHeadY = .notAnAttribute
+                }
+            } else {
+                arrowHeadX = .notAnAttribute
+                arrowHeadY = .notAnAttribute
+            }
+            
             switch target.position {
             case .top:
                 /* Illustration
                  H:[view]-[arrowView]-[label]
                  V:[view]-topMargin-[arrowView]-bottomTextMargin-[label] */
-                arrow = AFCurvedArrowView()
-                arrow!.arrowTail = CGPoint(x: 0.5, y: 0.05)
-                arrow!.arrowHead = CGPoint(x: 0.5, y: 0.95)
-                arrow!.controlPoint1 = CGPoint(x: 0.8, y: 0.4)
-                arrow!.controlPoint2 = CGPoint(x: 0.2, y: 0.6)
-                constraints.append(NSLayoutConstraint(item: arrow!,   attribute: .centerX, relatedBy: .equal,
-                                                      toItem: view,   attribute: .centerX, multiplier: 1, constant: 0))
-                constraints.append(NSLayoutConstraint(item: arrow!,   attribute: .bottom,  relatedBy: .equal,
-                                                      toItem: view,   attribute: .top,     multiplier: 1, constant: target.topMargin))
-                constraints.append(NSLayoutConstraint(item: label,    attribute: .centerX, relatedBy: .equal,
-                                                      toItem: arrow!, attribute: .centerX, multiplier: 1, constant: 0))
-                constraints.append(NSLayoutConstraint(item: label,    attribute: .bottom,  relatedBy: .equal,
-                                                      toItem: arrow!, attribute: .top,     multiplier: 1, constant: target.bottomTextMargin))
+                constraints.append(NSLayoutConstraint(item: arrow!, attribute: arrowHeadX, relatedBy: .equal,
+                                                      toItem: view, attribute: .centerX,   multiplier: 1, constant: target.leftMargin - target.rightMargin))
+                constraints.append(NSLayoutConstraint(item: arrow!, attribute: arrowHeadY, relatedBy: .equal,
+                                                      toItem: view, attribute: .top,       multiplier: 1, constant: target.topMargin))
                 
             case .bottom:
                 /* Illustration
                  H:[view]-[arrowView]-[label]
                  V:[view]-bottomMargin-[arrowView]-topTextMargin-[label] */
-                arrow = AFCurvedArrowView()
-                arrow!.arrowTail = CGPoint(x: 0.5, y: 0.95)
-                arrow!.arrowHead = CGPoint(x: 0.5, y: 0.05)
-                arrow!.controlPoint1 = CGPoint(x: 0.2, y: 0.6)
-                arrow!.controlPoint2 = CGPoint(x: 0.8, y: 0.4)
-                constraints.append(NSLayoutConstraint(item: arrow!,   attribute: .centerX, relatedBy: .equal,
-                                                      toItem: view,   attribute: .centerX, multiplier: 1, constant: 0))
-                constraints.append(NSLayoutConstraint(item: arrow!,   attribute: .top,     relatedBy: .equal,
-                                                      toItem: view,   attribute: .bottom,  multiplier: 1, constant: target.bottomMargin))
-                constraints.append(NSLayoutConstraint(item: label,    attribute: .centerX, relatedBy: .equal,
-                                                      toItem: arrow!, attribute: .centerX, multiplier: 1, constant: 0))
-                constraints.append(NSLayoutConstraint(item: label,    attribute: .top,     relatedBy: .equal,
-                                                      toItem: arrow!, attribute: .bottom,  multiplier: 1, constant: target.topTextMargin))
+                constraints.append(NSLayoutConstraint(item: arrow!, attribute: arrowHeadX, relatedBy: .equal,
+                                                      toItem: view, attribute: .centerX,   multiplier: 1, constant: target.leftMargin - target.rightMargin))
+                constraints.append(NSLayoutConstraint(item: arrow!, attribute: arrowHeadY, relatedBy: .equal,
+                                                      toItem: view, attribute: .bottom,    multiplier: 1, constant: target.bottomMargin))
                 
             case .left:
                 /* Illustration
                  H:[label]-rightTextMargin-[arrowView]-leftMargin-[view]
                  V:[label]-[arrowView]-[view] */
-                arrow = AFCurvedArrowView()
-                arrow!.arrowTail = CGPoint(x: 0.05, y: 0.5)
-                arrow!.arrowHead = CGPoint(x: 0.95, y: 0.5)
-                arrow!.controlPoint1 = CGPoint(x: 0.5, y: 1.0)
-                constraints.append(NSLayoutConstraint(item: arrow!,   attribute: .centerY, relatedBy: .equal,
-                                                      toItem: view,   attribute: .centerY, multiplier: 1, constant: 0))
-                constraints.append(NSLayoutConstraint(item: arrow!,   attribute: .right,   relatedBy: .equal,
-                                                      toItem: view,   attribute: .left,    multiplier: 1, constant: target.leftMargin))
-                constraints.append(NSLayoutConstraint(item: label,    attribute: .centerY, relatedBy: .equal,
-                                                      toItem: arrow!, attribute: .centerY, multiplier: 1, constant: 0))
-                constraints.append(NSLayoutConstraint(item: label,    attribute: .right,   relatedBy: .equal,
-                                                      toItem: arrow!, attribute: .left,    multiplier: 1, constant: target.rightTextMargin))
+                constraints.append(NSLayoutConstraint(item: arrow!, attribute: arrowHeadX, relatedBy: .equal,
+                                                      toItem: view, attribute: .left,      multiplier: 1, constant: target.leftMargin))
+                constraints.append(NSLayoutConstraint(item: arrow!, attribute: arrowHeadY, relatedBy: .equal,
+                                                      toItem: view, attribute: .centerY,   multiplier: 1, constant: target.topMargin - target.bottomMargin))
                 
             case .right:
                 /* Illustration
                  H:[view]-rightMargin-[arrowView]-leftTextMargin-[label]
                  V:[view]-[arrowView]-[label] */
-                arrow = AFCurvedArrowView()
-                arrow!.arrowTail = CGPoint(x: 0.95, y: 0.5)
-                arrow!.arrowHead = CGPoint(x: 0.05, y: 0.5)
-                arrow!.controlPoint1 = CGPoint(x: 0.5, y: 0.0)
-                constraints.append(NSLayoutConstraint(item: arrow!,   attribute: .centerY, relatedBy: .equal,
-                                                      toItem: view,   attribute: .centerY, multiplier: 1, constant: 0))
-                constraints.append(NSLayoutConstraint(item: arrow!,   attribute: .left,    relatedBy: .equal,
-                                                      toItem: view,   attribute: .right,   multiplier: 1, constant: target.rightMargin))
-                constraints.append(NSLayoutConstraint(item: label,    attribute: .centerY, relatedBy: .equal,
-                                                      toItem: arrow!, attribute: .centerY, multiplier: 1, constant: 0))
-                constraints.append(NSLayoutConstraint(item: label,    attribute: .left,    relatedBy: .equal,
-                                                      toItem: arrow!, attribute: .right,   multiplier: 1, constant: target.leftTextMargin))
+                constraints.append(NSLayoutConstraint(item: arrow!, attribute: arrowHeadX, relatedBy: .equal,
+                                                      toItem: view, attribute: .right,     multiplier: 1, constant: target.rightMargin))
+                constraints.append(NSLayoutConstraint(item: arrow!, attribute: arrowHeadY, relatedBy: .equal,
+                                                      toItem: view, attribute: .centerY,   multiplier: 1, constant: target.topMargin - target.bottomMargin))
                 
             case .topLeft:
                 /* Illustration
                  H:[label]-rightTextMargin-[arrowView]-leftMargin-[view]
                  V:[view]-topMargin-[arrowView]-bottomTextMargin-[label] */
-                arrow = AFCurvedArrowView()
-                arrow!.arrowTail = CGPoint(x: 0.05, y: 0.05)
-                arrow!.arrowHead = CGPoint(x: 0.95, y: 0.95)
-                arrow!.controlPoint1 = CGPoint(x: 0.8, y: 0.2)
-                constraints.append(NSLayoutConstraint(item: arrow!,   attribute: .bottom, relatedBy: .equal,
-                                                      toItem: view,   attribute: .top,    multiplier: 1, constant: target.topMargin))
-                constraints.append(NSLayoutConstraint(item: arrow!,   attribute: .right,  relatedBy: .equal,
-                                                      toItem: view,   attribute: .left,   multiplier: 1, constant: target.leftMargin))
-                constraints.append(NSLayoutConstraint(item: label,    attribute: .bottom, relatedBy: .equal,
-                                                      toItem: arrow!, attribute: .top,    multiplier: 1, constant: target.bottomTextMargin))
-                constraints.append(NSLayoutConstraint(item: label,    attribute: .right,  relatedBy: .equal,
-                                                      toItem: arrow,  attribute: .left,   multiplier: 1, constant: target.rightTextMargin))
+                constraints.append(NSLayoutConstraint(item: arrow!, attribute: arrowHeadX, relatedBy: .equal,
+                                                      toItem: view, attribute: .left,      multiplier: 1, constant: target.leftMargin))
+                constraints.append(NSLayoutConstraint(item: arrow!, attribute: arrowHeadY, relatedBy: .equal,
+                                                      toItem: view, attribute: .top,       multiplier: 1, constant: target.topMargin))
                 
             case .topRight:
                 /* Illustration
                  H:[view]-rightMargin-[arrowView]-leftTextMargin-[label]
                  V:[view]-topMargin-[arrowView]-bottomTextMargin-[label] */
-                arrow = AFCurvedArrowView()
-                arrow!.arrowTail = CGPoint(x: 0.95, y: 0.05)
-                arrow!.arrowHead = CGPoint(x: 0.05, y: 0.95)
-                arrow!.controlPoint1 = CGPoint(x: 0.2, y: 0.2)
-                constraints.append(NSLayoutConstraint(item: arrow!,   attribute: .bottom, relatedBy: .equal,
-                                                      toItem: view,   attribute: .top,    multiplier: 1, constant: target.topMargin))
-                constraints.append(NSLayoutConstraint(item: arrow!,   attribute: .left,   relatedBy: .equal,
-                                                      toItem: view,   attribute: .right,  multiplier: 1, constant: target.rightMargin))
-                constraints.append(NSLayoutConstraint(item: label,    attribute: .bottom, relatedBy: .equal,
-                                                      toItem: arrow!, attribute: .top,    multiplier: 1, constant: target.bottomTextMargin))
-                constraints.append(NSLayoutConstraint(item: label,    attribute: .left,   relatedBy: .equal,
-                                                      toItem: arrow!, attribute: .right,  multiplier: 1, constant: target.leftTextMargin))
+                constraints.append(NSLayoutConstraint(item: arrow!, attribute: arrowHeadX, relatedBy: .equal,
+                                                      toItem: view, attribute: .right,     multiplier: 1, constant: target.rightMargin))
+                constraints.append(NSLayoutConstraint(item: arrow!, attribute: arrowHeadY, relatedBy: .equal,
+                                                      toItem: view, attribute: .top,       multiplier: 1, constant: target.topMargin))
                 
             case .bottomLeft:
                 /* Illustration
                  H:[label]-rightTextMargin-[arrowView]-leftMargin-[view]
                  V:[view]-bottomMargin-[arrowView]-topTextMargin-[label] */
-                arrow = AFCurvedArrowView()
-                arrow!.arrowTail = CGPoint(x: 0.05, y: 0.95)
-                arrow!.arrowHead = CGPoint(x: 0.95, y: 0.05)
-                arrow!.controlPoint1 = CGPoint(x: 0.8, y: 0.8)
-                constraints.append(NSLayoutConstraint(item: arrow!,   attribute: .top,    relatedBy: .equal,
-                                                      toItem: view,   attribute: .bottom, multiplier: 1, constant: target.bottomMargin))
-                constraints.append(NSLayoutConstraint(item: arrow!,   attribute: .right,  relatedBy: .equal,
-                                                      toItem: view,   attribute: .left,   multiplier: 1, constant: target.leftMargin))
-                constraints.append(NSLayoutConstraint(item: label,    attribute: .top,    relatedBy: .equal,
-                                                      toItem: arrow!, attribute: .bottom, multiplier: 1, constant: target.topTextMargin))
-                constraints.append(NSLayoutConstraint(item: label,    attribute: .right,  relatedBy: .equal,
-                                                      toItem: arrow!, attribute: .left,   multiplier: 1, constant: target.leftTextMargin))
+                constraints.append(NSLayoutConstraint(item: arrow!, attribute: arrowHeadX, relatedBy: .equal,
+                                                      toItem: view, attribute: .left,      multiplier: 1, constant: target.leftMargin))
+                constraints.append(NSLayoutConstraint(item: arrow!, attribute: arrowHeadY, relatedBy: .equal,
+                                                      toItem: view, attribute: .bottom,    multiplier: 1, constant: target.bottomMargin))
                 
             case .bottomRight:
                 /* Illustration
                  H:[view]-rightMargin-[arrowView]-leftTextMargin-[label]
                  V:[view]-bottomMargin-[arrowView]-topTextMargin-[label] */
-                arrow = AFCurvedArrowView()
-                arrow!.arrowTail = CGPoint(x: 0.95, y: 0.95)
-                arrow!.arrowHead = CGPoint(x: 0.05, y: 0.05)
-                arrow!.controlPoint1 = CGPoint(x: 0.2, y: 0.8)
-                constraints.append(NSLayoutConstraint(item: arrow!,   attribute: .top,    relatedBy: .equal,
-                                                      toItem: view,   attribute: .bottom, multiplier: 1, constant: target.bottomMargin))
-                constraints.append(NSLayoutConstraint(item: arrow!,   attribute: .left,   relatedBy: .equal,
-                                                      toItem: view,   attribute: .right,  multiplier: 1, constant: target.rightMargin))
-                constraints.append(NSLayoutConstraint(item: label,    attribute: .top,    relatedBy: .equal,
-                                                      toItem: arrow!, attribute: .bottom, multiplier: 1, constant: target.topTextMargin))
-                constraints.append(NSLayoutConstraint(item: label,    attribute: .left,   relatedBy: .equal,
-                                                      toItem: arrow!, attribute: .right,  multiplier: 1, constant: target.leftTextMargin))
+                constraints.append(NSLayoutConstraint(item: arrow!, attribute: arrowHeadX, relatedBy: .equal,
+                                                      toItem: view, attribute: .right,     multiplier: 1, constant: target.rightMargin))
+                constraints.append(NSLayoutConstraint(item: arrow!, attribute: arrowHeadY, relatedBy: .equal,
+                                                      toItem: view, attribute: .bottom,    multiplier: 1, constant: target.bottomMargin))
                 
             case .centre:
                 constraints.append(NSLayoutConstraint(item: label,    attribute: .centerX, relatedBy: .equal,
@@ -253,6 +292,7 @@ open class TutorialManager: NSObject {
                 constraints.append(NSLayoutConstraint(item: label,    attribute: .centerY, relatedBy: .equal,
                                                       toItem: view,   attribute: .centerY, multiplier: 1, constant: target.topTextMargin - target.bottomTextMargin))
             }
+            
             
             // Setup the label attributes
             label.numberOfLines = 0
