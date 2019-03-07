@@ -15,11 +15,13 @@ open class TutorialManager: NSObject {
     fileprivate weak var parent:              UIView!               // The window/view represents which contains all the targets
     private     weak var mask:                HoledView?
     private          var fadeInDelay:         TimeInterval?
+    private          var tutorialComplete:    (() -> Void)?
     private          var removableConstraints = [NSLayoutConstraint]()
     
-    public init(parent: UIView, fadeInDelay: TimeInterval? = nil) {
-        self.fadeInDelay = fadeInDelay
-        self.parent      = parent
+    public init(parent: UIView, fadeInDelay: TimeInterval? = nil, tutorialComplete: (() -> Void)? = nil) {
+        self.fadeInDelay      = fadeInDelay
+        self.parent           = parent
+        self.tutorialComplete = tutorialComplete
         super.init()
     }
     
@@ -42,6 +44,7 @@ open class TutorialManager: NSObject {
      */
     open func fireTargets() {
         guard parent != nil else {
+            tutorialComplete?()
             return
         }
         
@@ -50,6 +53,8 @@ open class TutorialManager: NSObject {
                 closure()
             }
             showTarget(currentTarget)
+        } else {
+            tutorialComplete?()
         }
     }
     
@@ -369,6 +374,7 @@ open class TutorialManager: NSObject {
         }
         if targets.isEmpty {
             removeMask()
+            fireTargets()
         }
     }
 }

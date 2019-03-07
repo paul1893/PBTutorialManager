@@ -105,7 +105,9 @@ class TestViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         // So the tutorial appears above the toolbars the parent must be the window
-        tutorialManager = TutorialManager(parent: view.window!, fadeInDelay: 0.25)
+        tutorialManager = TutorialManager(parent: view.window!, fadeInDelay: 0.25) {
+            self.title = "Done"
+        }
         
         var targets = [TutorialTarget]()
         let possitions: [TutorialTarget.TargetPosition] = [.left,    .top,      .right,       .bottom,
