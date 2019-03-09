@@ -307,6 +307,10 @@ open class TutorialManager: NSObject {
             label.textAlignment = target.textAlignement
             label.lineBreakMode = .byWordWrapping
             label.translatesAutoresizingMaskIntoConstraints = false
+            // Weaken the width compression resistance so it is below the priority of the
+            // possitioning constraints of UIButtonBarItem's. Otherwise the tutorial labels can
+            // cause the items to move.
+            label.setContentCompressionResistancePriority(UILayoutPriority(rawValue: 500), for: .horizontal)
             // Add a max width constraint to the label. We leave the height unconstrained so it can
             // expand to fit the text as required
             constraints.append(NSLayoutConstraint(item: label, attribute: .width,          relatedBy:  .lessThanOrEqual,
