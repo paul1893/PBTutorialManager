@@ -11,12 +11,12 @@ import AFCurvedArrowView
 
 
 open class TutorialManager: NSObject {
-    fileprivate      var targets:             [TutorialTarget] = [] // The targets to work with
-    fileprivate weak var parent:              UIView!               // The window/view represents which contains all the targets
-    private     weak var mask:                HoledView?
-    private          var fadeInDelay:         TimeInterval?
-    private          var tutorialComplete:    (() -> Void)?
-    private          var removableConstraints = [NSLayoutConstraint]()
+    private      var targets:             [TutorialTarget] = [] // The targets to work with
+    private weak var parent:              UIView!               // The window/view represents which contains all the targets
+    private weak var mask:                HoledView?
+    private      var fadeInDelay:         TimeInterval?
+    private      var tutorialComplete:    (() -> Void)?
+    private      var removableConstraints = [NSLayoutConstraint]()
     
     public init(parent: UIView, fadeInDelay: TimeInterval? = nil, tutorialComplete: (() -> Void)? = nil) {
         self.fadeInDelay      = fadeInDelay
@@ -37,6 +37,19 @@ open class TutorialManager: NSObject {
     
     open func addTargets(_ targets: [TutorialTarget]) {
         self.targets.append(contentsOf: targets)
+    }
+    
+    open func cancelTutorial() {
+        removeUiItems()
+        targets.removeAll()
+        tutorialComplete?()
+    }
+    
+    private func removeUiItems() {
+        mask?.removeFromSuperview()
+        mask = nil
+        parent.removeConstraints(self.removableConstraints)
+        removableConstraints.removeAll()
     }
     
     /**
@@ -365,19 +378,13 @@ open class TutorialManager: NSObject {
      When a target's view is touched
      */
     private func tapped() {
-        let removeMask = {
-            self.mask?.removeFromSuperview()
-            self.mask = nil
-            self.parent.removeConstraints(self.removableConstraints)
-            self.removableConstraints.removeAll()
-        }
         if let target = targets.first, target.isTappable || target.breakPoint {
-            removeMask()
+            removeUiItems()
             targets.removeFirst()
             fireTargets()
         }
         if targets.isEmpty {
-            removeMask()
+            removeUiItems()
             fireTargets()
         }
     }
