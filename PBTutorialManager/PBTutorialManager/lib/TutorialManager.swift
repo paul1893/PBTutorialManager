@@ -62,9 +62,7 @@ open class TutorialManager: NSObject {
         }
         
         if let currentTarget = targets.first {
-            if let closure  = currentTarget.closure {
-                closure()
-            }
+            currentTarget.onShow?()
             showTarget(currentTarget)
         } else {
             tutorialComplete?()

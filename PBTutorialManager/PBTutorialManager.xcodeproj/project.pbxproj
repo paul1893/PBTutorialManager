@@ -167,7 +167,7 @@
 				TargetAttributes = {
 					DA7646BC1D2C4E3900CC1515 = {
 						CreatedOnToolsVersion = 7.3.1;
-						DevelopmentTeam = TB7D8MNLYX;
+						DevelopmentTeam = VYP94SZ3GY;
 						LastSwiftMigration = 0810;
 					};
 				};
@@ -391,7 +391,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				DEVELOPMENT_TEAM = TB7D8MNLYX;
+				DEVELOPMENT_TEAM = VYP94SZ3GY;
 				INFOPLIST_FILE = PBTutorialManager/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.theFrenchTouch.PBTutorialManager;
@@ -409,7 +409,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				DEVELOPMENT_TEAM = TB7D8MNLYX;
+				DEVELOPMENT_TEAM = VYP94SZ3GY;
 				INFOPLIST_FILE = PBTutorialManager/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.theFrenchTouch.PBTutorialManager;

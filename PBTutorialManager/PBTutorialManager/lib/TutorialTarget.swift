@@ -37,7 +37,7 @@ open class TutorialTarget: NSObject {
     open var font:UIFont = UIFont.systemFont(ofSize: 18.0) /* The font of the target */
     open var duration:TimeInterval? /* time duration before to show the next target */
     open var isTappable:Bool = false /* if isTappable is true you can tap to dismiss the target */
-    open var closure:(() -> Void)? /* A closure executed after the target has been shown */
+    open var onShow:(() -> Void)? /* A closure executed when the target is shown */
     open var persistant:Bool = true /* if persistant the target stay on screen when the next one show up, you can add multiple target one after one */
     open var breakPoint = false /* breakpoint is a target which attempt a user click to continue */
     
@@ -75,7 +75,7 @@ open class TutorialTarget: NSObject {
         font               = copyFrom.font
         duration           = copyFrom.duration
         isTappable         = copyFrom.isTappable
-        closure            = copyFrom.closure
+        onShow             = copyFrom.onShow
         persistant         = copyFrom.persistant
         breakPoint         = copyFrom.breakPoint
         topMargin          = copyFrom.topMargin
@@ -118,8 +118,8 @@ open class TutorialTarget: NSObject {
         self.isTappable = isTappable
         return self
     }
-    open func onCompletion(onCompletion: @escaping (() -> Void)) -> TutorialTarget {
-        self.closure = onCompletion
+    open func onShow(_ onShow: @escaping (() -> Void)) -> TutorialTarget {
+        self.onShow = onShow
         return self
     }
     open func persistant(_ persistant:Bool) -> TutorialTarget {
