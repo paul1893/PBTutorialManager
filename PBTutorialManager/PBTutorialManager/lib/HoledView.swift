@@ -71,10 +71,14 @@ class HoledView: UIView {
     private func getAbsRect(hole: Hole) -> CGRect? {
         var curView = hole.view
         var rect    = curView?.frame
-        while let superView = curView?.superview {
-            let origin = superView.frame.origin
+        while let curSuperView = curView?.superview, curSuperView != superview {
+            let origin = curSuperView.frame.origin
             rect       = rect?.offsetBy(dx: origin.x, dy: origin.y)
-            curView    = superView
+            if let scrollView = curSuperView as? UIScrollView {
+                let offset = scrollView.contentOffset
+                rect       = rect?.offsetBy(dx: -offset.x, dy: -offset.y)
+            }
+            curView = curSuperView
         }
         return rect?.intersection(frame)
     }
