@@ -1,6 +1,6 @@
 PODS:
   - AFCurvedArrowView (1.0.1)
-  - PBTutorialManager (1.0.4):
+  - PBTutorialManager (1.1.0):
     - AFCurvedArrowView
 
 DEPENDENCIES:
@@ -16,7 +16,7 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   AFCurvedArrowView: 5fa8fcc1f77f5428ab34d7a1c6696b88c3c20f40
-  PBTutorialManager: d16c30d148843274312a2786650d7fc92ae6660a
+  PBTutorialManager: e57bf4c35dc2c0a7c88300089e3dc4943b77651c
 
 PODFILE CHECKSUM: b235a85772d77a3c045880d91c397fee20f438a7
 

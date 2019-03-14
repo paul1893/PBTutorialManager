@@ -6,7 +6,7 @@ PBTutorialManager enables you to easily create an in-app tutorial for your app.
 <img src="Screenshots/demo.png" width="275" />  
 
 ### Version
-1.0.4  
+1.1.0  
 ### Installation
 #####  CocoaPods
  Simply add to your podfile

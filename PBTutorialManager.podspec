@@ -2,7 +2,7 @@ Pod::Spec.new do |s|
 
   s.platform = :ios
   s.name         = "PBTutorialManager"
-  s.version      = "1.0.4"
+  s.version      = "1.1.0"
   s.summary      = "An easy way to manipulate view targets to create tutorial in your app."
   s.description  = <<-DESC
   This library has been created to create a tutorial in-app for your app. It uses targets view and you can play with these.
