@@ -64,7 +64,7 @@ Target has other properties you can play with
 textAlignement 	/* The text alignement */
 labelWidth      /* The width of the label */
 position 		/* The position of your text around the highlight view */
-arrowStartPosition /* Controlls what possition the orrow starts from, set to nill to match position behaviour */
+arrowStartPosition /* Controlls what position the arrow starts from, set to nil to match position behaviour */
 shape 		/* The shape of the mask to highlight the view */
 duration 		/* time duration before to show the next target */
 font              /* A font that you can modify */

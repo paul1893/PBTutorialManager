@@ -110,10 +110,10 @@ class TestViewController: UIViewController {
         }
         
         var targets = [TutorialTarget]()
-        let possitions: [TutorialTarget.TargetPosition] = [.left,    .top,      .right,       .bottom,
-                                                           .topLeft, .topRight, .bottomRight, .bottomLeft]
+        let positions: [TutorialTarget.TargetPosition] = [.left,    .top,      .right,       .bottom,
+                                                          .topLeft, .topRight, .bottomRight, .bottomLeft]
         var breakpoint = false
-        possitions.forEach() {
+        positions.forEach() {
             // Start to create your targets
             let target = TutorialTarget(view: testView)
                 .withArrow(true)
@@ -138,9 +138,9 @@ class TestViewController: UIViewController {
         clonedTargets.last?.breakPoint = true
         targets.append(contentsOf: clonedTargets)
        
-        // Finally add a series of targets that test the different arrow start possitions while
+        // Finally add a series of targets that test the different arrow start positions while
         // keeping the end position fixed
-        possitions.forEach() {
+        positions.forEach() {
             // Start to create your targets
             let target = TutorialTarget(view: testView)
                 .withArrow(true)

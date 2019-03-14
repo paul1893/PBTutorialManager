@@ -32,7 +32,7 @@ open class TutorialTarget: NSObject {
     open var textAlignement:NSTextAlignment = NSTextAlignment.center /* The text alignement */
     open var labelWidth:CGFloat = 75
     open var position:TargetPosition /* The position of your text around the highlight view */
-    open var arrowStartPosition:TargetPosition? /* The possition of the start of the arrow */
+    open var arrowStartPosition:TargetPosition? /* The position of the start of the arrow */
     open var shape:HoleShape? /* The shape of the mask to highlight the view */
     open var font:UIFont = UIFont.systemFont(ofSize: 18.0) /* The font of the target */
     open var duration:TimeInterval? /* time duration before to show the next target */
