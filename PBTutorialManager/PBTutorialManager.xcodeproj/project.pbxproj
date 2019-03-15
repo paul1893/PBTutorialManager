@@ -7,15 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		41D4E93347212F9F42620F1F /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5444C431B302F1D881A53A4 /* Pods.framework */; };
-		589E600D2BF013FAAB82CDBD /* Pods_PBTutorialManager.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B3B7E1C0510061757FABB4F0 /* Pods_PBTutorialManager.framework */; };
+		BBB70A0A1698259C7881C685 /* Pods_PBTutorialManager.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B3B7E1C0510061757FABB4F0 /* Pods_PBTutorialManager.framework */; };
 		BC6284E21FDB0F6500B4A768 /* PBTutorialManager.podspec in Resources */ = {isa = PBXBuildFile; fileRef = BC6284E11FDB0F6500B4A768 /* PBTutorialManager.podspec */; };
+		C4297898222B173F001E3872 /* HoledView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4297897222B173F001E3872 /* HoledView.swift */; };
 		DA7646C11D2C4E3900CC1515 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA7646C01D2C4E3900CC1515 /* AppDelegate.swift */; };
 		DA7646C31D2C4E3900CC1515 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA7646C21D2C4E3900CC1515 /* ViewController.swift */; };
 		DA7646C61D2C4E3900CC1515 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA7646C41D2C4E3900CC1515 /* Main.storyboard */; };
 		DA7646C81D2C4E3900CC1515 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DA7646C71D2C4E3900CC1515 /* Assets.xcassets */; };
 		DA7646CB1D2C4E3900CC1515 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA7646C91D2C4E3900CC1515 /* LaunchScreen.storyboard */; };
-		DA7646D61D2C4EED00CC1515 /* Target.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA7646D41D2C4EED00CC1515 /* Target.swift */; };
+		DA7646D61D2C4EED00CC1515 /* TutorialTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA7646D41D2C4EED00CC1515 /* TutorialTarget.swift */; };
 		DA7646D71D2C4EED00CC1515 /* TutorialManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA7646D51D2C4EED00CC1515 /* TutorialManager.swift */; };
 		DAF16FDE1D2CD46D00E87FB0 /* REIS-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = DAF16FDD1D2CD44600E87FB0 /* REIS-Regular.otf */; };
 /* End PBXBuildFile section */
@@ -26,7 +26,8 @@
 		A341CAE35155EF2006E0E654 /* Pods-PBTutorialManager.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PBTutorialManager.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PBTutorialManager/Pods-PBTutorialManager.debug.xcconfig"; sourceTree = "<group>"; };
 		A90077886A8702269DD8F408 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		B3B7E1C0510061757FABB4F0 /* Pods_PBTutorialManager.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PBTutorialManager.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		BC6284E11FDB0F6500B4A768 /* PBTutorialManager.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = PBTutorialManager.podspec; path = ../../PBTutorialManager.podspec; sourceTree = "<group>"; };
+		BC6284E11FDB0F6500B4A768 /* PBTutorialManager.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = PBTutorialManager.podspec; path = ../../PBTutorialManager.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		C4297897222B173F001E3872 /* HoledView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HoledView.swift; path = lib/HoledView.swift; sourceTree = "<group>"; };
 		DA7646BD1D2C4E3900CC1515 /* PBTutorialManager.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PBTutorialManager.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA7646C01D2C4E3900CC1515 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DA7646C21D2C4E3900CC1515 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ViewController.swift; path = Example/ViewController.swift; sourceTree = "<group>"; };
@@ -34,7 +35,7 @@
 		DA7646C71D2C4E3900CC1515 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DA7646CA1D2C4E3900CC1515 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DA7646CC1D2C4E3900CC1515 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		DA7646D41D2C4EED00CC1515 /* Target.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Target.swift; path = lib/Target.swift; sourceTree = "<group>"; };
+		DA7646D41D2C4EED00CC1515 /* TutorialTarget.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TutorialTarget.swift; path = lib/TutorialTarget.swift; sourceTree = "<group>"; };
 		DA7646D51D2C4EED00CC1515 /* TutorialManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TutorialManager.swift; path = lib/TutorialManager.swift; sourceTree = "<group>"; };
 		DAF16FDD1D2CD44600E87FB0 /* REIS-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "REIS-Regular.otf"; path = "Ressources/REIS-Regular.otf"; sourceTree = "<group>"; };
 		F5444C431B302F1D881A53A4 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -45,8 +46,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				41D4E93347212F9F42620F1F /* Pods.framework in Frameworks */,
-				589E600D2BF013FAAB82CDBD /* Pods_PBTutorialManager.framework in Frameworks */,
+				BBB70A0A1698259C7881C685 /* Pods_PBTutorialManager.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -118,7 +118,8 @@
 		DA7646D21D2C4E4E00CC1515 /* PBTutorialManager */ = {
 			isa = PBXGroup;
 			children = (
-				DA7646D41D2C4EED00CC1515 /* Target.swift */,
+				C4297897222B173F001E3872 /* HoledView.swift */,
+				DA7646D41D2C4EED00CC1515 /* TutorialTarget.swift */,
 				DA7646D51D2C4EED00CC1515 /* TutorialManager.swift */,
 			);
 			name = PBTutorialManager;
@@ -144,7 +145,6 @@
 				DA7646BA1D2C4E3900CC1515 /* Frameworks */,
 				DA7646BB1D2C4E3900CC1515 /* Resources */,
 				7F98B139F0495A9671F3C901 /* [CP] Embed Pods Frameworks */,
-				68C5EE5554224F2CCC4828CF /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -162,12 +162,12 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0730;
-				LastUpgradeCheck = 0730;
+				LastUpgradeCheck = 1010;
 				ORGANIZATIONNAME = TheFrenchTouchDeveloper;
 				TargetAttributes = {
 					DA7646BC1D2C4E3900CC1515 = {
 						CreatedOnToolsVersion = 7.3.1;
-						DevelopmentTeam = TB7D8MNLYX;
+						DevelopmentTeam = VYP94SZ3GY;
 						LastSwiftMigration = 0810;
 					};
 				};
@@ -224,24 +224,6 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		68C5EE5554224F2CCC4828CF /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-PBTutorialManager/Pods-PBTutorialManager-resources.sh",
-				$PODS_CONFIGURATION_BUILD_DIR/PBTutorialManager/PBTutorialManager.bundle,
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PBTutorialManager/Pods-PBTutorialManager-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		7F98B139F0495A9671F3C901 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -249,12 +231,12 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-PBTutorialManager/Pods-PBTutorialManager-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/JMHoledView/JMHoledView.framework",
+				"${BUILT_PRODUCTS_DIR}/AFCurvedArrowView/AFCurvedArrowView.framework",
 				"${BUILT_PRODUCTS_DIR}/PBTutorialManager/PBTutorialManager.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JMHoledView.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AFCurvedArrowView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PBTutorialManager.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -269,7 +251,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DA7646D61D2C4EED00CC1515 /* Target.swift in Sources */,
+				C4297898222B173F001E3872 /* HoledView.swift in Sources */,
+				DA7646D61D2C4EED00CC1515 /* TutorialTarget.swift in Sources */,
 				DA7646C31D2C4E3900CC1515 /* ViewController.swift in Sources */,
 				DA7646C11D2C4E3900CC1515 /* AppDelegate.swift in Sources */,
 				DA7646D71D2C4EED00CC1515 /* TutorialManager.swift in Sources */,
@@ -307,13 +290,23 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -352,13 +345,23 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -377,6 +380,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -387,14 +391,15 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				DEVELOPMENT_TEAM = TB7D8MNLYX;
+				DEVELOPMENT_TEAM = VYP94SZ3GY;
 				INFOPLIST_FILE = PBTutorialManager/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.theFrenchTouch.PBTutorialManager;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -404,13 +409,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				DEVELOPMENT_TEAM = TB7D8MNLYX;
+				DEVELOPMENT_TEAM = VYP94SZ3GY;
 				INFOPLIST_FILE = PBTutorialManager/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.theFrenchTouch.PBTutorialManager;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "";
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};

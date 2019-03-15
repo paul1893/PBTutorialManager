@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import JMHoledView
+
 
 class ViewController: UIViewController {
     
@@ -31,48 +31,51 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setup() // Some config to have a roundProfilePicture
+    }
         
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
         // Start to create your targets
-        let targetProfilePicture = Target(view: profilePicture)
+        let targetProfilePicture = TutorialTarget(view: profilePicture)
             .withArrow(true)
             .heightArrow(50)
             .widthArrow(25)
             .position(.bottom)
-            .shape(JMHoleType.cirle)
+            .shape(.elipse)
             .duration(1.0)
             .message("This is a profile picture")
         
-        let targetMainImage = Target(view: mainImage)
+        let targetMainImage = TutorialTarget(view: mainImage)
             .withArrow(true)
             .heightArrow(50)
             .widthArrow(25)
             .position(.bottom)
-            .shape(JMHoleType.rect)
+            .shape(.rect)
             .duration(1.0)
             .message("This is the main image")
         
-        let targetNameLabel = Target(view: nameLabel)
+        let targetNameLabel = TutorialTarget(view: nameLabel)
             .withArrow(true)
             .widthArrow(75)
             .heightArrow(30)
             .position(.right)
-            .shape(JMHoleType.rect)
+            .shape(.rect)
             .duration(1.0)
             .message("This is a label")
             .textAlignement(.left)
             .breakPoint(true)
         
-        let targetButton = Target(view:button)
+        let targetButton = TutorialTarget(view:button)
             .withArrow(true)
             .heightArrow(50)
             .widthArrow(25)
             .position(.top)
-            .shape(.cirle)
+            .shape(.elipse)
             .message("This is a button")
             .breakPoint(true)
         
         // Then create a tutorialManager
-        let tutorialManager = TutorialManager(parentView: self.view)
+        let tutorialManager = TutorialManager(parent: view)
         // ... and feed him with your targets
         tutorialManager.addTarget(targetProfilePicture)
         tutorialManager.addTarget(targetMainImage)
@@ -81,11 +84,76 @@ class ViewController: UIViewController {
         
         // Do not forget to fire the targets ;)
         tutorialManager.fireTargets()
-        
     }
     
-    fileprivate func setup(){
+    fileprivate func setup() {
         profilePicture.layer.cornerRadius = profilePicture.frame.width/2
         profilePicture.clipsToBounds = true
+    }
+}
+
+
+class TestViewController: UIViewController {
+    private        var tutorialManager: TutorialManager!
+    @IBOutlet weak var testView:        UIView!
+    @IBOutlet weak var centreTestView:  UIView!
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        // So the tutorial appears above the toolbars the parent must be the window
+        tutorialManager = TutorialManager(parent: view.window!, fadeInDelay: 0.25) {
+            self.title = "Done"
+        }
+        
+        var targets = [TutorialTarget]()
+        let positions: [TutorialTarget.TargetPosition] = [.left,    .top,      .right,       .bottom,
+                                                          .topLeft, .topRight, .bottomRight, .bottomLeft]
+        var breakpoint = false
+        positions.forEach() {
+            // Start to create your targets
+            let target = TutorialTarget(view: testView)
+                .withArrow(true)
+                .position($0)
+                .shape(.rect)
+                .breakPoint(breakpoint)
+                .message("Test")
+            breakpoint = !breakpoint
+            targets.append(target)
+        }
+        
+        // Setup a centered message
+        let target = TutorialTarget(view: centreTestView)
+            .position(.centre)
+            .breakPoint(true)
+            .message("Centered message")
+        targets.append(target)
+        
+        // Clone the targets but this time remove the breakpoints so we can see them all together
+        let clonedTargets = targets.map({TutorialTarget(copyFrom: $0)})
+        clonedTargets.forEach({$0.breakPoint = false})
+        clonedTargets.last?.breakPoint = true
+        targets.append(contentsOf: clonedTargets)
+       
+        // Finally add a series of targets that test the different arrow start positions while
+        // keeping the end position fixed
+        positions.forEach() {
+            // Start to create your targets
+            let target = TutorialTarget(view: testView)
+                .withArrow(true)
+                .position(.top)
+                .arrowStartPosition($0)
+                .shape(.rect)
+                .breakPoint(false)
+                .message("Test")
+            targets.append(target)
+        }
+        targets.last?.breakPoint = true
+        
+        tutorialManager.addTargets(targets)
+        tutorialManager.fireTargets()
     }
 }

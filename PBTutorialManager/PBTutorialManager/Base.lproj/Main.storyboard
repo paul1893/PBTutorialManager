@@ -1,15 +1,18 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
-        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="PBTutorialManager" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="demoViewController" id="BYZ-38-t0r" customClass="ViewController" customModule="PBTutorialManager" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -19,7 +22,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="wallpaper" translatesAutoresizingMaskIntoConstraints="NO" id="eHR-aH-yXJ">
-                                <rect key="frame" x="0.0" y="108" width="375" height="211"/>
+                                <rect key="frame" x="0.0" y="108" width="375" height="211.5"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="375" id="Ct3-g7-u20"/>
                                     <constraint firstAttribute="width" secondItem="eHR-aH-yXJ" secondAttribute="height" multiplier="383:216" id="TeA-Uz-TqL"/>
@@ -35,14 +38,14 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="John Appleseed" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Grd-Vm-3cM">
                                 <rect key="frame" x="100" y="79" width="124" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nC9-0y-jDn">
-                                <rect key="frame" x="16" y="327" width="343" height="332"/>
+                                <rect key="frame" x="16" y="327.5" width="343" height="331.5"/>
                                 <string key="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque iaculis augue hendrerit purus ornare pellentesque. Morbi porttitor nisl non libero convallis, et tincidunt sem consequat. Vivamus tempus lectus ac mi condimentum, a feugiat nibh pulvinar. In suscipit odio eget dignissim sodales. Phasellus turpis nibh, tempor eget mauris et, molestie gravida dui. Sed non eleifend felis. Pellentesque pellentesque ac risus vitae tristique. Nullam blandit lobortis massa, in fermentum neque ultrices sit amet. Vivamus rhoncus augue quis est sollicitudin facilisis. Vestibulum et enim dignissim, facilisis sem non, convallis eros. Etiam nec sem a augue malesuada ultrices. Fusce eu elit consequat, commodo quam ut, scelerisque nisl. Vivamus aliquam sed libero ut bibendum.</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QrB-O0-2Re">
@@ -52,10 +55,14 @@
                                     <constraint firstAttribute="width" constant="60" id="WYI-Ou-ZNw"/>
                                 </constraints>
                                 <state key="normal" backgroundImage="add_button"/>
+                                <connections>
+                                    <segue destination="vdT-dy-qGt" kind="show" id="GQf-M9-j6f"/>
+                                </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Grd-Vm-3cM" secondAttribute="trailing" constant="20" symbolic="YES" id="2Es-3B-SFs"/>
                             <constraint firstItem="Grd-Vm-3cM" firstAttribute="leading" secondItem="N0e-cU-btA" secondAttribute="trailing" constant="8" id="6T9-tB-L6N"/>
                             <constraint firstItem="eHR-aH-yXJ" firstAttribute="top" secondItem="N0e-cU-btA" secondAttribute="bottom" constant="-22" id="9Af-AF-cpu"/>
                             <constraint firstItem="nC9-0y-jDn" firstAttribute="top" secondItem="eHR-aH-yXJ" secondAttribute="bottom" constant="8" id="Em2-SR-U43"/>
@@ -76,7 +83,6 @@
                             </mask>
                         </variation>
                     </view>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
                         <outlet property="button" destination="QrB-O0-2Re" id="IGl-zB-hlE"/>
                         <outlet property="descriptionLabel" destination="nC9-0y-jDn" id="E07-U2-klb"/>
@@ -89,10 +95,88 @@
             </objects>
             <point key="canvasLocation" x="249.5" y="428.5"/>
         </scene>
+        <!--Test View Controller-->
+        <scene sceneID="rxX-zc-ZTK">
+            <objects>
+                <viewController storyboardIdentifier="testViewController" id="WGB-jf-v8h" customClass="TestViewController" customModule="PBTutorialManager" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="dAf-0p-bNM"/>
+                        <viewControllerLayoutGuide type="bottom" id="P1h-o8-taz"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="GSc-Le-uKv">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="K46-d3-nSB">
+                                <rect key="frame" x="162.5" y="308.5" width="50" height="50"/>
+                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" priority="50" constant="50" id="DUl-co-RpT"/>
+                                    <constraint firstAttribute="height" constant="50" id="Nnz-52-DTQ"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZiX-KU-dbb">
+                                <rect key="frame" x="67.5" y="438" width="240" height="84"/>
+                                <color key="backgroundColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="240" id="0HY-iM-QX6"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="K46-d3-nSB" firstAttribute="centerX" secondItem="GSc-Le-uKv" secondAttribute="centerX" id="JbS-Q6-O14"/>
+                            <constraint firstItem="P1h-o8-taz" firstAttribute="top" secondItem="ZiX-KU-dbb" secondAttribute="bottom" constant="101" id="OVn-BF-IkN"/>
+                            <constraint firstItem="K46-d3-nSB" firstAttribute="centerY" secondItem="GSc-Le-uKv" secondAttribute="centerY" id="Ofq-Gu-RWi"/>
+                            <constraint firstItem="ZiX-KU-dbb" firstAttribute="top" secondItem="K46-d3-nSB" secondAttribute="bottom" constant="79.5" id="XG6-1l-ZkH"/>
+                            <constraint firstItem="ZiX-KU-dbb" firstAttribute="centerX" secondItem="GSc-Le-uKv" secondAttribute="centerX" id="jr1-7J-G2F"/>
+                        </constraints>
+                    </view>
+                    <toolbarItems>
+                        <barButtonItem title="Test" id="mbT-Bg-hXA">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </barButtonItem>
+                    </toolbarItems>
+                    <navigationItem key="navigationItem" id="AuG-Lj-2Nh">
+                        <barButtonItem key="rightBarButtonItem" title="Test" id="U4f-pL-o4S">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="centreTestView" destination="ZiX-KU-dbb" id="tuI-sa-TSC"/>
+                        <outlet property="testView" destination="K46-d3-nSB" id="D9k-Qn-PIc"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="MkG-L4-6cw" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1188" y="1164.4677661169417"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="kfD-W6-Y3i">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" toolbarHidden="NO" id="vdT-dy-qGt" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" barStyle="black" id="DfQ-ex-66m">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" barStyle="black" id="Ahl-IY-nSM">
+                        <rect key="frame" x="0.0" y="623" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </toolbar>
+                    <connections>
+                        <segue destination="WGB-jf-v8h" kind="relationship" relationship="rootViewController" id="WdX-Fk-yfC"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ipq-Dc-sL7" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="248.80000000000001" y="1164.4677661169417"/>
+        </scene>
     </scenes>
     <resources>
         <image name="add_button" width="44" height="45"/>
         <image name="profile" width="113" height="86"/>
-        <image name="wallpaper" width="854" height="534"/>
+        <image name="wallpaper" width="853" height="533"/>
     </resources>
 </document>

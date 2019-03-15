@@ -7,18 +7,22 @@
 //
 
 import Foundation
-import JMHoledView
+import AFCurvedArrowView
 
-open class TutorialManager:NSObject, JMHoledViewDelegate{
+
+open class TutorialManager: NSObject {
+    private      var targets:             [TutorialTarget] = [] // The targets to work with
+    private weak var parent:              UIView!               // The window/view represents which contains all the targets
+    private weak var mask:                HoledView?
+    private      var fadeInDelay:         TimeInterval?
+    private      var tutorialComplete:    (() -> Void)?
+    private      var removableConstraints = [NSLayoutConstraint]()
     
-    fileprivate var targets:[Target]? = []          // The targets to work with
-    fileprivate weak var parentView:UIView!              // The parentView represents the view wich contains all the targets
-    fileprivate weak var delegate:JMHoledViewDelegate?   // A delegate for the callbacks during the tutorial
-    
-    public init(parentView:UIView) {
+    public init(parent: UIView, fadeInDelay: TimeInterval? = nil, tutorialComplete: (() -> Void)? = nil) {
+        self.fadeInDelay      = fadeInDelay
+        self.parent           = parent
+        self.tutorialComplete = tutorialComplete
         super.init()
-        self.parentView = parentView
-        self.delegate = self
     }
     
     /**
@@ -27,31 +31,41 @@ open class TutorialManager:NSObject, JMHoledViewDelegate{
      - Parameters:
      - target: The target to add
      */
-    open func addTarget(_ target:Target){
-        targets?.append(target)
+    open func addTarget(_ target: TutorialTarget) {
+        targets.append(target)
+    }
+    
+    open func addTargets(_ targets: [TutorialTarget]) {
+        self.targets.append(contentsOf: targets)
+    }
+    
+    open func cancelTutorial() {
+        removeUiItems()
+        targets.removeAll()
+        tutorialComplete?()
+    }
+    
+    private func removeUiItems() {
+        mask?.removeFromSuperview()
+        mask = nil
+        parent.removeConstraints(self.removableConstraints)
+        removableConstraints.removeAll()
     }
     
     /**
      Fire the targets, when you have finished to set-up and add all your targets
      */
-    open func fireTargets(){
-        fireTargets(nil)
-    }
-    
-    /**
-     Private version of fireTargets to handle overlay of targets
-     
-     - Parameters:
-     - onView
-     */
-    fileprivate func fireTargets(_ onView:UIView?){
-        assert(parentView != nil, "TutorialManager: You must init TutorialManager with a parent view")
+    open func fireTargets() {
+        guard parent != nil else {
+            tutorialComplete?()
+            return
+        }
         
-        if let currentTarget = targets?.first {
-            if let closure  = currentTarget.closure{
-                closure()
-            }
-            showTarget(currentTarget, onView:onView)
+        if let currentTarget = targets.first {
+            currentTarget.onShow?()
+            showTarget(currentTarget)
+        } else {
+            tutorialComplete?()
         }
     }
     
@@ -62,185 +76,298 @@ open class TutorialManager:NSObject, JMHoledViewDelegate{
      - target: The target to show
      - onView: viewToDrawIn
      */
-    fileprivate func showTarget(_ target:Target, onView:UIView?){
-        let mask:JMHoledView
+    fileprivate func showTarget(_ target: TutorialTarget) {
+        let mask: HoledView
         
         /* Should we create a new mask or not */
-        if onView == nil{
-            // New mask
-            mask = JMHoledView(frame: self.parentView.frame)
-            mask.dimingColor = UIColor.black.withAlphaComponent(0.7)
-            mask.holeViewDelegate = delegate
-            // Add the mask to the parentView
-            parentView.addSubview(mask)
+        if let classMask = self.mask {
+            // Reuse mask
+            mask = classMask
+        } else {
+            // New mask and add it to the parentView
+            mask             = HoledView(frame: parent.frame)
+            self.mask        = mask
+            mask.tapListener = tapped
+            parent.addSubview(mask)
+            
+            // Fade in the holed view. Only fade in on the first display
+            if let delay = fadeInDelay {
+                fadeInDelay = nil
+                mask.alpha  = 0
+                UIView.animate(withDuration: delay) {
+                    mask.alpha = 1
+                }
+            }
             
             // Fit the size of the mask to the size of the screen
             mask.translatesAutoresizingMaskIntoConstraints = false
-            parentView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|[mask]|", options: [NSLayoutFormatOptions.alignAllCenterX, NSLayoutFormatOptions.alignAllCenterY], metrics: nil, views: ["mask":mask])) //Equal Width
-            parentView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|[mask]|", options: [NSLayoutFormatOptions.alignAllCenterX, NSLayoutFormatOptions.alignAllCenterY], metrics: nil, views: ["mask":mask])) //Equal Height
-            
-        }else{
-            // Reuse mask
-            mask = onView as! JMHoledView
+            parent.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|[mask]|", options: [.alignAllCenterX, .alignAllCenterY], metrics: nil, views: ["mask":mask])) //Equal Width
+            parent.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|[mask]|", options: [.alignAllCenterX, .alignAllCenterY], metrics: nil, views: ["mask":mask])) //Equal Height
         }
         
         /* Position the target on the view */
-        if let view = target.view{
-            let holeWidth = view.frame.size.width       // With of the target
-            let holeHeight = view.frame.size.height     // Height of the target
-            let holeOriginX = view.frame.origin.x       // X origin of the target
-            let holeOriginY = view.frame.origin.y       // Y origin of the target
-            let viewCenter:CGPoint = CGPoint(x: view.frame.origin.x + parentView.frame.origin.x ,y: view.frame.origin.y + parentView.frame.origin.y)
-            //let viewCenter:CGPoint = CGPointMake(view.frame.origin.x + parentView.frame.origin.x ,view.frame.origin.y + parentView.frame.origin.y + 64) /* +64 the navbar */
-            let viewSize:CGSize = view.frame.size
-            
+        if let view = target.view {
             // Check the type of the target
-            switch (target.shape.hashValue){
-                case JMHoleType.cirle.hashValue:
-                    mask.addHoleCircleCentered(onPosition: CGPoint(x: viewCenter.x+(viewSize.width/2), y: viewCenter.y+(viewSize.height/2)), diameter: holeWidth)
-                    break
-                case JMHoleType.rect.hashValue:
-                    mask.addHoleRect(on: CGRect(x: viewCenter.x, y: viewCenter.y, width: viewSize.width, height: viewSize.height))
-                    break
-                case JMHoleType.roundedRect.hashValue:
-                    mask.addHoleRoundedRect(on: CGRect(x: viewCenter.x, y: viewCenter.y, width: viewSize.width, height: viewSize.height), cornerRadius: 10.0)
-                    break
-                default:
-                    break
+            switch target.shape {
+            case .elipse?:
+                mask.addElipse(view: view)
+            case .rect?:
+                mask.addRectHole(view: view)
+            case .roundedRect?:
+                mask.addRectHole(view: view, cornerRadius: 10)
+            default:
+                ()
             }
             
             // Get the properties of the target
-            var label:UILabel
-            let labelWidth:CGFloat = 75
-            let labelHeight:CGFloat = target.message.heightWithConstrainedWidth(labelWidth, font: target.font) /* iOS 7*/
-            
-            var imageView:UIImageView! = UIImageView()
-            
-            switch (target.position.hashValue){
-                case Target.TargetPosition.top.hashValue:
-                    /* Illustration
-                     H:[view]-[imageView]-[label]
-                     V:[view]-topMargin-[imageView]-bottomTextMargin-[label] */
-                    imageView = UIImageView(frame: CGRect(x: holeOriginX+(holeWidth/2)-(target.widthArrow/2), y: holeOriginY - target.heightArrow - target.topMargin, width: target.widthArrow, height: target.heightArrow))
-                    imageView.image = (target.withArrow) ? loadImageFromPBTutorialBundle(name: "arrow_vertical_up"):UIImage()
-                    imageView.contentMode = .scaleAspectFit
+            let label = UILabel()
+            let arrow = target.position != .centre ? AFCurvedArrowView() : nil
+            let arrowHeadX: NSLayoutConstraint.Attribute
+            let arrowHeadY: NSLayoutConstraint.Attribute
+            var constraints = [NSLayoutConstraint]()
+        
+            // Now setup the arrow direction
+            if let arrow = arrow {
+                switch target.arrowStartPosition ?? target.position {
+                case .top:
+                    arrow.arrowTail = CGPoint(x: 0.5, y: 0.05)
+                    arrow.arrowHead = CGPoint(x: 0.5, y: 0.95)
+                    arrow.controlPoint1 = CGPoint(x: 0.8, y: 0.4)
+                    arrow.controlPoint2 = CGPoint(x: 0.2, y: 0.6)
+                    arrowHeadX = .centerX
+                    arrowHeadY = .bottom
+                    constraints.append(NSLayoutConstraint(item: label,   attribute: .centerX, relatedBy: .equal,
+                                                          toItem: arrow, attribute: .centerX, multiplier: 1, constant: target.leftTextMargin - target.rightTextMargin))
+                    constraints.append(NSLayoutConstraint(item: label,   attribute: .bottom,  relatedBy: .equal,
+                                                          toItem: arrow, attribute: .top,     multiplier: 1, constant: target.bottomTextMargin))
                     
-                    label = UILabel(frame: CGRect(x: imageView.center.x - (labelWidth/2), y: imageView.frame.origin.y-target.bottomTextMargin-labelHeight, width: labelWidth, height: labelHeight))
-                    label.textAlignment = target.textAlignement
-                    break
+                case .bottom:
+                    arrow.arrowTail = CGPoint(x: 0.5, y: 0.95)
+                    arrow.arrowHead = CGPoint(x: 0.5, y: 0.05)
+                    arrow.controlPoint1 = CGPoint(x: 0.2, y: 0.6)
+                    arrow.controlPoint2 = CGPoint(x: 0.8, y: 0.4)
+                    arrowHeadX = .centerX
+                    arrowHeadY = .top
+                    constraints.append(NSLayoutConstraint(item: label,   attribute: .centerX, relatedBy: .equal,
+                                                          toItem: arrow, attribute: .centerX, multiplier: 1, constant: target.leftTextMargin - target.rightTextMargin))
+                    constraints.append(NSLayoutConstraint(item: label,   attribute: .top,     relatedBy: .equal,
+                                                          toItem: arrow, attribute: .bottom,  multiplier: 1, constant: target.topTextMargin))
                     
-                case Target.TargetPosition.bottom.hashValue:
-                    /* Illustration
-                     H:[view]-[imageView]-[label]
-                     V:[view]-bottomMargin-[imageView]-topTextMargin-[label] */
-                    imageView = UIImageView(frame: CGRect(x: holeOriginX+(holeWidth/2)-(target.widthArrow/2), y: holeOriginY+holeHeight+target.bottomMargin, width: target.widthArrow, height: target.heightArrow))
-                    imageView.image = (target.withArrow) ? loadImageFromPBTutorialBundle( name: "arrow_vertical_down"):UIImage()
-                    imageView!.contentMode = .scaleAspectFit
+                case .left:
+                    arrow.arrowTail = CGPoint(x: 0.05, y: 0.5)
+                    arrow.arrowHead = CGPoint(x: 0.95, y: 0.5)
+                    arrow.controlPoint1 = CGPoint(x: 0.5, y: 1.0)
+                    arrowHeadX = .right
+                    arrowHeadY = .centerY
+                    constraints.append(NSLayoutConstraint(item: label,   attribute: .right,   relatedBy: .equal,
+                                                          toItem: arrow, attribute: .left,    multiplier: 1, constant: target.rightTextMargin))
+                    constraints.append(NSLayoutConstraint(item: label,   attribute: .centerY, relatedBy: .equal,
+                                                          toItem: arrow, attribute: .centerY, multiplier: 1, constant: target.topTextMargin - target.bottomTextMargin))
                     
-                    label = UILabel(frame: CGRect(x: imageView.center.x - (labelWidth/2), y: imageView.frame.origin.y + target.heightArrow + target.topTextMargin,width: labelWidth, height: labelHeight))
-                    label.textAlignment = target.textAlignement
-                    break
+                case .right:
+                    arrow.arrowTail = CGPoint(x: 0.95, y: 0.5)
+                    arrow.arrowHead = CGPoint(x: 0.05, y: 0.5)
+                    arrow.controlPoint1 = CGPoint(x: 0.5, y: 0.0)
+                    arrowHeadX = .left
+                    arrowHeadY = .centerY
+                    constraints.append(NSLayoutConstraint(item: label,   attribute: .left,    relatedBy: .equal,
+                                                          toItem: arrow, attribute: .right,   multiplier: 1, constant: target.leftTextMargin))
+                    constraints.append(NSLayoutConstraint(item: label,   attribute: .centerY, relatedBy: .equal,
+                                                          toItem: arrow, attribute: .centerY, multiplier: 1, constant: target.topTextMargin - target.bottomTextMargin))
                     
-                case Target.TargetPosition.left.hashValue:
-                    /* Illustration
-                     H:[label]-rightTextMargin-[imageView]-leftMargin-[view]
-                     V:[label]-[imageView]-[view] */
-                    imageView = UIImageView(frame: CGRect(x: holeOriginX-target.leftMargin-target.widthArrow, y: holeOriginY+(holeHeight/2)-(target.heightArrow/2),width: target.widthArrow, height: target.heightArrow))
-                    imageView.image = (target.withArrow) ? loadImageFromPBTutorialBundle(name: "arrow_horizontal_left"):UIImage()
-                    imageView.contentMode = .scaleAspectFit
+                case .topLeft:
+                    arrow.arrowTail = CGPoint(x: 0.05, y: 0.05)
+                    arrow.arrowHead = CGPoint(x: 0.95, y: 0.95)
+                    arrow.controlPoint1 = CGPoint(x: 0.8, y: 0.2)
+                    arrowHeadX = .right
+                    arrowHeadY = .bottom
+                    constraints.append(NSLayoutConstraint(item: label,   attribute: .right,  relatedBy: .equal,
+                                                          toItem: arrow, attribute: .left,   multiplier: 1, constant: target.rightTextMargin))
+                    constraints.append(NSLayoutConstraint(item: label,   attribute: .bottom, relatedBy: .equal,
+                                                          toItem: arrow, attribute: .top,    multiplier: 1, constant: target.bottomTextMargin))
                     
-                    label = UILabel(frame: CGRect(x: imageView.frame.origin.x - target.rightTextMargin-labelWidth, y: imageView.center.y - (labelHeight/2),width: labelWidth, height: labelHeight))
-                    label.textAlignment = target.textAlignement
-                    break
+                case .topRight:
+                    arrow.arrowTail = CGPoint(x: 0.95, y: 0.05)
+                    arrow.arrowHead = CGPoint(x: 0.05, y: 0.95)
+                    arrow.controlPoint1 = CGPoint(x: 0.2, y: 0.2)
+                    arrowHeadX = .left
+                    arrowHeadY = .bottom
+                    constraints.append(NSLayoutConstraint(item: label,   attribute: .left,   relatedBy: .equal,
+                                                          toItem: arrow, attribute: .right,  multiplier: 1, constant: target.leftTextMargin))
+                    constraints.append(NSLayoutConstraint(item: label,   attribute: .bottom, relatedBy: .equal,
+                                                          toItem: arrow, attribute: .top,    multiplier: 1, constant: target.bottomTextMargin))
                     
-                case Target.TargetPosition.right.hashValue:
-                    /* Illustration
-                     H:[view]-rightMargin-[imageView]-leftTextMargin-[label]
-                     V:[view]-[imageView]-[label] */
-                    imageView = UIImageView(frame: CGRect(x: holeOriginX+holeWidth+target.rightMargin, y: holeOriginY+(holeHeight/2)-(target.heightArrow/2), width: target.widthArrow, height: target.heightArrow))
-                    imageView.image = (target.withArrow) ? loadImageFromPBTutorialBundle(name: "arrow_horizontal_right") : UIImage()
-                    imageView.contentMode = .scaleAspectFit
+                case .bottomLeft:
+                    arrow.arrowTail = CGPoint(x: 0.05, y: 0.95)
+                    arrow.arrowHead = CGPoint(x: 0.95, y: 0.05)
+                    arrow.controlPoint1 = CGPoint(x: 0.8, y: 0.8)
+                    arrowHeadX = .right
+                    arrowHeadY = .top
+                    constraints.append(NSLayoutConstraint(item: label,   attribute: .right,  relatedBy: .equal,
+                                                          toItem: arrow, attribute: .left,   multiplier: 1, constant: target.leftTextMargin))
+                    constraints.append(NSLayoutConstraint(item: label,   attribute: .top,    relatedBy: .equal,
+                                                          toItem: arrow, attribute: .bottom, multiplier: 1, constant: target.topTextMargin))
                     
-                    label = UILabel(frame: CGRect(x: imageView.frame.origin.x+target.widthArrow + target.leftTextMargin, y: imageView.center.y - (labelHeight/2),width: labelWidth, height: labelHeight))
-                    label.textAlignment = target.textAlignement
-                    break
+                case .bottomRight:
+                    arrow.arrowTail = CGPoint(x: 0.95, y: 0.95)
+                    arrow.arrowHead = CGPoint(x: 0.05, y: 0.05)
+                    arrow.controlPoint1 = CGPoint(x: 0.2, y: 0.8)
+                    arrowHeadX = .left
+                    arrowHeadY = .top
+                    constraints.append(NSLayoutConstraint(item: label,   attribute: .left,   relatedBy: .equal,
+                                                          toItem: arrow, attribute: .right,  multiplier: 1, constant: target.leftTextMargin))
+                    constraints.append(NSLayoutConstraint(item: label,   attribute: .top,    relatedBy: .equal,
+                                                          toItem: arrow, attribute: .bottom, multiplier: 1, constant: target.topTextMargin))
                     
-                case Target.TargetPosition.topLeft.hashValue:
-                    /* Illustration
-                     H:[label]-rightTextMargin-[imageView]-leftMargin-[view]
-                     V:[view]-topMargin-[imageView]-bottomTextMargin-[label] */
-                    imageView = UIImageView(frame: CGRect(x: holeOriginX-target.leftMargin-target.widthArrow, y: holeOriginY-target.topMargin-target.heightArrow, width: target.widthArrow, height: target.heightArrow))
-                    imageView.image = (target.withArrow) ? loadImageFromPBTutorialBundle(name: "arrow_top_left"):UIImage()
-                    imageView.contentMode = .scaleAspectFit
-                    
-                    label = UILabel(frame: CGRect(x: imageView.frame.origin.x-target.rightTextMargin-labelWidth, y: imageView.frame.origin.y-target.bottomTextMargin-(labelHeight/2),width: labelWidth, height: labelHeight))
-                    label.textAlignment = target.textAlignement
-                    break
-                    
-                case Target.TargetPosition.topRight.hashValue:
-                    /* Illustration
-                     H:[view]-rightMargin-[imageView]-leftTextMargin-[label]
-                     V:[view]-topMargin-[imageView]-bottomTextMargin-[label] */
-                    imageView = UIImageView(frame: CGRect(x: holeOriginX+holeWidth+target.rightMargin, y: holeOriginY-target.topMargin-target.heightArrow, width: target.widthArrow, height: target.heightArrow))
-                    imageView.image = (target.withArrow) ? loadImageFromPBTutorialBundle(name: "arrow_top_right"):UIImage()
-                    imageView.contentMode = .scaleAspectFit
-                    
-                    label = UILabel(frame: CGRect(x: imageView.frame.origin.x+target.widthArrow + target.leftTextMargin, y: imageView.frame.origin.y-target.bottomTextMargin - (labelHeight/2),width: labelWidth, height: labelHeight))
-                    label.textAlignment = target.textAlignement
-                    break
-                    
-                case Target.TargetPosition.bottomLeft.hashValue:
-                    /* Illustration
-                     H:[label]-rightTextMargin-[imageView]-leftMargin-[view]
-                     V:[view]-bottomMargin-[imageView]-topTextMargin-[label] */
-                    imageView = UIImageView(frame: CGRect(x: holeOriginX-target.leftMargin-target.widthArrow, y: holeOriginY+holeHeight+target.bottomMargin, width: target.widthArrow, height: target.heightArrow))
-                    imageView.image = (target.withArrow) ? loadImageFromPBTutorialBundle(name: "arrow_bottom_left"):UIImage()
-                    imageView.contentMode = .scaleAspectFit
-                    
-                    label = UILabel(frame: CGRect(x: imageView.frame.origin.x-target.rightTextMargin-labelWidth, y: imageView.frame.origin.y+target.heightArrow+target.topTextMargin-(labelHeight/2),width: labelWidth, height: labelHeight))
-                    label.textAlignment = target.textAlignement
-                    break
-                    
-                case Target.TargetPosition.bottomRight.hashValue:
-                    /* Illustration
-                     H:[view]-rightMargin-[imageView]-leftTextMargin-[label]
-                     V:[view]-bottomMargin-[imageView]-topTextMargin-[label] */
-                    imageView = UIImageView(frame: CGRect(x: holeOriginX+holeWidth+target.rightMargin, y: holeOriginY+holeHeight+target.bottomMargin, width: target.widthArrow, height: target.heightArrow))
-                    imageView.image = (target.withArrow) ? loadImageFromPBTutorialBundle(name: "arrow_bottom_right"):UIImage()
-                    imageView.contentMode = .scaleAspectFit
-                    
-                    label = UILabel(frame: CGRect(x: imageView.frame.origin.x+target.widthArrow + target.leftTextMargin, y: imageView.frame.origin.y + target.heightArrow+target.topTextMargin, width: labelWidth, height: labelHeight))
-                    label.textAlignment = target.textAlignement
-                    break
-                    
-                default:
-                    label = UILabel(frame: CGRect(x: 0, y: 0,width: labelWidth, height: labelHeight))
-                    break
+                case .centre:
+                    assertionFailure("Centre possition isn't valid for the arrow start point")
+                    arrowHeadX = .notAnAttribute
+                    arrowHeadY = .notAnAttribute
+                }
+            } else {
+                arrowHeadX = .notAnAttribute
+                arrowHeadY = .notAnAttribute
             }
             
+            switch target.position {
+            case .top:
+                /* Illustration
+                 H:[view]-[arrowView]-[label]
+                 V:[view]-topMargin-[arrowView]-bottomTextMargin-[label] */
+                constraints.append(NSLayoutConstraint(item: arrow!, attribute: arrowHeadX, relatedBy: .equal,
+                                                      toItem: view, attribute: .centerX,   multiplier: 1, constant: target.leftMargin - target.rightMargin))
+                constraints.append(NSLayoutConstraint(item: arrow!, attribute: arrowHeadY, relatedBy: .equal,
+                                                      toItem: view, attribute: .top,       multiplier: 1, constant: target.topMargin))
+                
+            case .bottom:
+                /* Illustration
+                 H:[view]-[arrowView]-[label]
+                 V:[view]-bottomMargin-[arrowView]-topTextMargin-[label] */
+                constraints.append(NSLayoutConstraint(item: arrow!, attribute: arrowHeadX, relatedBy: .equal,
+                                                      toItem: view, attribute: .centerX,   multiplier: 1, constant: target.leftMargin - target.rightMargin))
+                constraints.append(NSLayoutConstraint(item: arrow!, attribute: arrowHeadY, relatedBy: .equal,
+                                                      toItem: view, attribute: .bottom,    multiplier: 1, constant: target.bottomMargin))
+                
+            case .left:
+                /* Illustration
+                 H:[label]-rightTextMargin-[arrowView]-leftMargin-[view]
+                 V:[label]-[arrowView]-[view] */
+                constraints.append(NSLayoutConstraint(item: arrow!, attribute: arrowHeadX, relatedBy: .equal,
+                                                      toItem: view, attribute: .left,      multiplier: 1, constant: target.leftMargin))
+                constraints.append(NSLayoutConstraint(item: arrow!, attribute: arrowHeadY, relatedBy: .equal,
+                                                      toItem: view, attribute: .centerY,   multiplier: 1, constant: target.topMargin - target.bottomMargin))
+                
+            case .right:
+                /* Illustration
+                 H:[view]-rightMargin-[arrowView]-leftTextMargin-[label]
+                 V:[view]-[arrowView]-[label] */
+                constraints.append(NSLayoutConstraint(item: arrow!, attribute: arrowHeadX, relatedBy: .equal,
+                                                      toItem: view, attribute: .right,     multiplier: 1, constant: target.rightMargin))
+                constraints.append(NSLayoutConstraint(item: arrow!, attribute: arrowHeadY, relatedBy: .equal,
+                                                      toItem: view, attribute: .centerY,   multiplier: 1, constant: target.topMargin - target.bottomMargin))
+                
+            case .topLeft:
+                /* Illustration
+                 H:[label]-rightTextMargin-[arrowView]-leftMargin-[view]
+                 V:[view]-topMargin-[arrowView]-bottomTextMargin-[label] */
+                constraints.append(NSLayoutConstraint(item: arrow!, attribute: arrowHeadX, relatedBy: .equal,
+                                                      toItem: view, attribute: .left,      multiplier: 1, constant: target.leftMargin))
+                constraints.append(NSLayoutConstraint(item: arrow!, attribute: arrowHeadY, relatedBy: .equal,
+                                                      toItem: view, attribute: .top,       multiplier: 1, constant: target.topMargin))
+                
+            case .topRight:
+                /* Illustration
+                 H:[view]-rightMargin-[arrowView]-leftTextMargin-[label]
+                 V:[view]-topMargin-[arrowView]-bottomTextMargin-[label] */
+                constraints.append(NSLayoutConstraint(item: arrow!, attribute: arrowHeadX, relatedBy: .equal,
+                                                      toItem: view, attribute: .right,     multiplier: 1, constant: target.rightMargin))
+                constraints.append(NSLayoutConstraint(item: arrow!, attribute: arrowHeadY, relatedBy: .equal,
+                                                      toItem: view, attribute: .top,       multiplier: 1, constant: target.topMargin))
+                
+            case .bottomLeft:
+                /* Illustration
+                 H:[label]-rightTextMargin-[arrowView]-leftMargin-[view]
+                 V:[view]-bottomMargin-[arrowView]-topTextMargin-[label] */
+                constraints.append(NSLayoutConstraint(item: arrow!, attribute: arrowHeadX, relatedBy: .equal,
+                                                      toItem: view, attribute: .left,      multiplier: 1, constant: target.leftMargin))
+                constraints.append(NSLayoutConstraint(item: arrow!, attribute: arrowHeadY, relatedBy: .equal,
+                                                      toItem: view, attribute: .bottom,    multiplier: 1, constant: target.bottomMargin))
+                
+            case .bottomRight:
+                /* Illustration
+                 H:[view]-rightMargin-[arrowView]-leftTextMargin-[label]
+                 V:[view]-bottomMargin-[arrowView]-topTextMargin-[label] */
+                constraints.append(NSLayoutConstraint(item: arrow!, attribute: arrowHeadX, relatedBy: .equal,
+                                                      toItem: view, attribute: .right,     multiplier: 1, constant: target.rightMargin))
+                constraints.append(NSLayoutConstraint(item: arrow!, attribute: arrowHeadY, relatedBy: .equal,
+                                                      toItem: view, attribute: .bottom,    multiplier: 1, constant: target.bottomMargin))
+                
+            case .centre:
+                constraints.append(NSLayoutConstraint(item: label,    attribute: .centerX, relatedBy: .equal,
+                                                      toItem: view,   attribute: .centerX, multiplier: 1, constant: target.leftTextMargin - target.rightTextMargin))
+                constraints.append(NSLayoutConstraint(item: label,    attribute: .centerY, relatedBy: .equal,
+                                                      toItem: view,   attribute: .centerY, multiplier: 1, constant: target.topTextMargin - target.bottomTextMargin))
+            }
+            
+            
+            // Setup the label attributes
             label.numberOfLines = 0
             label.textColor = UIColor.white
             label.font = target.font
             label.text = target.message
-            
+            label.textAlignment = target.textAlignement
+            label.lineBreakMode = .byWordWrapping
+            label.translatesAutoresizingMaskIntoConstraints = false
+            // Weaken the width compression resistance so it is below the priority of the
+            // possitioning constraints of UIButtonBarItem's. Otherwise the tutorial labels can
+            // cause the items to move.
+            label.setContentCompressionResistancePriority(UILayoutPriority(rawValue: 500), for: .horizontal)
+            // Add a max width constraint to the label. We leave the height unconstrained so it can
+            // expand to fit the text as required
+            constraints.append(NSLayoutConstraint(item: label, attribute: .width,          relatedBy:  .lessThanOrEqual,
+                                                  toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: target.labelWidth))
+            // Now make sure the label doesn't go outside the parent
+            constraints.append(NSLayoutConstraint(item: label,     attribute: .leading,  relatedBy:  .greaterThanOrEqual,
+                                                   toItem: parent, attribute: .leading,  multiplier: 1, constant: 0))
+            constraints.append(NSLayoutConstraint(item: parent,    attribute: .trailing, relatedBy:  .greaterThanOrEqual,
+                                                  toItem: label,   attribute: .trailing, multiplier: 1, constant: 0))
+
             // Add an arrow if the user as ask for one
-            if target.withArrow {mask.addSubview(imageView!)}
+            if target.withArrow, let arrowView = arrow {
+                arrowView.arrowHeadHeight = target.arrowHeadSize
+                arrowView.arrowHeadWidth = target.arrowHeadSize
+                arrowView.curveType = .quadratic
+                arrowView.translatesAutoresizingMaskIntoConstraints = false
+                constraints.append(NSLayoutConstraint(item: arrowView, attribute: .height,         relatedBy: .equal,
+                                                      toItem: nil,     attribute: .notAnAttribute, multiplier: 1, constant: target.heightArrow))
+                constraints.append(NSLayoutConstraint(item: arrowView, attribute: .width,          relatedBy: .equal,
+                                                      toItem: nil,     attribute: .notAnAttribute, multiplier: 1, constant: target.widthArrow))
+                mask.addSubview(arrowView)
+            }
             mask.addSubview(label)
+            removableConstraints.append(contentsOf: constraints)
+            parent.addConstraints(constraints)
             
-            if let duration = target.duration, !target.breakPoint{
-                
-                // Delay execution of my block for duration
-                DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + Double(Int64(duration * Float(NSEC_PER_SEC))) / Double(NSEC_PER_SEC), execute: {
-                    //If not persistent disappear before the next mask appear
-                    if target.persistant == false {
-                        mask.removeHoles()
-                        imageView?.isHidden = true
-                        label.isHidden = true
+            let handleNextTarget = {
+                //If not persistent disappear before the next mask appear
+                if target.persistant == false {
+                    mask.removeHoles()
+                    arrow?.isHidden = true
+                    label.isHidden = true
+                }
+                self.targets.removeFirst()
+                self.fireTargets()
+            }
+            
+            if !target.breakPoint {
+                if let duration = target.duration {
+                    // Delay execution of my block for duration
+                    DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + duration) {
+                        handleNextTarget()
                     }
-                    self.targets?.removeFirst()
-                    self.fireTargets(mask)
-                })
-        
+                } else {
+                    handleNextTarget()
+                }
             }
         }
     }
@@ -248,46 +375,16 @@ open class TutorialManager:NSObject, JMHoledViewDelegate{
     /**
      When a target's view is touched
      */
-    open func holedView(_ holedView:JMHoledView, didSelectHoleAt didSelectHoleAtIndex:UInt){
-        print("Callback holedView")
-        if let target = targets?.first, target.isTapable {
-            holedView.removeFromSuperview()
-            targets?.removeFirst()
+    private func tapped() {
+        if let target = targets.first, target.isTappable || target.breakPoint {
+            removeUiItems()
+            targets.removeFirst()
             fireTargets()
         }
-        if(targets!.count <= 0){
-            holedView.removeFromSuperview()
+        if targets.isEmpty {
+            removeUiItems()
+            fireTargets()
         }
     }
 }
 
-/**
- Acces the ressource of the pod bundle
- - Parameters:
- - name: The name of the ressource image
- 
- - Return:
- - image
- */
-fileprivate func loadImageFromPBTutorialBundle(name:String) -> UIImage?{
-    let podBundle = Bundle(for: TutorialManager.self)
-    
-    // 'PBTutorialManager' is the name specified for the pod bundle in the podspec
-    if let url = podBundle.url(forResource: "PBTutorialManager", withExtension: "bundle") {
-        let bundle = Bundle(url: url)
-        return UIImage(named: name, in: bundle, compatibleWith: nil)
-    }
-    
-    // If the user imported the library without cocoa pod, images directly in the assets
-    return UIImage(named: name)
-}
-
-extension String {
-    func heightWithConstrainedWidth(_ width: CGFloat, font: UIFont) -> CGFloat {
-        let constraintRect = CGSize(width: width, height: CGFloat.greatestFiniteMagnitude)
-        
-        let boundingBox = self.boundingRect(with: constraintRect, options: NSStringDrawingOptions.usesLineFragmentOrigin, attributes: [NSFontAttributeName: font], context: nil)
-        
-        return boundingBox.height
-    }
-}

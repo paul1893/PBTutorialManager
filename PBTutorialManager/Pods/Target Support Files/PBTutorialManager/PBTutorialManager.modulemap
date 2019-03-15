@@ -1,0 +1,6 @@
+framework module PBTutorialManager {
+  umbrella header "PBTutorialManager-umbrella.h"
+
+  export *
+  module * { export * }
+}
