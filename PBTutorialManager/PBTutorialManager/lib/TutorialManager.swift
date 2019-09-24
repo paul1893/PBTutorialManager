@@ -329,7 +329,7 @@ open class TutorialManager: NSObject {
             // Now make sure the label doesn't go outside the parent
             constraints.append(NSLayoutConstraint(item: label,     attribute: .leading,  relatedBy:  .greaterThanOrEqual,
                                                    toItem: parent, attribute: .leading,  multiplier: 1, constant: 0))
-            constraints.append(NSLayoutConstraint(item: parent,    attribute: .trailing, relatedBy:  .greaterThanOrEqual,
+            constraints.append(NSLayoutConstraint(item: parent!,   attribute: .trailing, relatedBy:  .greaterThanOrEqual,
                                                   toItem: label,   attribute: .trailing, multiplier: 1, constant: 0))
 
             // Add an arrow if the user as ask for one
