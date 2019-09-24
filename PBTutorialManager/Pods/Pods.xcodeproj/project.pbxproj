@@ -69,7 +69,7 @@
 		25B074901B7C7ED71C6365DBD481E101 /* AFCurvedArrowView.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = AFCurvedArrowView.modulemap; sourceTree = "<group>"; };
 		2AE9537359054933D9BE863C8D6E8290 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2F06F6CA4D9CB7149F7810990CB73729 /* ResourceBundle-PBTutorialManager-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "ResourceBundle-PBTutorialManager-Info.plist"; sourceTree = "<group>"; };
-		342CAA22ED68460CEA2F1217C643F4E5 /* PBTutorialManager.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = PBTutorialManager.bundle; path = "PBTutorialManager-PBTutorialManager.bundle"; sourceTree = BUILT_PRODUCTS_DIR; };
+		342CAA22ED68460CEA2F1217C643F4E5 /* PBTutorialManager.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PBTutorialManager.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
 		3EAA16AFA91BA717A339C65D8F0F3AE4 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
 		44A670CE6B89F10FDA12A193B4D49EC9 /* AFCurvedArrowView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AFCurvedArrowView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4DA9B661343F0EC9AC210C06E4B09176 /* Pods-PBTutorialManager-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-PBTutorialManager-acknowledgements.plist"; sourceTree = "<group>"; };
@@ -79,17 +79,17 @@
 		6B7AA5EDF0A2EB6618E2BE81F6D48210 /* Pods-PBTutorialManager.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-PBTutorialManager.debug.xcconfig"; sourceTree = "<group>"; };
 		77438A57D7A80A0EA647749A0551A186 /* Pods-PBTutorialManager-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-PBTutorialManager-umbrella.h"; sourceTree = "<group>"; };
 		808E23E1048BD7F96371D0979C68BCD5 /* AFCurvedArrowView-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "AFCurvedArrowView-prefix.pch"; sourceTree = "<group>"; };
-		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		9A043FDDDD55C174274502E624874D1F /* PBTutorialManager-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "PBTutorialManager-prefix.pch"; sourceTree = "<group>"; };
-		9AB7020B6B5298E2A67BE3AEC19A68DB /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; path = README.md; sourceTree = "<group>"; };
-		9B74316B12EB5C745C3E7BEB1AA19768 /* REIS-Regular.otf */ = {isa = PBXFileReference; includeInIndex = 1; name = "REIS-Regular.otf"; path = "PBTutorialManager/PBTutorialManager/Ressources/REIS-Regular.otf"; sourceTree = "<group>"; };
-		9D5DA6D0D48DADF521B82B0790422B6E /* PBTutorialManager.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = PBTutorialManager.framework; path = PBTutorialManager.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9AB7020B6B5298E2A67BE3AEC19A68DB /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		9B74316B12EB5C745C3E7BEB1AA19768 /* REIS-Regular.otf */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file; name = "REIS-Regular.otf"; path = "PBTutorialManager/PBTutorialManager/Ressources/REIS-Regular.otf"; sourceTree = "<group>"; };
+		9D5DA6D0D48DADF521B82B0790422B6E /* PBTutorialManager.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = PBTutorialManager.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A0436D17F15044AE6D1B649DD9809879 /* TutorialTarget.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TutorialTarget.swift; path = PBTutorialManager/PBTutorialManager/lib/TutorialTarget.swift; sourceTree = "<group>"; };
 		A5D01DF9DA5804A3243F78E0736D2BD1 /* AFCurvedArrowView.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = AFCurvedArrowView.xcconfig; sourceTree = "<group>"; };
 		A9D1F36E9CC5E1FB6C920458BB0144F3 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
-		ACA919F57A7114AFAB45635FF99F2D2A /* license */ = {isa = PBXFileReference; includeInIndex = 1; path = license; sourceTree = "<group>"; };
-		B8BE96CC912F96E831F57CF99CC1501B /* PBTutorialManager.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; path = PBTutorialManager.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		C5D41339CC2EF8835F0688271098FDB8 /* AFCurvedArrowView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = AFCurvedArrowView.framework; path = AFCurvedArrowView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		ACA919F57A7114AFAB45635FF99F2D2A /* license */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = license; sourceTree = "<group>"; };
+		B8BE96CC912F96E831F57CF99CC1501B /* PBTutorialManager.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; path = PBTutorialManager.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		C5D41339CC2EF8835F0688271098FDB8 /* AFCurvedArrowView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AFCurvedArrowView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CAD332ADDFE8F36051DE64FA6C615BE9 /* Pods-PBTutorialManager-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-PBTutorialManager-resources.sh"; sourceTree = "<group>"; };
 		D06C0E1B091929A85BBDE62CA993DF00 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D4958025516AF3D85C4DC0A8F0C33DF6 /* PBTutorialManager-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "PBTutorialManager-umbrella.h"; sourceTree = "<group>"; };
@@ -98,7 +98,7 @@
 		EB27C72FF38860946F5A6E67188196C8 /* Pods-PBTutorialManager-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-PBTutorialManager-acknowledgements.markdown"; sourceTree = "<group>"; };
 		EE9BAA10580C9C48D39755888F475344 /* AFCurvedArrowView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AFCurvedArrowView.h; path = AFCurvedArrowView/Classes/AFCurvedArrowView.h; sourceTree = "<group>"; };
 		F50830EAB007F982A2B7B67497641D31 /* AFCurvedArrowView-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "AFCurvedArrowView-umbrella.h"; sourceTree = "<group>"; };
-		F56B4D0EB575C9D352206079FDEF37F6 /* Pods_PBTutorialManager.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_PBTutorialManager.framework; path = "Pods-PBTutorialManager.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		F56B4D0EB575C9D352206079FDEF37F6 /* Pods_PBTutorialManager.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PBTutorialManager.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -163,7 +163,6 @@
 				0194B8C6691192E8828C949A5C06591E /* AFCurvedArrowView.m */,
 				3DACA0FC69BFE25A9FDDA311C4FC3C65 /* Support Files */,
 			);
-			name = AFCurvedArrowView;
 			path = AFCurvedArrowView;
 			sourceTree = "<group>";
 		};
@@ -404,14 +403,20 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0930;
-				LastUpgradeCheck = 0930;
+				LastUpgradeCheck = 1100;
+				TargetAttributes = {
+					F34805179779A0CBCBEEADDF4BA4BA5D = {
+						LastSwiftMigration = 1100;
+					};
+				};
 			};
 			buildConfigurationList = 2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */;
 			compatibilityVersion = "Xcode 3.2";
-			developmentRegion = English;
+			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				Base,
 			);
 			mainGroup = 7DB346D0F39D3F0E887471402A8071AB;
 			productRefGroup = 711C397363D04C53359A82D93ED8D769 /* Products */;
@@ -531,6 +536,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -646,7 +652,7 @@
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -765,7 +771,7 @@
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
@@ -808,6 +814,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -858,6 +865,7 @@
 				MTL_ENABLE_DEBUG_INFO = NO;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRIP_INSTALLED_PRODUCT = NO;
+				SWIFT_COMPILATION_MODE = wholemodule;
 				SYMROOT = "${SRCROOT}/../build";
 			};
 			name = Release;
