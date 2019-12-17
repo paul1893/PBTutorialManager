@@ -14,6 +14,7 @@ open class TutorialManager: NSObject {
     private      var targets:             [TutorialTarget] = [] // The targets to work with
     private weak var parent:              UIView!               // The window/view represents which contains all the targets
     private weak var mask:                HoledView?
+    private      var timeOutCount         = 0
     private      var fadeInDelay:         TimeInterval?
     private      var tutorialComplete:    (() -> Void)?
     private      var removableConstraints = [NSLayoutConstraint]()
@@ -61,9 +62,38 @@ open class TutorialManager: NSObject {
             return
         }
         
+        // Under some rare corner cases a the view target may not be visible when the tutorial is
+        // fired, even if the tutorial is started from viewDidAppear(). One case where this is known
+        // to happen is for buttons on a tool bar in the detail view of a splitViewController. For
+        // some strange reason these buttons visibly appear about 0.5 seconds after the rest of the
+        // view controller if the master view also has a tool bar.
         if let currentTarget = targets.first {
-            currentTarget.onShow?()
-            showTarget(currentTarget)
+            if currentTarget.view?.window != nil {
+                timeOutCount = 0
+                currentTarget.onShow?()
+                showTarget(currentTarget)
+            } else if timeOutCount < 20 {
+                // The items target view isn't visible yet so we can't show the tutorial for it, as
+                // this would create constraints to a view that isn't in the hierarchy and cause a
+                // crash. Instead a retry is scheduled for 100ms in the future. This delay is a
+                // compromise between keeping the UI responcive and not retrying to often and using
+                // lots of CPU time. The retry limit of 20 above produces an overall timeout of 2
+                // seconds. This is another compromise between being significantly larger than the
+                // usual delay we see in the view being added to the hierarchy (0.5 seconds), and
+                // being short enough that app won't have appeared to lockup. In theory the timeout
+                // will never actually be reached, but it's safer to have a fallback path just in
+                // case.
+                timeOutCount += 1
+                let deadline  = DispatchTime.now() + 0.1
+                DispatchQueue.main.asyncAfter(deadline: deadline, execute: fireTargets)
+            } else {
+                // Timeout for this target reached, so skip it and try and next. In theory this
+                // should never happen, but we need it a a fall back to prevent lockups if something
+                // strange happens.
+                timeOutCount = 0
+                targets.removeFirst()
+                fireTargets()
+            }
         } else {
             tutorialComplete?()
         }
